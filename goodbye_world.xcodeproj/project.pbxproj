@@ -11,6 +11,8 @@
 		82A1824328E329980056D0A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A1824228E329980056D0A2 /* ContentView.swift */; };
 		82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824428E3299B0056D0A2 /* Assets.xcassets */; };
 		82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */; };
+		EE98259228E338B800FB12B3 /* TelaInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259128E338B800FB12B3 /* TelaInicial.swift */; };
+		EE98259428E3406800FB12B3 /* MenuDeOpcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		82A1824228E329980056D0A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		82A1824428E3299B0056D0A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE98259128E338B800FB12B3 /* TelaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicial.swift; sourceTree = "<group>"; };
+		EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeOpcoes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				82A1824228E329980056D0A2 /* ContentView.swift */,
 				82A1824428E3299B0056D0A2 /* Assets.xcassets */,
 				82A1824628E3299B0056D0A2 /* Preview Content */,
+				EE98259128E338B800FB12B3 /* TelaInicial.swift */,
+				EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */,
 			);
 			path = goodbye_world;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE98259428E3406800FB12B3 /* MenuDeOpcoes.swift in Sources */,
+				EE98259228E338B800FB12B3 /* TelaInicial.swift in Sources */,
 				82A1824328E329980056D0A2 /* ContentView.swift in Sources */,
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,
 			);
