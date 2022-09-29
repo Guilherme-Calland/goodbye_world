@@ -14,6 +14,7 @@
 		EE98259228E338B800FB12B3 /* TelaInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259128E338B800FB12B3 /* TelaInicial.swift */; };
 		EE98259428E3406800FB12B3 /* MenuDeOpcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */; };
 		EE98259628E37C9A00FB12B3 /* TelaDeProgresso.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259528E37C9A00FB12B3 /* TelaDeProgresso.swift */; };
+		EE98259828E614C800FB12B3 /* TelaHistoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259728E614C800FB12B3 /* TelaHistoria.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		EE98259128E338B800FB12B3 /* TelaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicial.swift; sourceTree = "<group>"; };
 		EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeOpcoes.swift; sourceTree = "<group>"; };
 		EE98259528E37C9A00FB12B3 /* TelaDeProgresso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeProgresso.swift; sourceTree = "<group>"; };
+		EE98259728E614C800FB12B3 /* TelaHistoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaHistoria.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				EE98259128E338B800FB12B3 /* TelaInicial.swift */,
 				EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */,
 				EE98259528E37C9A00FB12B3 /* TelaDeProgresso.swift */,
+				EE98259728E614C800FB12B3 /* TelaHistoria.swift */,
 			);
 			path = goodbye_world;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				EE98259628E37C9A00FB12B3 /* TelaDeProgresso.swift in Sources */,
 				EE98259428E3406800FB12B3 /* MenuDeOpcoes.swift in Sources */,
+				EE98259828E614C800FB12B3 /* TelaHistoria.swift in Sources */,
 				EE98259228E338B800FB12B3 /* TelaInicial.swift in Sources */,
 				82A1824328E329980056D0A2 /* ContentView.swift in Sources */,
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,

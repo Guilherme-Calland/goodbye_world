@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuDeOpcoes: View {
     var body: some View {
         VStack(spacing:100) {
-            Text("Menu de Opções").font(.system(size: 50))
+            Text("Menu de Opções").font(.system(size: 60))
             HStack {
                 Image("Juquinha").padding()
                 

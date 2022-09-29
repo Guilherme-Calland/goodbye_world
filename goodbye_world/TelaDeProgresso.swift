@@ -10,39 +10,44 @@ import SwiftUI
 struct TelaDeProgresso: View {
     var body: some View {
         let rows = [
-            GridItem(.flexible(minimum: 50, maximum: 200), spacing:90)
+            GridItem(.flexible(minimum: 0, maximum: 200), spacing:90)
         ]
-            
         
-        VStack(spacing:50) {
+        
+        VStack(spacing:0) {
             Text("Progresso").font(.system(size: 60)).padding()
-            
+            Spacer()
             ScrollView(.horizontal) {
                 LazyHGrid (rows: rows, alignment: .bottom,
                            spacing: 80) {
+                    Spacer()
                     ForEach(Progresso.listarConteudos()) { cont in
+                        
                         VStack(spacing:30) {
                             
-                            Button{
+                            Button {
                                 
                             } label: {
                                 VStack(){
-                                    Text(cont.conteudo).font(.system(size:60))
-                                    Spacer()
+                                    Text(cont.conteudo).font(.system(size:60)).padding()
+                                    
                                     Text(cont.progresso)
                                         .font(.system(size:45))
-                                }.frame(width: 330, height: 300, alignment: .center)
+                                }.frame(width: 450, height: 300, alignment: .center)
                             }.border(.black)
                                 .foregroundColor(.black)
                                 .background(Color.gray)
-                                .cornerRadius(15);
+                                .cornerRadius(18);
                         }
                         
                     }
                 }
-            }
+            }.padding()
             Spacer()
-        }
+            Image("robo3_pequeno")
+            Spacer()
+            
+        }.frame(height: UIScreen.main.bounds.height)
     }
 }
 
