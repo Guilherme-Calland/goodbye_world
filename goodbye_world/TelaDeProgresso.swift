@@ -10,23 +10,38 @@ import SwiftUI
 struct TelaDeProgresso: View {
     var body: some View {
         let rows = [
-            GridItem(.flexible())
+            GridItem(.flexible(minimum: 50, maximum: 200), spacing:90)
         ]
+            
         
-        VStack {
-            Text("Progresso").font(.system(size: 50))
-            Spacer()
-            ScrollView {
-                LazyHGrid (rows: rows) {
+        VStack(spacing:50) {
+            Text("Progresso").font(.system(size: 60)).padding()
+            
+            ScrollView(.horizontal) {
+                LazyHGrid (rows: rows, alignment: .bottom,
+                           spacing: 80) {
                     ForEach(Progresso.listarConteudos()) { cont in
-                        VStack {
-                            Text(cont.conteudo)
-                            Text(cont.progresso)
+                        VStack(spacing:30) {
+                            
+                            Button{
+                                
+                            } label: {
+                                VStack(){
+                                    Text(cont.conteudo).font(.system(size:60))
+                                    Spacer()
+                                    Text(cont.progresso)
+                                        .font(.system(size:45))
+                                }.frame(width: 330, height: 300, alignment: .center)
+                            }.border(.black)
+                                .foregroundColor(.black)
+                                .background(Color.gray)
+                                .cornerRadius(15);
                         }
                         
                     }
                 }
             }
+            Spacer()
         }
     }
 }
@@ -48,7 +63,8 @@ struct Progresso: Identifiable {
         return [Progresso(conteudo: "Tutorial", progresso: "15%"),
             Progresso(conteudo: "Variáveis", progresso: "2%"),
             Progresso(conteudo: "Condicionais", progresso: "0%"),
-            Progresso(conteudo: "Laços", progresso: "0%")
+            Progresso(conteudo: "Laços", progresso: "0%"),
+            Progresso(conteudo: "Arrays", progresso: "0%")
         ]
     }
 }

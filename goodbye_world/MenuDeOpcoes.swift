@@ -9,13 +9,13 @@ import SwiftUI
 
 struct MenuDeOpcoes: View {
     var body: some View {
-        VStack {
+        VStack(spacing:100) {
             Text("Menu de Opções").font(.system(size: 50))
             HStack {
                 Image("Juquinha").padding()
                 
                 VStack {
-                    Spacer()
+                    
                     Button("Progresso", action: {}).font(.system(size: 30)).padding()
                         .border(.black)
                         .foregroundColor(.white)
@@ -46,12 +46,12 @@ struct MenuDeOpcoes: View {
                         .foregroundColor(.white)
                         .background(Color.black)
                         .cornerRadius(15)
-                    Spacer()
+                    
                 }
                 
                 Image("robo1 1").padding()
             }
-            
+            Spacer()
         }
         
     }
