@@ -7,6 +7,9 @@
 import SwiftUI
 
 struct InitScreen: View {
+    init(){
+        print("byebye world")
+    }
     
     var body: some View {
         NavigationView{
@@ -38,6 +41,6 @@ struct ScreenBody : View {
             Textinho.FonteBonita("PRESSIONE EM QUALQUER LUGAR PARA INICIAR", 30)
             .padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
         }.frame(width: UIScreen.main.bounds.width,
-                height: UIScreen.main.bounds.height)
+                height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
     }
 }
