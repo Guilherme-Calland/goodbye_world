@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct Textunho {
+
+struct Textinho {
     static func FonteBonita(_ texto: String, _ size: CGFloat=20) -> Text{
         return Text(texto).font(Font.custom("Silkscreen-Regular", size: size));
     }

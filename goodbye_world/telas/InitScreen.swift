@@ -27,7 +27,7 @@ struct InitScreen_Previews: PreviewProvider {
 struct ScreenBody : View {
     var body: some View{
         VStack(spacing: 0.0){
-                    Text("GOODBYE WORLD").font(.system(size: 75))
+            Textinho.FonteBonita("GOODBYE WORLD", 100)
                     
                     HStack(alignment: .center, spacing: -100.0){
                         Image("Juquinha")
@@ -35,7 +35,8 @@ struct ScreenBody : View {
                         Image("robo2 1").padding(EdgeInsets(top: 0.0, leading: 40, bottom: 0.0, trailing: 0.0))
                     }
                     
-            Text("PRESSIONE EM QUALQUER LUGAR PARA INICIAR").font(.system(size: 30)).padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
+            Textinho.FonteBonita("PRESSIONE EM QUALQUER LUGAR PARA INICIAR", 30)
+            .padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
         }.frame(width: UIScreen.main.bounds.width,
                 height: UIScreen.main.bounds.height)
     }

@@ -28,6 +28,7 @@
 		82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Silkscreen-Regular.ttf"; path = "../../../Downloads/Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
 		82FD110B28E7809C006D9316 /* InitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScreen.swift; sourceTree = "<group>"; };
 		82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorial.swift; sourceTree = "<group>"; };
+		82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "goodbye-world-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EE98259328E3406800FB12B3 /* OptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsMenu.swift; sourceTree = "<group>"; };
 		EE98259528E37C9A00FB12B3 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
 		EE98259728E614C800FB12B3 /* StoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScreen.swift; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		82A1823F28E329980056D0A2 /* goodbye_world */ = {
 			isa = PBXGroup;
 			children = (
+				82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */,
 				82FD110A28E78055006D9316 /* telas */,
 				82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */,
 				82FD110528E77D10006D9316 /* utils */,
@@ -311,6 +313,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"goodbye_world/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "goodbye-world-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -340,6 +344,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"goodbye_world/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "goodbye-world-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
