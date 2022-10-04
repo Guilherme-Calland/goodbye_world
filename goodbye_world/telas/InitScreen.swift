@@ -7,8 +7,9 @@
 import SwiftUI
 
 struct InitScreen: View {
+    
     init(){
-        print("byebye world")
+        UINavigationBar.setAnimationsEnabled(false)
     }
     
     var body: some View {
