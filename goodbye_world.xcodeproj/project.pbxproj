@@ -15,6 +15,9 @@
 		82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110B28E7809C006D9316 /* InitScreen.swift */; };
 		82FD110E28E780EA006D9316 /* LevelOneTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */; };
 		82FD111228EDFEBC006D9316 /* styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD111128EDFEBB006D9316 /* styles.swift */; };
+		82FD111628EE0092006D9316 /* WhiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD111528EE0092006D9316 /* WhiteScreen.swift */; };
+		82FD111828EE03CE006D9316 /* TranslucentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD111728EE03CE006D9316 /* TranslucentScreen.swift */; };
+		82FD111C28EE06AB006D9316 /* LevelOneTutorialTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD111B28EE06AB006D9316 /* LevelOneTutorialTemp.swift */; };
 		EE98259428E3406800FB12B3 /* OptionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259328E3406800FB12B3 /* OptionsMenu.swift */; };
 		EE98259628E37C9A00FB12B3 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259528E37C9A00FB12B3 /* ProgressScreen.swift */; };
 		EE98259828E614C800FB12B3 /* StoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259728E614C800FB12B3 /* StoryScreen.swift */; };
@@ -31,6 +34,9 @@
 		82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorial.swift; sourceTree = "<group>"; };
 		82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "goodbye-world-Info.plist"; sourceTree = SOURCE_ROOT; };
 		82FD111128EDFEBB006D9316 /* styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styles.swift; sourceTree = "<group>"; };
+		82FD111528EE0092006D9316 /* WhiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteScreen.swift; sourceTree = "<group>"; };
+		82FD111728EE03CE006D9316 /* TranslucentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslucentScreen.swift; sourceTree = "<group>"; };
+		82FD111B28EE06AB006D9316 /* LevelOneTutorialTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorialTemp.swift; sourceTree = "<group>"; };
 		EE98259328E3406800FB12B3 /* OptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsMenu.swift; sourceTree = "<group>"; };
 		EE98259528E37C9A00FB12B3 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
 		EE98259728E614C800FB12B3 /* StoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScreen.swift; sourceTree = "<group>"; };
@@ -90,6 +96,8 @@
 			children = (
 				82FD110628E77D40006D9316 /* Fontinha.swift */,
 				82FD111128EDFEBB006D9316 /* styles.swift */,
+				82FD111528EE0092006D9316 /* WhiteScreen.swift */,
+				82FD111728EE03CE006D9316 /* TranslucentScreen.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 				EE98259328E3406800FB12B3 /* OptionsMenu.swift */,
 				82FD110B28E7809C006D9316 /* InitScreen.swift */,
 				82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */,
+				82FD111B28EE06AB006D9316 /* LevelOneTutorialTemp.swift */,
 			);
 			path = telas;
 			sourceTree = "<group>";
@@ -177,14 +186,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82FD111628EE0092006D9316 /* WhiteScreen.swift in Sources */,
 				82FD110728E77D40006D9316 /* Fontinha.swift in Sources */,
 				EE98259628E37C9A00FB12B3 /* ProgressScreen.swift in Sources */,
 				EE98259428E3406800FB12B3 /* OptionsMenu.swift in Sources */,
+				82FD111C28EE06AB006D9316 /* LevelOneTutorialTemp.swift in Sources */,
 				82FD111228EDFEBC006D9316 /* styles.swift in Sources */,
 				EE98259828E614C800FB12B3 /* StoryScreen.swift in Sources */,
 				82FD110E28E780EA006D9316 /* LevelOneTutorial.swift in Sources */,
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
+				82FD111828EE03CE006D9316 /* TranslucentScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
