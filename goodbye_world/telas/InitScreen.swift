@@ -16,7 +16,7 @@ struct InitScreen: View {
         NavigationView{
             NavigationLink(destination: LevelOneTutorial()){
                 ScreenBody()
-            }.foregroundColor(.black)
+            }.foregroundColor(.black).buttonStyle(NoClickAnimation())
         }.navigationViewStyle(StackNavigationViewStyle.stack)
     }
 }
@@ -45,3 +45,4 @@ struct ScreenBody : View {
                 height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
     }
 }
+
