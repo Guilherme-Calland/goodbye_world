@@ -27,20 +27,20 @@ struct LevelOneTutorialTemp: View {
                             Rectangle()
                                 .fill(Color("customOrange"))
                                 .frame(width: panelWidth, height: .infinity, alignment: .leading)
-                                .border(.black)
-                            Text("Ações")
+                                .border(.black, width: 4)
+                            Textinho.FonteBonita("acoes")
                                 .padding()
-                                .border(.black)
+                                .border(.black, width: 4)
                         }
                         .opacity(1.0)
                         
                         ZStack(alignment: .topLeading){
                             Rectangle()
                                 .fill(Color("customGreen"))
-                                .border(.black)
-                            Text("Execução")
+                                .border(.black, width: 4)
+                            Textinho.FonteBonita("Execucao")
                                 .padding()
-                                .border(.black)
+                                .border(.black, width: 4)
                             
                         }.frame(width: panelWidth, height: .infinity)
                         .opacity(1.0)
@@ -58,7 +58,7 @@ struct LevelOneTutorialTemp: View {
                         dismiss()
                     }
                 Image("execution-buttom")
-                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 20, trailing: 10))
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 30, trailing: 20))
                     .opacity(1.0)
             }
             
