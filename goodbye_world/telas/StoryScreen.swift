@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TelaHistoria: View {
+struct StoryScreen: View {
     var body: some View {
         VStack() {
             Text("História").font(.system(size: 60))
@@ -39,9 +39,9 @@ struct TelaHistoria: View {
     }
 }
 
-struct TelaHistoria_Previews: PreviewProvider {
+struct StoryScreen_Previews: PreviewProvider {
     static var previews: some View {
-        TelaHistoria()
+        StoryScreen()
 .previewInterfaceOrientation(.landscapeLeft)
     }
 }

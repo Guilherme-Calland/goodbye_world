@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuDeOpcoes: View {
+struct OptionsMenu: View {
     var body: some View {
         VStack(spacing:100) {
             Text("Menu de Opções").font(.system(size: 60))
@@ -57,9 +57,9 @@ struct MenuDeOpcoes: View {
     }
 }
 
-struct MenuDeOpcoes_Previews: PreviewProvider {
+struct OptionsMenu_Previews: PreviewProvider {
     static var previews: some View {
-        MenuDeOpcoes()
+        OptionsMenu()
 .previewInterfaceOrientation(.landscapeLeft)
     }
 }

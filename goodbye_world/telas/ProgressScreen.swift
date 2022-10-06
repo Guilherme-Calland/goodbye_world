@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TelaDeProgresso: View {
+struct ProgressScreen: View {
     var body: some View {
         let rows = [
             GridItem(.flexible(minimum: 0, maximum: 200), spacing:90)
@@ -51,9 +51,9 @@ struct TelaDeProgresso: View {
     }
 }
 
-struct TelaDeProgresso_Previews: PreviewProvider {
+struct ProgressScreen_Previews: PreviewProvider {
     static var previews: some View {
-        TelaDeProgresso()
+        ProgressScreen()
 .previewInterfaceOrientation(.landscapeLeft)
     }
 }

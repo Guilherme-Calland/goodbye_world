@@ -8,25 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A1824028E329980056D0A2 /* goodbye_worldApp.swift */; };
-		82A1824328E329980056D0A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A1824228E329980056D0A2 /* ContentView.swift */; };
 		82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824428E3299B0056D0A2 /* Assets.xcassets */; };
 		82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */; };
-		EE98259228E338B800FB12B3 /* TelaInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259128E338B800FB12B3 /* TelaInicial.swift */; };
-		EE98259428E3406800FB12B3 /* MenuDeOpcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */; };
-		EE98259628E37C9A00FB12B3 /* TelaDeProgresso.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259528E37C9A00FB12B3 /* TelaDeProgresso.swift */; };
-		EE98259828E614C800FB12B3 /* TelaHistoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259728E614C800FB12B3 /* TelaHistoria.swift */; };
+		82FD110728E77D40006D9316 /* Fontinha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110628E77D40006D9316 /* Fontinha.swift */; };
+		82FD110928E7802A006D9316 /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */; };
+		82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110B28E7809C006D9316 /* InitScreen.swift */; };
+		82FD110E28E780EA006D9316 /* LevelOneTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */; };
+		EE98259428E3406800FB12B3 /* OptionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259328E3406800FB12B3 /* OptionsMenu.swift */; };
+		EE98259628E37C9A00FB12B3 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259528E37C9A00FB12B3 /* ProgressScreen.swift */; };
+		EE98259828E614C800FB12B3 /* StoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98259728E614C800FB12B3 /* StoryScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		82A1823D28E329980056D0A2 /* goodbye_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goodbye_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A1824028E329980056D0A2 /* goodbye_worldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodbye_worldApp.swift; sourceTree = "<group>"; };
-		82A1824228E329980056D0A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		82A1824428E3299B0056D0A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EE98259128E338B800FB12B3 /* TelaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicial.swift; sourceTree = "<group>"; };
-		EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDeOpcoes.swift; sourceTree = "<group>"; };
-		EE98259528E37C9A00FB12B3 /* TelaDeProgresso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeProgresso.swift; sourceTree = "<group>"; };
-		EE98259728E614C800FB12B3 /* TelaHistoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaHistoria.swift; sourceTree = "<group>"; };
+		82FD110628E77D40006D9316 /* Fontinha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fontinha.swift; sourceTree = "<group>"; };
+		82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Silkscreen-Regular.ttf"; path = "../../../Downloads/Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
+		82FD110B28E7809C006D9316 /* InitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScreen.swift; sourceTree = "<group>"; };
+		82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorial.swift; sourceTree = "<group>"; };
+		82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "goodbye-world-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EE98259328E3406800FB12B3 /* OptionsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsMenu.swift; sourceTree = "<group>"; };
+		EE98259528E37C9A00FB12B3 /* ProgressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
+		EE98259728E614C800FB12B3 /* StoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,14 +64,13 @@
 		82A1823F28E329980056D0A2 /* goodbye_world */ = {
 			isa = PBXGroup;
 			children = (
+				82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */,
+				82FD110A28E78055006D9316 /* telas */,
+				82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */,
+				82FD110528E77D10006D9316 /* utils */,
 				82A1824028E329980056D0A2 /* goodbye_worldApp.swift */,
-				82A1824228E329980056D0A2 /* ContentView.swift */,
 				82A1824428E3299B0056D0A2 /* Assets.xcassets */,
 				82A1824628E3299B0056D0A2 /* Preview Content */,
-				EE98259128E338B800FB12B3 /* TelaInicial.swift */,
-				EE98259328E3406800FB12B3 /* MenuDeOpcoes.swift */,
-				EE98259528E37C9A00FB12B3 /* TelaDeProgresso.swift */,
-				EE98259728E614C800FB12B3 /* TelaHistoria.swift */,
 			);
 			path = goodbye_world;
 			sourceTree = "<group>";
@@ -77,6 +81,26 @@
 				82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		82FD110528E77D10006D9316 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				82FD110628E77D40006D9316 /* Fontinha.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		82FD110A28E78055006D9316 /* telas */ = {
+			isa = PBXGroup;
+			children = (
+				EE98259728E614C800FB12B3 /* StoryScreen.swift */,
+				EE98259528E37C9A00FB12B3 /* ProgressScreen.swift */,
+				EE98259328E3406800FB12B3 /* OptionsMenu.swift */,
+				82FD110B28E7809C006D9316 /* InitScreen.swift */,
+				82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */,
+			);
+			path = telas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +163,7 @@
 			files = (
 				82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */,
 				82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */,
+				82FD110928E7802A006D9316 /* Silkscreen-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,12 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE98259628E37C9A00FB12B3 /* TelaDeProgresso.swift in Sources */,
-				EE98259428E3406800FB12B3 /* MenuDeOpcoes.swift in Sources */,
-				EE98259828E614C800FB12B3 /* TelaHistoria.swift in Sources */,
-				EE98259228E338B800FB12B3 /* TelaInicial.swift in Sources */,
-				82A1824328E329980056D0A2 /* ContentView.swift in Sources */,
+				82FD110728E77D40006D9316 /* Fontinha.swift in Sources */,
+				EE98259628E37C9A00FB12B3 /* ProgressScreen.swift in Sources */,
+				EE98259428E3406800FB12B3 /* OptionsMenu.swift in Sources */,
+				EE98259828E614C800FB12B3 /* StoryScreen.swift in Sources */,
+				82FD110E28E780EA006D9316 /* LevelOneTutorial.swift in Sources */,
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,
+				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +313,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"goodbye_world/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "goodbye-world-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,6 +344,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"goodbye_world/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "goodbye-world-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
