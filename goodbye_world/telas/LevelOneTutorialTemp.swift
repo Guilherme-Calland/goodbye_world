@@ -14,6 +14,7 @@ struct LevelOneTutorialTemp: View {
     @State private var fadeIn = true
     
     var body: some View {
+    
         ZStack{
             ZStack(alignment: .bottomTrailing){
                 HStack{
@@ -22,7 +23,7 @@ struct LevelOneTutorialTemp: View {
                         .interpolation(.none)
                     Spacer()
                     VStack(alignment: .trailing, spacing: 10.0){
-                        Rectangle().fill(Color(.white)).frame(height: 0.0)
+                        Rectangle().fill(Color(.white)).frame(height: 10.0)
                         ZStack(alignment: .topLeading){
                             Rectangle()
                                 .fill(Color("customOrange"))
@@ -44,22 +45,21 @@ struct LevelOneTutorialTemp: View {
                             
                         }.frame(width: panelWidth, height: .infinity)
                         .opacity(1.0)
-
+                        
                         Rectangle()
                             .fill(Color(.white))
-                            .frame(height: 4.0)
+                            .frame(height: 14.0)
                     }.frame(height: UIScreen.main.bounds.height)
+                        
                     Rectangle()
                         .fill(Color(.white))
                         .frame(width: 5.0)
                 }.frame(width: UIScreen.main.bounds.width)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true).onTapGesture {
+                Image("execution-buttom")
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 40, trailing: 20))
+                    .opacity(1.0).onTapGesture {
                         dismiss()
                     }
-                Image("execution-buttom")
-                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 30, trailing: 20))
-                    .opacity(1.0)
             }
             
             InitScreenPlaceholder().onAppear(){
@@ -67,10 +67,10 @@ struct LevelOneTutorialTemp: View {
                     fadeIn.toggle()
                 }
             }.opacity(fadeIn ? 1: 0)
+                
         }
-        
-        
-        
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
         
     }
 }
