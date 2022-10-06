@@ -17,7 +17,9 @@ struct LevelOneTutorialTemp: View {
         ZStack{
             ZStack(alignment: .bottomTrailing){
                 HStack{
-                    Text("Good bye, world!").opacity(0.0)
+                    Image("LevelOneTutorial1")
+                        .resizable()
+                        .interpolation(.none)
                     Spacer()
                     VStack(alignment: .trailing, spacing: 10.0){
                         Rectangle().fill(Color(.white)).frame(height: 0.0)
@@ -30,7 +32,7 @@ struct LevelOneTutorialTemp: View {
                                 .padding()
                                 .border(.black)
                         }
-                        .opacity(0.0)
+                        .opacity(1.0)
                         
                         ZStack(alignment: .topLeading){
                             Rectangle()
@@ -41,7 +43,7 @@ struct LevelOneTutorialTemp: View {
                                 .border(.black)
                             
                         }.frame(width: panelWidth, height: .infinity)
-                        .opacity(0.0)
+                        .opacity(1.0)
 
                         Rectangle()
                             .fill(Color(.white))
@@ -57,7 +59,7 @@ struct LevelOneTutorialTemp: View {
                     }
                 Image("execution-buttom")
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 20, trailing: 10))
-                    .opacity(0.0)
+                    .opacity(1.0)
             }
             
             InitScreenPlaceholder().onAppear(){
