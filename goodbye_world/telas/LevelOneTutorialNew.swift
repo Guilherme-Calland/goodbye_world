@@ -13,8 +13,8 @@ struct LevelOneTutorialNew: View {
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
-    @State private var actionPanelAppear = false
-    @State private var executionPanelAppear = false
+    @State private var actionPanelAppear = true
+    @State private var executionPanelAppear = true
     @State private var executionButtonAppear = false
     @State private var clickForNext = false
     @State private var translucentScreenReady = false
@@ -38,12 +38,12 @@ struct LevelOneTutorialNew: View {
                         Spacer()
                         //Area de Acoes
                         ActionArea(actions:["test 1", "test 2"])
-                        .opacity(actionPanelAppear ? 1 : 1)
+                        .opacity(actionPanelAppear ? 1 : 0)
                         Spacer()
                         
                         //Area de Execucoes
                         ExecutionArea(actions: [])
-                        .opacity(executionPanelAppear ? 1 : 1)
+                        .opacity(executionPanelAppear ? 1 : 0)
                 
                         Spacer()
                         //Rectangle().fill(Color(.white)).frame(height:20)

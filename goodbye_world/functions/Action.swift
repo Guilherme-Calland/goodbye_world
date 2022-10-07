@@ -28,6 +28,8 @@ struct Action : View {
                     .frame(width: actionWidth, height: actionHeight, alignment: .leading)
                     .border(.black, width: 4)
                 Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
+            }.onTapGesture {
+                print("hello there, hello")
             }
         }
     }
