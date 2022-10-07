@@ -1,5 +1,5 @@
 //
-//  ActionArea.swift
+//  ExecutionArea.swift
 //  goodbye_world
 //
 //  Created by Guilherme Calland Rosa Borba on 07/10/22.
@@ -7,29 +7,26 @@
 
 import SwiftUI
 
-struct ActionArea : View {
+struct ExecutionArea : View {
     var panelWidth = UIScreen.main.bounds.width/2.2
     var panelHeight = UIScreen.main.bounds.height/2.2
-    var body: some View{
+    
+    var body : some View {
         ZStack(alignment: .topLeading){
             AreaShadow()
             Rectangle()
-                .fill(Color("customOrange"))
-                .frame(width: panelWidth, height: panelHeight, alignment: .leading)
+                .fill(Color("customGreen"))
                 .border(.black, width: 4)
-            Textinho.FonteBonita("acoes")
+            Textinho.FonteBonita("Execucao")
                 .padding()
                 .border(.black, width: 4)
-        }
+        }.frame(width: panelWidth, height: panelHeight)
     }
 }
 
-struct ActionArea_Previews: PreviewProvider {
+struct ExecutionArea_Previews: PreviewProvider {
     static var previews: some View {
-        ActionArea()
+        ExecutionArea()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-
-
-

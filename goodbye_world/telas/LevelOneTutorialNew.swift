@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LevelOneTutorialTemp: View {
+struct LevelOneTutorialNew: View {
     @Environment(\.dismiss) private var dismiss
     
     var panelWidth = UIScreen.main.bounds.width/2.2
@@ -156,26 +156,9 @@ struct LevelOneTutorialTemp: View {
     }
 }
 
-struct LevelOneTutorialTemp_Previews: PreviewProvider {
+struct LevelOneTutorialNew_Previews: PreviewProvider {
     static var previews: some View {
-        LevelOneTutorialTemp()
+        LevelOneTutorialNew()
 .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
-
-
-
-struct ExecutionArea : View {
-    var panelWidth = UIScreen.main.bounds.width/2.2
-    var panelHeight = UIScreen.main.bounds.height/2.2
-    var body : some View {
-        ZStack(alignment: .topLeading){
-            Rectangle()
-                .fill(Color("customGreen"))
-                .border(.black, width: 4)
-            Textinho.FonteBonita("Execucao")
-                .padding()
-                .border(.black, width: 4)
-        }.frame(width: panelWidth, height: panelHeight)
     }
 }
