@@ -13,6 +13,7 @@
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
 		82B5204228F0719F003CFC45 /* AreaShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5204128F0719F003CFC45 /* AreaShadows.swift */; };
+		82B5204528F073CA003CFC45 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5204428F073CA003CFC45 /* Action.swift */; };
 		82FD110728E77D40006D9316 /* Fontinha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110628E77D40006D9316 /* Fontinha.swift */; };
 		82FD110928E7802A006D9316 /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */; };
 		82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110B28E7809C006D9316 /* InitScreen.swift */; };
@@ -33,6 +34,7 @@
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
 		82B5204128F0719F003CFC45 /* AreaShadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaShadows.swift; sourceTree = "<group>"; };
+		82B5204428F073CA003CFC45 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		82FD110628E77D40006D9316 /* Fontinha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fontinha.swift; sourceTree = "<group>"; };
 		82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Silkscreen-Regular.ttf"; path = "../../../Downloads/Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
 		82FD110B28E7809C006D9316 /* InitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScreen.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		82A1823F28E329980056D0A2 /* goodbye_world */ = {
 			isa = PBXGroup;
 			children = (
+				82B5204328F07337003CFC45 /* functions */,
 				82B5203C28F06E4B003CFC45 /* areas */,
 				82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */,
 				82FD110A28E78055006D9316 /* telas */,
@@ -103,6 +106,14 @@
 				82B5203F28F0709A003CFC45 /* ExecutionArea.swift */,
 			);
 			path = areas;
+			sourceTree = "<group>";
+		};
+		82B5204328F07337003CFC45 /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				82B5204428F073CA003CFC45 /* Action.swift */,
+			);
+			path = functions;
 			sourceTree = "<group>";
 		};
 		82FD110528E77D10006D9316 /* utils */ = {
@@ -211,6 +222,7 @@
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,
 				82FD111E28EF1354006D9316 /* InitScreenPlaceholder.swift in Sources */,
 				82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */,
+				82B5204528F073CA003CFC45 /* Action.swift in Sources */,
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
 				82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */,
 			);

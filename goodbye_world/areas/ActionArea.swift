@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ActionArea : View {
-    var panelWidth = UIScreen.main.bounds.width/2.2
-    var panelHeight = UIScreen.main.bounds.height/2.2
+    private var panelWidth = UIScreen.main.bounds.width/2.2
+    private var panelHeight = UIScreen.main.bounds.height/2.2
     var body: some View{
         ZStack(alignment: .topLeading){
-            AreaShadow()
             Rectangle()
                 .fill(Color("customOrange"))
                 .frame(width: panelWidth, height: panelHeight, alignment: .leading)
@@ -20,6 +19,9 @@ struct ActionArea : View {
             Textinho.FonteBonita("acoes")
                 .padding()
                 .border(.black, width: 4)
+            List{
+                Action(actionText: "Teste 1")
+            }
         }
     }
 }

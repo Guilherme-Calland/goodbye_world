@@ -13,7 +13,6 @@ struct ExecutionArea : View {
     
     var body : some View {
         ZStack(alignment: .topLeading){
-            AreaShadow()
             Rectangle()
                 .fill(Color("customGreen"))
                 .border(.black, width: 4)
