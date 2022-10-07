@@ -27,7 +27,7 @@ struct LevelOneTutorialTemp: View {
         ZStack(alignment: .bottom){
             ZStack(alignment: .bottomTrailing){
                 HStack{
-                    Image("LevelOneTutorial1")
+                    Image("tut1.1")
                         .resizable()
                         .interpolation(.none)
                         .opacity(imageAppear ? 1 : 0)
@@ -79,6 +79,7 @@ struct LevelOneTutorialTemp: View {
                 
             }
             
+            
             Rectangle()
                 .fill(Color(.black))
                 .opacity(translucentScreenShow ? 0.5 : 0)
@@ -96,6 +97,14 @@ struct LevelOneTutorialTemp: View {
                 translucentScreenReady = true
                 showClickForNext()
             }//
+            
+            HStack{
+                Image("tut1.2")
+                    .resizable()
+                    .interpolation(.none)
+                Rectangle().fill().opacity(0.0)
+            }.opacity(imageContrastShow ? 1 : 0)
+                .padding(EdgeInsets.init(top:0, leading:0, bottom: 0, trailing: 14))
             
             
             InitScreenPlaceholder().onAppear(){
@@ -119,6 +128,7 @@ struct LevelOneTutorialTemp: View {
     func showTranslucentScreen(){
         withAnimation(Animation.linear(duration: 1.0)){
             translucentScreenShow = true
+            toggleContrastImage()
         }
     }
     
@@ -135,7 +145,7 @@ struct LevelOneTutorialTemp: View {
     }
     
     func toggleContrastImage(){
-        withAnimation(Animation.linear(duration: 1.0)){
+        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
             imageContrastShow.toggle()
         }
     }
