@@ -10,8 +10,8 @@ import SwiftUI
 struct Action : View {
     var readyToExecute: Bool?
     var actionText: String?
-    private var panelWidth = UIScreen.main.bounds.width/3.2
-    private var panelHeight = 40.0
+    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
+    private var actionHeight = 40.0
     
     init(readyToExecute: Bool? = nil, actionText: String? = nil){
         self.actionText = actionText
@@ -23,11 +23,11 @@ struct Action : View {
             Rectangle()
                 .fill(Color.black)
                 .opacity(0.4)
-                .frame(width: panelWidth, height: panelHeight, alignment: .leading)
+                .frame(width: actionWidth, height: actionHeight, alignment: .leading)
                 .offset(x: -6.0, y: 6.0)
             Rectangle()
                 .fill(Color(readyToExecute ?? false ? "customGreen" : "customOrange"))
-                .frame(width: panelWidth, height: panelHeight, alignment: .leading)
+                .frame(width: actionWidth, height: actionHeight, alignment: .leading)
                 .border(.black, width: 4)
             Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
         }

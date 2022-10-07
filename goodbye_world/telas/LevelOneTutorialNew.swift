@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LevelOneTutorialNew: View {
     @Environment(\.dismiss) private var dismiss
-    
-    var panelWidth = UIScreen.main.bounds.width/2.2
+    private var panelWidth = UIScreen.main.bounds.width * 0.4
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
@@ -27,6 +26,7 @@ struct LevelOneTutorialNew: View {
         ZStack(alignment: .bottom){
             ZStack(alignment: .bottomTrailing){
                 HStack{
+                    
                     //Imagem Principal
                     Image("tut1.1")
                         .resizable()
@@ -87,6 +87,7 @@ struct LevelOneTutorialNew: View {
                     .resizable()
                     .interpolation(.none)
                 Rectangle().fill().opacity(0.0)
+                    .frame(width: panelWidth)
             }.opacity(imageContrastShow ? 1 : 0)
                 .padding(EdgeInsets.init(top:0, leading:0, bottom: 0, trailing: 14))
             

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ExecutionArea : View {
-    private var panelWidth = UIScreen.main.bounds.width/2.2
-    private var panelHeight = UIScreen.main.bounds.height/2.2
+    private var panelWidth = UIScreen.main.bounds.width * 0.4
+    private var panelHeight = UIScreen.main.bounds.height * 0.48
     
-    private var actionWidth = UIScreen.main.bounds.width/3.2
+    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
     let actions: [String]
     
