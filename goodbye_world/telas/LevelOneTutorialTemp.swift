@@ -11,8 +11,8 @@ struct LevelOneTutorialTemp: View {
     @Environment(\.dismiss) private var dismiss
     
     var panelWidth = UIScreen.main.bounds.width/2.2
-    @State private var fadeToWhite = false
-    @State private var imageAppear = false
+    @State private var fadePlaceholderScreen = false
+    @State private var imageShow = false
     @State private var clickOnScreenAppear = false
     @State private var actionPanelAppear = false
     @State private var executionPanelAppear = false
@@ -30,12 +30,8 @@ struct LevelOneTutorialTemp: View {
                     Image("tut1.1")
                         .resizable()
                         .interpolation(.none)
-                        .opacity(imageAppear ? 1 : 0)
-                        .onAppear(){
-                            withAnimation(Animation.linear(duration: 1).delay(1.5)){
-                                imageAppear.toggle()
-                            }
-                        }
+                        .opacity(imageShow ? 1 : 0)
+                        
                     VStack(alignment: .trailing, spacing: 10.0){
                         Rectangle().fill(Color(.white)).frame(height: 10.0)
                         ZStack(alignment: .topLeading){
@@ -79,10 +75,12 @@ struct LevelOneTutorialTemp: View {
                 
             }
             
-            
+            // Tela meio transparente
             Rectangle()
                 .fill(Color(.black))
                 .opacity(translucentScreenShow ? 0.5 : 0)
+            
+            // Mensagem: clique em qualquer lugar para prosseguir
             ZStack{
                 Rectangle()
                     .fill(Color(.white))
@@ -93,10 +91,6 @@ struct LevelOneTutorialTemp: View {
             }
             .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
             .opacity(clickForNext ? 1 : 0)
-            .onAppear(){
-                translucentScreenReady = true
-                showClickForNext()
-            }//
             
             HStack{
                 Image("tut1.2")
@@ -106,13 +100,11 @@ struct LevelOneTutorialTemp: View {
             }.opacity(imageContrastShow ? 1 : 0)
                 .padding(EdgeInsets.init(top:0, leading:0, bottom: 0, trailing: 14))
             
-            
+            // Apenas a imagem da tela inicial
             InitScreenPlaceholder().onAppear(){
-                withAnimation(Animation.linear(duration: 1.0)){
-                    fadeToWhite.toggle()
-                }
-            }.opacity(fadeToWhite ? 0: 1)
-                
+                placeholderScreenFade()
+            }.opacity(fadePlaceholderScreen ? 0 : 1)
+                //
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
@@ -125,28 +117,51 @@ struct LevelOneTutorialTemp: View {
         
     }
     
-    func showTranslucentScreen(){
+    // Animacao que some com a tela que mostra a imagem da tela inicial
+    func placeholderScreenFade(){
         withAnimation(Animation.linear(duration: 1.0)){
-            translucentScreenShow = true
-            toggleContrastImage()
+            fadePlaceholderScreen = true
+            showImage()
         }
     }
     
-    func showClickForNext(){
-        withAnimation(Animation.linear(duration: 1.0).delay(3.0)){
+    // mostra tela transparente que serve para dar contraste aos itens em destaque
+    func showTranslucentScreen(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            translucentScreenReady = false
+            translucentScreenShow = true
+            showContrastImage()
+            hideClickForNext()
+        }
+    }
+    
+    // Mensagem de clicar na tela para prosseguir
+    func showClickForNext(delay: Double){
+        withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             clickForNext = true
         }
     }
     
+    // esconde a mensagem de clicar na tela para prosseguir
     func hideClickForNext(){
         withAnimation(Animation.linear(duration: 1.0)){
             clickForNext = false
         }
     }
     
-    func toggleContrastImage(){
+    // mostra a imagem que está em contraste, ou seja, a imagem que está na frente da tela meio transparente
+    func showContrastImage(){
         withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
-            imageContrastShow.toggle()
+            imageContrastShow = true
+        }
+    }
+    
+    // mostra a imagem principal
+    func showImage(){
+        withAnimation(Animation.linear(duration: 1).delay(1.0)){
+            imageShow = true
+            showClickForNext(delay: 2.0)
+            translucentScreenReady = true
         }
     }
 }
