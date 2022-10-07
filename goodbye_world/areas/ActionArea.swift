@@ -19,9 +19,9 @@ struct ActionArea : View {
             Textinho.FonteBonita("acoes")
                 .padding()
                 .border(.black, width: 4)
-            List{
-                Action(actionText: "Teste 1")
-            }
+//            List{
+//                Action(actionText: "Teste 1")
+//            }
         }
     }
 }
