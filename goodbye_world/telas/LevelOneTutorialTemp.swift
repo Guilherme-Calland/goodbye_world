@@ -27,46 +27,36 @@ struct LevelOneTutorialTemp: View {
         ZStack(alignment: .bottom){
             ZStack(alignment: .bottomTrailing){
                 HStack{
+                    //Imagem Principal
                     Image("tut1.1")
                         .resizable()
                         .interpolation(.none)
                         .opacity(imageShow ? 1 : 0)
                         
-                    VStack(alignment: .trailing, spacing: 10.0){
-                        Rectangle().fill(Color(.white)).frame(height: 10.0)
-                        ZStack(alignment: .topLeading){
-                            Rectangle()
-                                .fill(Color("customOrange"))
-                                .frame(width: panelWidth, height: .infinity, alignment: .leading)
-                                .border(.black, width: 4)
-                            Textinho.FonteBonita("acoes")
-                                .padding()
-                                .border(.black, width: 4)
-                        }
-                        .opacity(actionPanelAppear ? 1 : 0)
+                    VStack(alignment: .trailing){
+                        //Rectangle().fill(Color(.white)).frame(height:15)
+                        Spacer()
+                        //Area de Acoes
+                        ActionArea()
+                        .opacity(actionPanelAppear ? 1 : 1)
+                        Spacer()
                         
-                        ZStack(alignment: .topLeading){
-                            Rectangle()
-                                .fill(Color("customGreen"))
-                                .border(.black, width: 4)
-                            Textinho.FonteBonita("Execucao")
-                                .padding()
-                                .border(.black, width: 4)
-                        }.frame(width: panelWidth, height: .infinity)
-                            .opacity(executionPanelAppear ? 1 : 0)
-                        Rectangle()
-                            .fill(Color(.white))
-                            .frame(height: 14.0)
+                        //Area de Execucoes
+                        ExecutionArea()
+                        .opacity(executionPanelAppear ? 1 : 1)
+                
+                        Spacer()
+                        //Rectangle().fill(Color(.white)).frame(height:20)
+            
                     }.frame(height: UIScreen.main.bounds.height)
-                        
-                    Rectangle()
-                        .fill(Color(.white))
-                        .frame(width: 5.0)
+                    
+                    Rectangle().fill(Color(.white)).frame(width:10)
+                    
                 }.frame(width: UIScreen.main.bounds.width)
                 
                 
                 Image("execution-buttom")
-                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 40, trailing: 20))
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
                     .opacity(executionButtonAppear ? 1 : 0)
 //                    .onTapGesture {
 //                        dismiss()
@@ -170,5 +160,22 @@ struct LevelOneTutorialTemp_Previews: PreviewProvider {
     static var previews: some View {
         LevelOneTutorialTemp()
 .previewInterfaceOrientation(.landscapeLeft)
+    }
+}
+
+
+
+struct ExecutionArea : View {
+    var panelWidth = UIScreen.main.bounds.width/2.2
+    var panelHeight = UIScreen.main.bounds.height/2.2
+    var body : some View {
+        ZStack(alignment: .topLeading){
+            Rectangle()
+                .fill(Color("customGreen"))
+                .border(.black, width: 4)
+            Textinho.FonteBonita("Execucao")
+                .padding()
+                .border(.black, width: 4)
+        }.frame(width: panelWidth, height: panelHeight)
     }
 }
