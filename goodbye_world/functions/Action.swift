@@ -10,6 +10,7 @@ import SwiftUI
 struct Action : View {
     var readyToExecute: Bool?
     var actionText: String?
+    var callback: (() -> Void)?
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
     
@@ -20,16 +21,14 @@ struct Action : View {
     
     var body : some View {
         ZStack{
-            Rectangle()
-                .fill(Color.black)
-                .opacity(0.4)
-                .frame(width: actionWidth, height: actionHeight, alignment: .leading)
-                .offset(x: -6.0, y: 6.0)
-            Rectangle()
-                .fill(Color(readyToExecute ?? false ? "customGreen" : "customOrange"))
-                .frame(width: actionWidth, height: actionHeight, alignment: .leading)
-                .border(.black, width: 4)
-            Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
+            ActionShadow()
+            ZStack{
+                Rectangle()
+                    .fill(Color(readyToExecute ?? false ? "customGreen" : "customOrange"))
+                    .frame(width: actionWidth, height: actionHeight, alignment: .leading)
+                    .border(.black, width: 4)
+                Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
+            }
         }
     }
 }
