@@ -37,12 +37,12 @@ struct LevelOneTutorialNew: View {
                         //Rectangle().fill(Color(.white)).frame(height:15)
                         Spacer()
                         //Area de Acoes
-                        ActionArea()
+                        ActionArea(actions:["test 1", "test 2"])
                         .opacity(actionPanelAppear ? 1 : 1)
                         Spacer()
                         
                         //Area de Execucoes
-                        ExecutionArea()
+                        ExecutionArea(actions: [])
                         .opacity(executionPanelAppear ? 1 : 1)
                 
                         Spacer()

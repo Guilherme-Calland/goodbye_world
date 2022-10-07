@@ -8,18 +8,48 @@
 import SwiftUI
 
 struct ExecutionArea : View {
-    var panelWidth = UIScreen.main.bounds.width/2.2
-    var panelHeight = UIScreen.main.bounds.height/2.2
+    private var panelWidth = UIScreen.main.bounds.width/2.2
+    private var panelHeight = UIScreen.main.bounds.height/2.2
     
-    var body : some View {
+    private var actionWidth = UIScreen.main.bounds.width/3.2
+    private var actionHeight = 40.0
+    let actions: [String]
+    
+    init(actions: [String] = []){
+        self.actions = actions
+    }
+    
+    var body: some View{
         ZStack(alignment: .topLeading){
             Rectangle()
                 .fill(Color("customGreen"))
+                .frame(width: panelWidth, height: panelHeight, alignment: .leading)
                 .border(.black, width: 4)
-            Textinho.FonteBonita("Execucao")
+            Textinho.FonteBonita("execucao")
                 .padding()
                 .border(.black, width: 4)
-        }.frame(width: panelWidth, height: panelHeight)
+            
+            
+            if actions.count > 0{
+                // Lista de acoes
+                VStack(spacing: 15.0){
+                    ForEach(actions, id:\.self){
+                        action in
+                        Action(readyToExecute: true, actionText: action)
+                    }
+                }
+                .offset(x: 20, y: 70)
+            }else{
+                Rectangle()
+                    .stroke(style: StrokeStyle(lineWidth: 4.0, dash: [6]))
+                    .fill(Color(.black).opacity(1.0))
+                    .frame(width: actionWidth, height: actionHeight)
+                    .offset(x: 20, y: 70)
+                    
+            }
+            
+            
+        }
     }
 }
 
