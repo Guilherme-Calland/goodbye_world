@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-class Data {
-    @State static var actions = ["action 1", "action 2"]
+class Data : ObservableObject {
+    @Published var actions = ["action 1", "action 2"]
 }

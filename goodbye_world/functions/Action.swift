@@ -36,8 +36,7 @@ struct Action : View {
     }
     
     func moveActionToExecution(_ id : Int){
-        Data.actions.removeAll()
-        print("hello test test")
+//        data.actions.removeAll()
     }
 
 }
