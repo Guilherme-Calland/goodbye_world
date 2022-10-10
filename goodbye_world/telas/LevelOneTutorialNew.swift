@@ -37,7 +37,7 @@ struct LevelOneTutorialNew: View {
                         //Rectangle().fill(Color(.white)).frame(height:15)
                         Spacer()
                         //Area de Acoes
-                        ActionArea(actions:["test 1", "test 2"])
+                        ActionArea(actions: Data.actions)
                         .opacity(actionPanelAppear ? 1 : 0)
                         Spacer()
                         
@@ -65,10 +65,21 @@ struct LevelOneTutorialNew: View {
                 
             }
             
-            // Tela meio transparente
-            Rectangle()
-                .fill(Color(.black))
-                .opacity(translucentScreenShow ? 0.5 : 0)
+            // Tela meio transparente 1
+//            true ?
+//            Rectangle()
+//                .fill(Color(.black))
+//                .opacity(translucentScreenShow ? 0.5 : 0.00001)
+//                .highPriorityGesture(
+//                    TapGesture().onEnded{
+//                        if translucentScreenReady {
+//                            showTranslucentScreen()
+//                            hideClickForNext()
+//                        }
+//                    }
+//                )
+//            : Rectangle()
+            
             
             // Mensagem: clique em qualquer lugar para prosseguir
             ZStack{
@@ -99,12 +110,13 @@ struct LevelOneTutorialNew: View {
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
-        .onTapGesture(){
-            if translucentScreenReady {
-                showTranslucentScreen()
-                hideClickForNext()
-            }
-        }
+        
+//        .onTapGesture(){
+//            if translucentScreenReady {
+//                showTranslucentScreen()
+//                hideClickForNext()
+//            }
+//        }
         
     }
     

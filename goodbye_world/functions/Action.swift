@@ -10,11 +10,10 @@ import SwiftUI
 struct Action : View {
     var readyToExecute: Bool?
     var actionText: String?
-    var callback: (() -> Void)?
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
     
-    init(readyToExecute: Bool? = nil, actionText: String? = nil){
+    init(readyToExecute: Bool? = nil, actionText: String? = nil, id: Int? = 0){
         self.actionText = actionText
         self.readyToExecute = readyToExecute
     }
