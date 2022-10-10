@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+func FalarArthur_() -> Void{
+    print("Arthur")
+}
+
+func FalarIgor_() -> Void{
+    print("Igor")
+}
+
+func FalarGuilherme_() -> Void{
+    print("Guilherme")
+}
+
+var acao1_ = ActionHandler (action: FalarArthur_);
+var acao2_ = ActionHandler (action: FalarIgor_);
+var acao3_ = ActionHandler (action: FalarGuilherme_);
+
+var opcao1_ = Opcao(nome: "Printar arthur", actionHandler: acao1_);
+var opcao2_ = Opcao(nome: "Printar Igor", actionHandler: acao2_);
+var opcao3_ = Opcao(nome: "Printar Guilherme", actionHandler: acao3_);
+
+var funcoes_ : [Opcao] = [opcao1_, opcao2_, opcao3_]
+
+
 struct LevelOneTutorialNew: View {
     @Environment(\.dismiss) private var dismiss
     private var panelWidth = UIScreen.main.bounds.width * 0.4
@@ -21,7 +44,8 @@ struct LevelOneTutorialNew: View {
     @State private var translucentScreenShow = false
     @State private var imageContrastShow = false
     
-    
+    @StateObject var painelFuncoes = Painel(funcoes);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 3);
     
     var body: some View {
     
@@ -39,12 +63,12 @@ struct LevelOneTutorialNew: View {
                         //Rectangle().fill(Color(.white)).frame(height:15)
                         Spacer()
                         //Area de Acoes
-                        ActionArea(actions: [])
+                        ActionArea(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
                         .opacity(actionPanelAppear ? 1 : 0)
                         Spacer()
                         
                         //Area de Execucoes
-                        ExecutionArea(actions: [])
+                        ExecutionArea(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
                         .opacity(executionPanelAppear ? 1 : 0)
                 
                         Spacer()
