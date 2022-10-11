@@ -13,10 +13,18 @@ struct ExecutionArea : View {
     
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
-    let actions: [String]
     
-    init(actions: [String] = []){
-        self.actions = actions
+    @EnvironmentObject var painelExecucao : PainelExecucao;
+    @EnvironmentObject var painelAcoes : Painel;
+    
+    //init(painelExecucao : PainelExecucao, painelAcoes : Painel){
+    //    self.painelExecucao = painelExecucao;
+     //   self.painelAcoes = painelAcoes;
+    //}
+    
+    func moveToAction(_ action:Opcao){
+        self.painelExecucao.removeOpcao(opcao: action);
+        self.painelAcoes.addOpcao(opcao: action);
     }
     
     var body: some View{
@@ -29,26 +37,20 @@ struct ExecutionArea : View {
                 .padding()
                 .border(.black, width: 4)
             
-            
-            if actions.count > 0{
-                // Lista de acoes
-                VStack(spacing: 15.0){
-                    ForEach(actions, id:\.self){
-                        action in
-                        Action(readyToExecute: true, actionText: action)
+            VStack(){
+                ForEach(self.painelExecucao.funcoes){ action in
+                    if (action.nome == "nil"){
+                        Rectangle()
+                            .stroke(style: StrokeStyle(lineWidth: 4.0, dash: [6]))
+                            .fill(Color(.black).opacity(1.0))
+                            .frame(width: actionWidth, height: actionHeight)
+                    }else{
+                        Action(readyToExecute : true, actionText: action.nome, action_data: action, onClickEvent: self.moveToAction)
                     }
+                            
                 }
-                .offset(x: 20, y: 70)
-            }else{
-                Rectangle()
-                    .stroke(style: StrokeStyle(lineWidth: 4.0, dash: [6]))
-                    .fill(Color(.black).opacity(1.0))
-                    .frame(width: actionWidth, height: actionHeight)
-                    .offset(x: 20, y: 70)
-                    
             }
-            
-            
+            .offset(x: 20, y: 70)
         }
     }
 }
@@ -56,6 +58,9 @@ struct ExecutionArea : View {
 struct ExecutionArea_Previews: PreviewProvider {
     static var previews: some View {
         ExecutionArea()
-            .previewInterfaceOrientation(.landscapeLeft)
+    .previewInterfaceOrientation(.landscapeLeft)
+//    .environmentObject(PainelExecucao())
+//    .environmentObject(Painel())
+    
     }
 }
