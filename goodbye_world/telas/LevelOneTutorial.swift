@@ -25,6 +25,7 @@ struct LevelOneTutorial: View {
     @State private var imageContrastShow = false
     @State private var actionAreaReady = false
     @State private var actionAreaShow = false
+    @State private var contrastActionAreaShow = false
     
     @StateObject var painelFuncoes = Painel(funcoes);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
@@ -79,23 +80,10 @@ struct LevelOneTutorial: View {
                 }
                 
                 // Tela meio transparente 1
-    //            true ?
+    //            true ?//
                 Rectangle()
                     .fill(Color(.black))
                     .opacity(translucentScreenShow ? 0.5 : 0.00001)
-                    .highPriorityGesture(
-                        TapGesture().onEnded{
-                            if translucentScreenReady {
-                                showTranslucentScreen()
-                            }
-                            
-                            if(actionAreaReady){
-                                actionAreaReady = false
-                            }
-                            
-                            
-                        }
-                    )
     //            : Rectangle()//
                 
                 
@@ -131,21 +119,43 @@ struct LevelOneTutorial: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             
-            
+            //COntrast Image
             HStack{
                 ZStack{
                     Rectangle().fill(Color(.white))
                         .border(.black, width: 6)
                         .frame(width: 400)
                     Textinho.FonteBonita("Este é você", 35)
-                }.frame(width: .infinity, height: 80).offset(y: -80)
+                }.frame(height: 80).offset(y: -80)
                     .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
                 Rectangle().opacity(0.0)
             }
             .opacity(imageContrastShow ? 1 : 0)
             
+            //Contrast Action Area
+            HStack(alignment: .top){
+                Rectangle().fill(Color(.white)).opacity(0.0)
+                ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+            }.padding(EdgeInsets(top: 28, leading: 0.0, bottom: 0.0, trailing: 18))
+                .opacity(contrastActionAreaShow ? 1 : 0)
+            
             
         }
+        .highPriorityGesture(
+            TapGesture().onEnded{
+                if translucentScreenReady {
+                    showTranslucentScreen()
+                    
+                }
+                else if(actionAreaReady){
+                    actionAreaReady = false
+                    showContrastActionArea()
+                    hideClickForNext()
+                }
+                
+                
+            }
+        )
         
     }
     
@@ -165,6 +175,7 @@ struct LevelOneTutorial: View {
             showContrastImage()
             hideClickForNext()
             showClickForNext(delay: 2.0)
+
         }
     }
     
@@ -174,6 +185,7 @@ struct LevelOneTutorial: View {
             clickForNext = true
         }
     }
+    
     
     // esconde a mensagem de clicar na tela para prosseguir
     func hideClickForNext(){
@@ -186,6 +198,7 @@ struct LevelOneTutorial: View {
     func showContrastImage(){
         withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
             imageContrastShow = true
+            actionAreaReady = true
         }
     }
     
@@ -198,6 +211,18 @@ struct LevelOneTutorial: View {
         }
     }
     
+    func showContrastActionArea(){
+        withAnimation(Animation.linear(duration: 1.0).delay(0.0)){
+            contrastActionAreaShow = true
+            hideContrastImage()
+        }
+    }
+    
+    func hideContrastImage(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            imageContrastShow = false
+        }
+    }
 }
 
 
