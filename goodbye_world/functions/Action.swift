@@ -13,6 +13,7 @@ struct Action : View {
     var actionText: String?
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
+    @EnvironmentObject var data : Data
     
     init(readyToExecute: Bool? = nil, actionText: String? = nil, id: Int? = 0){
         self.actionText = actionText
@@ -36,7 +37,8 @@ struct Action : View {
     }
     
     func moveActionToExecution(_ id : Int){
-//        data.actions.removeAll()
+        data.actions.removeAll()
+        print("test")
     }
 
 }

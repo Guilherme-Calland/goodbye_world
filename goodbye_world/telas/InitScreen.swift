@@ -8,6 +8,8 @@ import SwiftUI
 
 struct InitScreen: View {
     
+    @StateObject var data: Data = Data()
+    
     init(){
         UINavigationBar.setAnimationsEnabled(false)
     }
@@ -18,6 +20,7 @@ struct InitScreen: View {
                 ScreenBody()
             }.foregroundColor(.black).buttonStyle(NoClickAnimation())
         }.navigationViewStyle(StackNavigationViewStyle.stack)
+            .environmentObject(data)
     }
 }
 

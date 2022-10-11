@@ -21,7 +21,7 @@ struct LevelOneTutorialNew: View {
     @State private var translucentScreenShow = false
     @State private var imageContrastShow = false
     
-    
+    @EnvironmentObject var data: Data
     
     var body: some View {
     
@@ -39,7 +39,7 @@ struct LevelOneTutorialNew: View {
                         //Rectangle().fill(Color(.white)).frame(height:15)
                         Spacer()
                         //Area de Acoes
-                        ActionArea(actions: ["test 1", "test 2"])
+                        ActionArea(actions: data.actions)
                         .opacity(actionPanelAppear ? 1 : 0)
                         Spacer()
                         
