@@ -14,6 +14,8 @@ var correct_output : [Opcao] = [opcao3, opcao2, opcao1]
 struct LevelOneTutorial: View {
     @Environment(\.dismiss) private var dismiss
     private var panelWidth = UIScreen.main.bounds.width * 0.4
+    private var screenWidth = UIScreen.main.bounds.width
+    private var screenHeight = UIScreen.main.bounds.height
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
@@ -28,6 +30,7 @@ struct LevelOneTutorial: View {
     @State private var contrastActionAreaShow = false
     @State private var contrastImagePath = "tut1.2"
     @State private var contrastFirstTextShow = false
+    @State private var mainTextShow = false
     
     @StateObject var painelFuncoes = Painel(funcoes);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
@@ -122,7 +125,7 @@ struct LevelOneTutorial: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             
-            //Contrast Text
+            //Initial Contrast Text
             HStack{
                 ZStack{
                     Rectangle().fill(Color(.white))
@@ -135,6 +138,24 @@ struct LevelOneTutorial: View {
             }
             .opacity(contrastFirstTextShow ? 1 : 0)
             
+            // Texto tutorial principal
+            HStack{
+                VStack{
+                    ZStack{
+                        Rectangle().fill(Color(.white))
+                            .border(.black, width: 6)
+                            .frame(width: 400, height: 250)
+                        Textinho.FonteBonita("Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer.")
+                            .frame(width: 400, height: 400)
+                    }
+                    
+                    Spacer()
+                }
+                Spacer()
+            }.offset(x: 120, y : 50)
+                .opacity(mainTextShow ? 1 : 0)
+            
+            
             //Contrast Action Area
             HStack(alignment: .top){
                 Rectangle().fill(Color(.white)).opacity(0.0)
@@ -142,7 +163,7 @@ struct LevelOneTutorial: View {
             }.padding(EdgeInsets(top: 28, leading: 0.0, bottom: 0.0, trailing: 18))
                 .opacity(contrastActionAreaShow ? 1 : 0)
             
-            
+        
         } // bota um rectangle que cobre tudo aq
         .highPriorityGesture(
             TapGesture().onEnded{
@@ -153,8 +174,9 @@ struct LevelOneTutorial: View {
                 }
                 else if(actionAreaReady){
                     actionAreaReady = false
-                    showContrastActionArea()
                     hideClickForNext()
+                    showClickForNext(delay: 3.0)
+                    showContrastActionArea()
                 }
                 
                 
@@ -238,12 +260,19 @@ struct LevelOneTutorial: View {
                 contrastImagePath = "tut1.3"
             }
             showContrastImage(delay: 2.0)
+            showMainText(delay: 2.0)
         }
     }
     
     func hideContrastImage(){
         withAnimation(Animation.linear(duration: 1.0)){
             imageContrastShow = false
+        }
+    }
+    
+    func showMainText(delay: Double){
+        withAnimation(Animation.linear(duration: 1.0).delay(delay)){
+            mainTextShow = true
         }
     }
 }
