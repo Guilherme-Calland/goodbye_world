@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Action : View {
-    var id: Int?
     var readyToExecute: Bool?
     var actionText: String?
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
@@ -18,7 +17,6 @@ struct Action : View {
     init(readyToExecute: Bool? = nil, actionText: String? = nil, id: Int? = 0){
         self.actionText = actionText
         self.readyToExecute = readyToExecute
-        self.id = id
     }
     
     var body : some View {
@@ -38,7 +36,7 @@ struct Action : View {
     
     func moveActionToExecution(_ id : Int){
         data.actions.removeAll()
-        print("test")
+//        print("test")
     }
 
 }
