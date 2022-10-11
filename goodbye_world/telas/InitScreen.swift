@@ -16,7 +16,7 @@ struct InitScreen: View {
     
     var body: some View {
         NavigationView{
-            NavigationLink(destination: LevelOneTutorialNew()){
+            NavigationLink(destination: LevelOneTutorial()){
                 ScreenBody()
             }.foregroundColor(.black).buttonStyle(NoClickAnimation())
         }.navigationViewStyle(StackNavigationViewStyle.stack)
