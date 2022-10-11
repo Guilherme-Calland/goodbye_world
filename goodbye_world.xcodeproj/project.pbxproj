@@ -19,6 +19,8 @@
 		82F4FC5A28F4A19E00A05F9E /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4FC5928F4A19E00A05F9E /* ActionHandler.swift */; };
 		82F4FC5C28F4A20A00A05F9E /* Painel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4FC5B28F4A20A00A05F9E /* Painel.swift */; };
 		82F4FC5E28F4A22700A05F9E /* PainelTesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4FC5D28F4A22700A05F9E /* PainelTesteView.swift */; };
+		82F4FC6028F5E40A00A05F9E /* SaveScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4FC5F28F5E40A00A05F9E /* SaveScreen.swift */; };
+		82F4FC6228F5E45200A05F9E /* ConfigsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4FC6128F5E45200A05F9E /* ConfigsScreen.swift */; };
 		82FD110728E77D40006D9316 /* Fontinha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110628E77D40006D9316 /* Fontinha.swift */; };
 		82FD110928E7802A006D9316 /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */; };
 		82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FD110B28E7809C006D9316 /* InitScreen.swift */; };
@@ -45,6 +47,8 @@
 		82F4FC5928F4A19E00A05F9E /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
 		82F4FC5B28F4A20A00A05F9E /* Painel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painel.swift; sourceTree = "<group>"; };
 		82F4FC5D28F4A22700A05F9E /* PainelTesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainelTesteView.swift; sourceTree = "<group>"; };
+		82F4FC5F28F5E40A00A05F9E /* SaveScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScreen.swift; sourceTree = "<group>"; };
+		82F4FC6128F5E45200A05F9E /* ConfigsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigsScreen.swift; sourceTree = "<group>"; };
 		82FD110628E77D40006D9316 /* Fontinha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fontinha.swift; sourceTree = "<group>"; };
 		82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Silkscreen-Regular.ttf"; path = "../../../Downloads/Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
 		82FD110B28E7809C006D9316 /* InitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScreen.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				82FD110B28E7809C006D9316 /* InitScreen.swift */,
 				82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */,
 				82FD111B28EE06AB006D9316 /* LevelOneTutorialNew.swift */,
+				82F4FC5F28F5E40A00A05F9E /* SaveScreen.swift */,
+				82F4FC6128F5E45200A05F9E /* ConfigsScreen.swift */,
 			);
 			path = telas;
 			sourceTree = "<group>";
@@ -243,7 +249,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B5204728F0A799003CFC45 /* ActionShadow.swift in Sources */,
+				82F4FC6228F5E45200A05F9E /* ConfigsScreen.swift in Sources */,
 				82F4FC5E28F4A22700A05F9E /* PainelTesteView.swift in Sources */,
+				82F4FC6028F5E40A00A05F9E /* SaveScreen.swift in Sources */,
 				82FD110728E77D40006D9316 /* Fontinha.swift in Sources */,
 				82F4FC5C28F4A20A00A05F9E /* Painel.swift in Sources */,
 				EE98259628E37C9A00FB12B3 /* ProgressScreen.swift in Sources */,

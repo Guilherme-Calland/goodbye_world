@@ -13,9 +13,8 @@ struct ProgressScreen: View {
             GridItem(.flexible(minimum: 0, maximum: 200), spacing:90)
         ]
         
-        
         VStack(spacing:0) {
-            Text("Progresso").font(.system(size: 60)).padding()
+            Textinho.FonteBonita("Progresso", 60).padding()
             Spacer()
             ScrollView(.horizontal) {
                 LazyHGrid (rows: rows, alignment: .bottom,
@@ -28,17 +27,17 @@ struct ProgressScreen: View {
                             Button {
                                 
                             } label: {
-                                VStack(){
-                                    Text(cont.conteudo).font(.system(size:60)).padding()
-                                    
-                                    Text(cont.progresso)
-                                        .font(.system(size:45))
+                                VStack() {
+                                    Textinho.FonteBonita(cont.conteudo, 50)
+                                        .padding()
+                                    Textinho.FonteBonita(cont.progresso, 40)
                                 }.frame(width: 450, height: 300, alignment: .center)
-                            }.border(.black)
+                            }.border(.gray)
                                 .foregroundColor(.black)
-                                .background(Color.gray)
-                                .cornerRadius(18);
-                        }
+                                .background {
+                                    LinearGradient(gradient: Gradient(colors: [.white, .gray]), startPoint: .top, endPoint: .bottom)
+                                }
+                                .cornerRadius(18);                        }
                         
                     }
                 }
