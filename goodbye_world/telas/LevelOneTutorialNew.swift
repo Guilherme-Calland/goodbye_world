@@ -7,27 +7,8 @@
 
 import SwiftUI
 
-func FalarArthur_() -> Void{
-    print("Arthur")
-}
-
-func FalarIgor_() -> Void{
-    print("Igor")
-}
-
-func FalarGuilherme_() -> Void{
-    print("Guilherme")
-}
-
-var acao1_ = ActionHandler (action: FalarArthur_);
-var acao2_ = ActionHandler (action: FalarIgor_);
-var acao3_ = ActionHandler (action: FalarGuilherme_);
-
-var opcao1_ = Opcao(nome: "Printar arthur", actionHandler: acao1_);
-var opcao2_ = Opcao(nome: "Printar Igor", actionHandler: acao2_);
-var opcao3_ = Opcao(nome: "Printar Guilherme", actionHandler: acao3_);
-
-var funcoes_ : [Opcao] = [opcao1_, opcao2_, opcao3_]
+// Essas opcoes foram criadas em outro lugar ;p "PainelTesteView"
+var correct_output : [Opcao] = [opcao3, opcao2, opcao1]
 
 
 struct LevelOneTutorialNew: View {
@@ -45,7 +26,7 @@ struct LevelOneTutorialNew: View {
     @State private var imageContrastShow = false
     
     @StateObject var painelFuncoes = Painel(funcoes);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 3);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
     
     var body: some View {
     
@@ -85,7 +66,11 @@ struct LevelOneTutorialNew: View {
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
                     .opacity(executionButtonAppear ? 1 : 1)
                     .onTapGesture {
-                        painelExecucao.executar();
+                        if (painelExecucao.executar() == false){
+                            print("Verificão falhou");
+                        }else{
+                            print("Verificão passou");
+                        }
                     }
             //
                 

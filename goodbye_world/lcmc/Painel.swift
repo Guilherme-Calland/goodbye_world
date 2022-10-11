@@ -68,18 +68,29 @@ class PainelExecucao : Painel {
     var max_slots = 0;
     var avaliable_slot = 0;
     var count = 0;
+    var correct_output : [Opcao] = [];
+    
     let opcao_nil = Opcao(nome: "nil", actionHandler: ActionHandler(action: (nil_test)));
     
-    init(max_slots : Int){
+    init(max_slots : Int, correct_output: [Opcao]){
         super.init(Array(repeating: opcao_nil, count: self.max_slots))
         self.max_slots = max_slots
         self.funcoes = Array(repeating: opcao_nil, count: self.max_slots)
+        self.correct_output = correct_output
     }
     
-    func executar(){
-        for opcao in self.funcoes {
-            opcao.exec();
+    func verificar() -> Bool {
+        return (self.correct_output == self.funcoes)
+    }
+    
+    func executar() -> Bool{
+        if (self.verificar()){
+            for opcao in self.funcoes {
+                opcao.exec();
+            }
+            return true;
         }
+        return false;
     }
     
     override func canAdd() -> Bool {
