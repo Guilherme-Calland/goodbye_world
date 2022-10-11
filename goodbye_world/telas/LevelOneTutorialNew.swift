@@ -21,6 +21,8 @@ struct LevelOneTutorialNew: View {
     @State private var translucentScreenShow = false
     @State private var imageContrastShow = false
     
+    @EnvironmentObject var data: Data
+    
     var body: some View {
     
         ZStack(alignment: .bottom){
@@ -37,7 +39,7 @@ struct LevelOneTutorialNew: View {
                         //Rectangle().fill(Color(.white)).frame(height:15)
                         Spacer()
                         //Area de Acoes
-                        ActionArea(actions: Data.actions)
+                        ActionArea(actions: data.actions)
                         .opacity(actionPanelAppear ? 1 : 0)
                         Spacer()
                         
@@ -172,6 +174,7 @@ struct LevelOneTutorialNew: View {
 struct LevelOneTutorialNew_Previews: PreviewProvider {
     static var previews: some View {
         LevelOneTutorialNew()
-.previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(Data())
     }
 }
