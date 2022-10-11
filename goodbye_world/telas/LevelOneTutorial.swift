@@ -17,13 +17,14 @@ struct LevelOneTutorial: View {
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
-    @State private var actionPanelAppear = false
     @State private var executionPanelAppear = false
     @State private var executionButtonAppear = false
     @State private var clickForNext = false
     @State private var translucentScreenReady = false
     @State private var translucentScreenShow = false
     @State private var imageContrastShow = false
+    @State private var actionAreaReady = false
+    @State private var actionAreaShow = false
     
     @StateObject var painelFuncoes = Painel(funcoes);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
@@ -46,7 +47,7 @@ struct LevelOneTutorial: View {
                             Spacer()
                             //Area de Acoes
                             ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-                            .opacity(actionPanelAppear ? 1 : 0)
+                            .opacity(actionAreaShow ? 1 : 0)////
                             Spacer()
                             
                             //Area de Execucoes
@@ -86,11 +87,16 @@ struct LevelOneTutorial: View {
                         TapGesture().onEnded{
                             if translucentScreenReady {
                                 showTranslucentScreen()
-                                hideClickForNext()
                             }
+                            
+                            if(actionAreaReady){
+                                actionAreaReady = false
+                            }
+                            
+                            
                         }
                     )
-    //            : Rectangle()
+    //            : Rectangle()//
                 
                 
                 // Mensagem: clique em qualquer lugar para prosseguir
@@ -103,7 +109,7 @@ struct LevelOneTutorial: View {
                         
                 }
                 .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
-                .opacity(clickForNext ? 1 : 0)
+                .opacity((clickForNext) ? 1 : 0)
                 
                 HStack{
                     Image("tut1.2")
@@ -125,6 +131,7 @@ struct LevelOneTutorial: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             
+            
             HStack{
                 ZStack{
                     Rectangle().fill(Color(.white))
@@ -135,19 +142,10 @@ struct LevelOneTutorial: View {
                     .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
                 Rectangle().opacity(0.0)
             }
+            .opacity(imageContrastShow ? 1 : 0)
             
             
         }
-        
-        
-        
-        
-//        .onTapGesture(){
-//            if translucentScreenReady {
-//                showTranslucentScreen()
-//                hideClickForNext()
-//            }
-//        }
         
     }
     
@@ -166,6 +164,7 @@ struct LevelOneTutorial: View {
             translucentScreenShow = true
             showContrastImage()
             hideClickForNext()
+            showClickForNext(delay: 2.0)
         }
     }
     
@@ -180,7 +179,7 @@ struct LevelOneTutorial: View {
     func hideClickForNext(){
         withAnimation(Animation.linear(duration: 1.0)){
             clickForNext = false
-        }
+        }//
     }
     
     // mostra a imagem que está em contraste, ou seja, a imagem que está na frente da tela meio transparente
@@ -198,7 +197,9 @@ struct LevelOneTutorial: View {
             translucentScreenReady = true
         }
     }
+    
 }
+
 
 struct LevelOneTutorial_Previews: PreviewProvider {
     static var previews: some View {
