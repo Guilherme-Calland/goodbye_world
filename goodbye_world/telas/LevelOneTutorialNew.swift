@@ -8,6 +8,7 @@
 import SwiftUI
 
 // Essas opcoes foram criadas em outro lugar ;p "PainelTesteView"
+
 var correct_output : [Opcao] = [opcao3, opcao2, opcao1]
 
 
@@ -66,11 +67,14 @@ struct LevelOneTutorialNew: View {
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
                     .opacity(executionButtonAppear ? 1 : 1)
                     .onTapGesture {
-                        if (painelExecucao.executar() == false){
-                            print("Verificão falhou");
-                        }else{
-                            print("Verificão passou");
+                        for opcao in painelExecucao.funcoes {
+                            opcao.exec();
                         }
+                        //if (painelExecucao.executar() == false){
+                        //    print("Verificão falhou");
+                        //}else{
+                        //    print("Verificão passou");
+                        //}
                     }
             //
                 
