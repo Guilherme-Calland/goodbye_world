@@ -14,12 +14,17 @@ struct ExecutionArea : View {
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
     
-    var painelExecucao : PainelExecucao;
-    var painelAcoes : Painel;
+    @EnvironmentObject var painelExecucao : PainelExecucao;
+    @EnvironmentObject var painelAcoes : Painel;
     
-    init(painelExecucao : PainelExecucao, painelAcoes : Painel){
-        self.painelExecucao = painelExecucao;
-        self.painelAcoes = painelAcoes;
+    //init(painelExecucao : PainelExecucao, painelAcoes : Painel){
+    //    self.painelExecucao = painelExecucao;
+     //   self.painelAcoes = painelAcoes;
+    //}
+    
+    func moveToAction(_ action:Opcao){
+        self.painelExecucao.removeOpcao(opcao: action);
+        self.painelAcoes.addOpcao(opcao: action);
     }
     
     var body: some View{
@@ -41,7 +46,7 @@ struct ExecutionArea : View {
                             .frame(width: actionWidth, height: actionHeight)
                             .offset(x: 20, y: 70)
                     }else{
-                        Action(readyToExecute : true, actionText: action.nome)
+                        Action(readyToExecute : true, actionText: action.nome, action_data: action, onClickEvent: self.moveToAction)
                     }
                             
                 }

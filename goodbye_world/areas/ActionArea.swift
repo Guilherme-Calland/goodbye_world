@@ -12,12 +12,17 @@ struct ActionArea : View {
     private var panelHeight = UIScreen.main.bounds.height * 0.45
     // let actions: [String] = ["action 1", "action 2"]
     
-    var painelExecucao : PainelExecucao;
-    var painelAcoes : Painel;
+    @EnvironmentObject var painelExecucao : PainelExecucao;
+    @EnvironmentObject var painelAcoes : Painel;
     
-    init(painelExecucao : PainelExecucao, painelAcoes : Painel){
-        self.painelExecucao = painelExecucao;
-        self.painelAcoes = painelAcoes;
+//    init(painelExecucao : PainelExecucao, painelAcoes : Painel){
+ //       self.painelExecucao = painelExecucao;
+ //       self.painelAcoes = painelAcoes;
+//    }
+    
+    func moveToExec(_ action:Opcao){
+        self.painelAcoes.removeOpcao(opcao: action);
+        self.painelExecucao.addOpcao(opcao: action);
     }
     
     var body: some View{
@@ -34,7 +39,7 @@ struct ActionArea : View {
             VStack(){
                 ForEach(self.painelAcoes.funcoes){
                     action in
-                    Action(readyToExecute: false, actionText: action.nome);
+                    Action(readyToExecute: false, actionText: action.nome, action_data: action, onClickEvent: self.moveToExec);
                      // mover acao desse painel para o outro
                         //self.painelAcoes.removeOpcao(opcao: action);
                         //self.painelExecucao.addOpcao(opcao: action);

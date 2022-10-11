@@ -11,13 +11,18 @@ struct Action : View {
     var id: Int?
     var readyToExecute: Bool?
     var actionText: String?
+    var onClickEvent: (Opcao) -> ();
+    var action_data: Opcao;
+    
     private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
     private var actionHeight = 40.0
     
-    init(readyToExecute: Bool? = nil, actionText: String? = nil, id: Int? = 0){
+    init(readyToExecute: Bool? = nil, actionText: String? = nil, id: Int? = 0, action_data: Opcao, onClickEvent:@escaping (Opcao) -> ()){
         self.actionText = actionText
         self.readyToExecute = readyToExecute
         self.id = id
+        self.action_data = action_data;
+        self.onClickEvent = onClickEvent
     }
     
     var body : some View {
@@ -30,7 +35,7 @@ struct Action : View {
                     .border(.black, width: 4)
                 Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
             }.onTapGesture {
-                moveActionToExecution(1)
+                self.onClickEvent(self.action_data);
             }
         }
     }
@@ -41,11 +46,11 @@ struct Action : View {
 
 }
 
-struct Action_Previews: PreviewProvider {
-    static var previews: some View {
-        Action()
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct Action_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Action()
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}
 
 

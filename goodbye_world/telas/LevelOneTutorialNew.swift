@@ -63,12 +63,12 @@ struct LevelOneTutorialNew: View {
                         //Rectangle().fill(Color(.white)).frame(height:15)
                         Spacer()
                         //Area de Acoes
-                        ActionArea(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
+                        ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
                         .opacity(actionPanelAppear ? 1 : 0)
                         Spacer()
                         
                         //Area de Execucoes
-                        ExecutionArea(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
+                        ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)//(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
                         .opacity(executionPanelAppear ? 1 : 0)
                 
                         Spacer()
