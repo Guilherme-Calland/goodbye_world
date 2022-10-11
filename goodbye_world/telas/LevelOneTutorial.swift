@@ -17,8 +17,8 @@ struct LevelOneTutorial: View {
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
-    @State private var actionPanelAppear = true
-    @State private var executionPanelAppear = true
+    @State private var actionPanelAppear = false
+    @State private var executionPanelAppear = false
     @State private var executionButtonAppear = false
     @State private var clickForNext = false
     @State private var translucentScreenReady = false
@@ -64,7 +64,7 @@ struct LevelOneTutorial: View {
                 
                 Image("execution-buttom")
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
-                    .opacity(executionButtonAppear ? 1 : 1)
+                    .opacity(executionButtonAppear ? 1 : 0)
                     .onTapGesture {
                         if (painelExecucao.executar() == false){
                             print("Verificão falhou");
@@ -78,17 +78,17 @@ struct LevelOneTutorial: View {
             
             // Tela meio transparente 1
 //            true ?
-//            Rectangle()
-//                .fill(Color(.black))
-//                .opacity(translucentScreenShow ? 0.5 : 0.00001)
-//                .highPriorityGesture(
-//                    TapGesture().onEnded{
-//                        if translucentScreenReady {
-//                            showTranslucentScreen()
-//                            hideClickForNext()
-//                        }
-//                    }
-//                )
+            Rectangle()
+                .fill(Color(.black))
+                .opacity(translucentScreenShow ? 0.5 : 0.00001)
+                .highPriorityGesture(
+                    TapGesture().onEnded{
+                        if translucentScreenReady {
+                            showTranslucentScreen()
+                            hideClickForNext()
+                        }
+                    }
+                )
 //            : Rectangle()
             
             
