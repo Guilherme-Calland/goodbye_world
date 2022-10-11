@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		099CDC7028F5E247008D0769 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099CDC6F28F5E247008D0769 /* Function.swift */; };
 		82A0A9C328F47E06001C4304 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A0A9C228F47E06001C4304 /* Data.swift */; };
 		82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A1824028E329980056D0A2 /* goodbye_worldApp.swift */; };
 		82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824428E3299B0056D0A2 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		099CDC6F28F5E247008D0769 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82A0A9C228F47E06001C4304 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		82A1823D28E329980056D0A2 /* goodbye_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goodbye_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A1824028E329980056D0A2 /* goodbye_worldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodbye_worldApp.swift; sourceTree = "<group>"; };
@@ -46,7 +48,7 @@
 		82F4FC5B28F4A20A00A05F9E /* Painel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painel.swift; sourceTree = "<group>"; };
 		82F4FC5D28F4A22700A05F9E /* PainelTesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainelTesteView.swift; sourceTree = "<group>"; };
 		82FD110628E77D40006D9316 /* Fontinha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fontinha.swift; sourceTree = "<group>"; };
-		82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Silkscreen-Regular.ttf"; path = "../../../Downloads/Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
+		82FD110828E7802A006D9316 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
 		82FD110B28E7809C006D9316 /* InitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScreen.swift; sourceTree = "<group>"; };
 		82FD110D28E780EA006D9316 /* LevelOneTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorial.swift; sourceTree = "<group>"; };
 		82FD111028EC72D9006D9316 /* goodbye-world-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "goodbye-world-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				82B5204428F073CA003CFC45 /* Action.swift */,
+				099CDC6F28F5E247008D0769 /* Function.swift */,
 			);
 			path = functions;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
 				82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */,
 				82A0A9C328F47E06001C4304 /* Data.swift in Sources */,
+				099CDC7028F5E247008D0769 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
