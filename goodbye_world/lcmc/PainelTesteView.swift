@@ -36,7 +36,7 @@ var funcoes: [Opcao] = [opcao1, opcao2, opcao3]
 
 struct PainelTesteView: View {
     @StateObject var painelFuncoes = Painel(funcoes);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 3);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
     
 
     var body: some View {
