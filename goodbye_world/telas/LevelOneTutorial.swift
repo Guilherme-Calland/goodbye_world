@@ -26,6 +26,8 @@ struct LevelOneTutorial: View {
     @State private var actionAreaReady = false
     @State private var actionAreaShow = false
     @State private var contrastActionAreaShow = false
+    @State private var contrastImagePath = "tut1.2"
+    @State private var contrastFirstTextShow = false
     
     @StateObject var painelFuncoes = Painel(funcoes);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
@@ -75,7 +77,7 @@ struct LevelOneTutorial: View {
                                 print("Verificão passou");
                             }
                         }
-                //
+                
                     
                 }
                 
@@ -99,8 +101,9 @@ struct LevelOneTutorial: View {
                 .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
                 .opacity((clickForNext) ? 1 : 0)
                 
+                // Contrast Image
                 HStack{
-                    Image("tut1.2")
+                    Image(contrastImagePath)
                         .resizable()
                         .interpolation(.none)
                     Rectangle().fill().opacity(0.0)
@@ -119,7 +122,7 @@ struct LevelOneTutorial: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             
-            //COntrast Image
+            //Contrast Text
             HStack{
                 ZStack{
                     Rectangle().fill(Color(.white))
@@ -130,7 +133,7 @@ struct LevelOneTutorial: View {
                     .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
                 Rectangle().opacity(0.0)
             }
-            .opacity(imageContrastShow ? 1 : 0)
+            .opacity(contrastFirstTextShow ? 1 : 0)
             
             //Contrast Action Area
             HStack(alignment: .top){
@@ -140,10 +143,11 @@ struct LevelOneTutorial: View {
                 .opacity(contrastActionAreaShow ? 1 : 0)
             
             
-        }
+        } // bota um rectangle que cobre tudo aq
         .highPriorityGesture(
             TapGesture().onEnded{
                 if translucentScreenReady {
+                    translucentScreenReady = false
                     showTranslucentScreen()
                     
                 }
@@ -173,6 +177,7 @@ struct LevelOneTutorial: View {
             translucentScreenReady = false
             translucentScreenShow = true
             showContrastImage()
+            showContrastFirstText()
             hideClickForNext()
             showClickForNext(delay: 2.0)
 
@@ -195,10 +200,22 @@ struct LevelOneTutorial: View {
     }
     
     // mostra a imagem que está em contraste, ou seja, a imagem que está na frente da tela meio transparente
-    func showContrastImage(){
-        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+    func showContrastImage(delay: Double = 1.0){
+        withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             imageContrastShow = true
             actionAreaReady = true
+        }
+    }
+    
+    func showContrastFirstText(){
+        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+            contrastFirstTextShow = true
+        }
+    }
+    
+    func hideContrastFirstText(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            contrastFirstTextShow = false
         }
     }
     
@@ -212,9 +229,15 @@ struct LevelOneTutorial: View {
     }
     
     func showContrastActionArea(){
-        withAnimation(Animation.linear(duration: 1.0).delay(0.0)){
+        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
             contrastActionAreaShow = true
+            
             hideContrastImage()
+            hideContrastFirstText()
+            DispatchQueue.main.asyncAfter(deadline: .now() +  1.0){
+                contrastImagePath = "tut1.3"
+            }
+            showContrastImage(delay: 2.0)
         }
     }
     
