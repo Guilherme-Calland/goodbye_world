@@ -33,7 +33,7 @@ struct ConfigsScreen: View {
                 }
                 Textinho.FonteBonita("Legendas", 40)
                     .padding()
-                Textinho.FonteBonita("On/Off", 25)
+                Textinho.FonteBonita("Add On/Off", 25)
             }
             Spacer()
         }
