@@ -83,10 +83,10 @@ struct LevelOneTutorialNew: View {
                 
                 Image("execution-buttom")
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
-                    .opacity(executionButtonAppear ? 1 : 0)
-//                    .onTapGesture {
-//                        dismiss()
-//                    }
+                    .opacity(executionButtonAppear ? 1 : 1)
+                    .onTapGesture {
+                        painelExecucao.executar();
+                    }
             //
                 
             }
