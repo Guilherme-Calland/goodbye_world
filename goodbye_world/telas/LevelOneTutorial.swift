@@ -19,15 +19,17 @@ struct LevelOneTutorial: View {
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
-    @State private var executionPanelAppear = false
     @State private var executionButtonAppear = false
     @State private var clickForNext = false
     @State private var translucentScreenReady = false
     @State private var translucentScreenShow = false
     @State private var imageContrastShow = false
     @State private var actionAreaReady = false
+    @State private var executionAreaReady = false
     @State private var actionAreaShow = false
+    @State private var executionAreaShow = false
     @State private var contrastActionAreaShow = false
+    @State private var contrastExecutionAreaShow = false
     @State private var contrastImagePath = "tut1.2"
     @State private var contrastFirstTextShow = false
     @State private var mainTextShow = false
@@ -58,7 +60,7 @@ struct LevelOneTutorial: View {
                             
                             //Area de Execucoes
                             ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)//(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
-                            .opacity(executionPanelAppear ? 1 : 0)
+                            .opacity(executionAreaShow ? 1 : 0)
                     
                             Spacer()
                             //Rectangle().fill(Color(.white)).frame(height:20)
@@ -156,12 +158,23 @@ struct LevelOneTutorial: View {
                 .opacity(mainTextShow ? 1 : 0)
             
             
-            //Contrast Action Area
-            HStack(alignment: .top){
-                Rectangle().fill(Color(.white)).opacity(0.0)
-                ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-            }.padding(EdgeInsets(top: 28, leading: 0.0, bottom: 0.0, trailing: 18))
-                .opacity(contrastActionAreaShow ? 1 : 0)
+            VStack{
+                Spacer()
+                //Contrast Action Area
+                HStack(alignment: .top){
+                    Rectangle().fill(Color(.white)).opacity(0.0)
+                    ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+                }.padding(EdgeInsets(top: 20.0, leading: 0.0, bottom: 0.0, trailing: 18))
+                    .opacity(contrastActionAreaShow ? 1 : 0)
+                Spacer()
+                //Contrast Execution Area
+                HStack(alignment: .top){
+                    Rectangle().fill(Color(.white)).opacity(0.0)
+                    ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+                }.padding(EdgeInsets(top: 5.0, leading: 0.0, bottom: 0.0, trailing: 18))
+                    .opacity(contrastExecutionAreaShow ? 1 : 0)
+            }
+            
             
         
         } // bota um rectangle que cobre tudo aq
@@ -169,6 +182,7 @@ struct LevelOneTutorial: View {
             TapGesture().onEnded{
                 if translucentScreenReady {
                     translucentScreenReady = false
+                    actionAreaReady = true
                     showTranslucentScreen()
                     
                 }
@@ -178,11 +192,15 @@ struct LevelOneTutorial: View {
                     showClickForNext(delay: 3.0)
                     showContrastActionArea()
                 }
-                
-                
+                else if(executionAreaReady){
+                    executionAreaReady = false
+                    hideClickForNext()
+                    hideMainText()
+                    showClickForNext(delay: 3.0)
+                    showContrastExecutionArea()
+                }
             }
         )
-        
     }
     
     // Animacao que some com a tela que mostra a imagem da tela inicial
@@ -225,7 +243,6 @@ struct LevelOneTutorial: View {
     func showContrastImage(delay: Double = 1.0){
         withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             imageContrastShow = true
-            actionAreaReady = true
         }
     }
     
@@ -261,6 +278,13 @@ struct LevelOneTutorial: View {
             }
             showContrastImage(delay: 2.0)
             showMainText(delay: 2.0)
+            executionAreaReady = true
+        }
+    }
+    
+    func showContrastExecutionArea(){
+        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+            contrastExecutionAreaShow = true
         }
     }
     
@@ -273,6 +297,12 @@ struct LevelOneTutorial: View {
     func showMainText(delay: Double){
         withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             mainTextShow = true
+        }
+    }
+    
+    func hideMainText(){
+        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+            mainTextShow = false
         }
     }
 }
