@@ -9,13 +9,13 @@ import SwiftUI
 
 // Essas opcoes foram criadas em outro lugar ;p "PainelTesteView"
 var correct_output : [Opcao] = [opcao3, opcao2, opcao1]
-
+var panelWidth = UIScreen.main.bounds.width * 0.4
+var screenWidth = UIScreen.main.bounds.width
+var screenHeight = UIScreen.main.bounds.height
 
 struct LevelOneTutorial: View {
     @Environment(\.dismiss) private var dismiss
-    private var panelWidth = UIScreen.main.bounds.width * 0.4
-    private var screenWidth = UIScreen.main.bounds.width
-    private var screenHeight = UIScreen.main.bounds.height
+    
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
@@ -74,8 +74,7 @@ struct LevelOneTutorial: View {
                     }.frame(width: UIScreen.main.bounds.width)
                     
                     
-                    Image("execution-buttom")
-                        .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
+                    ExecutionButton()
                         .opacity(executionButtonAppear ? 1 : 0)
                         .onTapGesture {
                             if (painelExecucao.executar() == false){
@@ -89,21 +88,15 @@ struct LevelOneTutorial: View {
                 }
                 
                 // Tela meio transparente 1
-    //            true ?//
                 Rectangle()
                     .fill(Color(.black))
-                    .opacity(translucentScreenShow ? 0.5 : 0.00001)
+                    .opacity(translucentScreenShow ? 0.5 : 0.0)
     //            : Rectangle()//
                 
                 
-                // Contrast Image
-                HStack{
-                    Image(contrastImagePath)
-                        .resizable()
-                        .interpolation(.none)
-                    Rectangle().fill().opacity(0.0)
-                        .frame(width: panelWidth)
-                }.opacity(imageContrastShow ? 1 : 0)
+                // Image that shows in front  of the translucent screen
+                ContrastImage(contrastImagePath: contrastImagePath)
+                .opacity(imageContrastShow ? 1 : 0)
                     .padding(EdgeInsets.init(top:0, leading:0, bottom: 0, trailing: 14))
                 
                 // Apenas a imagem da tela inicial
@@ -117,17 +110,8 @@ struct LevelOneTutorial: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
             
-            //Initial Contrast Text
-            HStack{
-                ZStack{
-                    Rectangle().fill(Color(.white))
-                        .border(.black, width: 6)
-                        .frame(width: 400)
-                    Textinho.FonteBonita("Este é você", 35)
-                }.frame(height: 80).offset(y: -80)
-                    .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
-                Rectangle().opacity(0.0)
-            }
+            // o textinho que aparece: este é você
+            InitialContrastText(text: "esse é você")
             .opacity(contrastFirstTextShow ? 1 : 0)
             
             // Texto tutorial principal
@@ -136,13 +120,7 @@ struct LevelOneTutorial: View {
                     if(!isMainTextUp){
                         Spacer()
                     }
-                    ZStack{
-                        Rectangle().fill(Color(.white))
-                            .border(.black, width: 6)
-                            .frame(width: 400, height: 250)
-                        Textinho.FonteBonita(mainText)
-                            .frame(width: 400, height: 400)
-                    }
+                    MainTextPopup(text: mainText)
                     if(isMainTextUp){
                         Spacer()
                     }
@@ -333,5 +311,56 @@ struct LevelOneTutorial_Previews: PreviewProvider {
         LevelOneTutorial()
             .previewInterfaceOrientation(.landscapeLeft)
             .environmentObject(Data())
+    }
+}
+
+struct ExecutionButton : View{
+    var body : some View {
+        Image("execution-buttom")
+            .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
+    }
+}
+
+
+struct ContrastImage : View {
+    var contrastImagePath: String
+    
+    var body : some View {
+        HStack{
+            Image(contrastImagePath)
+                .resizable()
+                .interpolation(.none)
+            Rectangle().fill().opacity(0.0)
+                .frame(width: panelWidth)
+        }
+    }
+}
+
+struct InitialContrastText : View {
+    var text: String
+    var body : some View {
+        HStack{
+            ZStack{
+                Rectangle().fill(Color(.white))
+                    .border(.black, width: 6)
+                    .frame(width: 400)
+                Textinho.FonteBonita(text, 35)
+            }.frame(height: 80).offset(y: -80)
+                .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
+            Rectangle().opacity(0.0)
+        }
+    }
+}
+
+struct MainTextPopup : View{
+    var text: String
+    var body : some View {
+        ZStack{
+            Rectangle().fill(Color(.white))
+                .border(.black, width: 6)
+                .frame(width: 400, height: 250)
+            Textinho.FonteBonita(text)
+                .frame(width: 400, height: 400)
+        }
     }
 }
