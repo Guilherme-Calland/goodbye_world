@@ -33,6 +33,8 @@ struct LevelOneTutorial: View {
     @State private var contrastImagePath = "tut1.2"
     @State private var contrastFirstTextShow = false
     @State private var mainTextShow = false
+    @State private var isMainTextUp = true
+    @State private var mainText = "Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer."
     
     @StateObject var painelFuncoes = Painel(funcoes);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
@@ -131,18 +133,23 @@ struct LevelOneTutorial: View {
             // Texto tutorial principal
             HStack{
                 VStack{
+                    if(!isMainTextUp){
+                        Spacer()
+                    }
                     ZStack{
                         Rectangle().fill(Color(.white))
                             .border(.black, width: 6)
                             .frame(width: 400, height: 250)
-                        Textinho.FonteBonita("Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer.")
+                        Textinho.FonteBonita(mainText)
                             .frame(width: 400, height: 400)
                     }
+                    if(isMainTextUp){
+                        Spacer()
+                    }
                     
-                    Spacer()
                 }
                 Spacer()
-            }.offset(x: 120, y : 50)
+            }.offset(x: 120, y : isMainTextUp ? 50 : -50)
                 .opacity(mainTextShow ? 1 : 0)
             
             
@@ -290,8 +297,15 @@ struct LevelOneTutorial: View {
                 contrastImagePath = "tut1.4"
                 showMainText(delay: 0.0)
                 showContrastImage(delay: 0.0)
+                changeMainText(mainTextUp: false,
+                               inMainText: "essa é a area de execucões.\n\nas acoes só poderão ser realizadas uma vez que estiverem nessa area")
             }
         }
+    }
+    
+    func changeMainText(mainTextUp: Bool = true, inMainText: String){
+        isMainTextUp = mainTextUp
+        mainText = inMainText
     }
     
     func hideContrastImage(){
