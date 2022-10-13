@@ -42,11 +42,11 @@ struct LevelOneTutorial: View {
     @State private var actionAndExecutionAreaReady = false
     @State private var fullScreenClick = true
     
-    @StateObject var painelFuncoes = Painel(funcoesTutOne);
+    @StateObject var painelFuncoes = Painel([]);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
     
     var body: some View {
-    
+        
         ZStack(alignment: .bottom){
             ZStack(alignment: .bottom){
                 ZStack(alignment: .bottomTrailing){
@@ -67,7 +67,9 @@ struct LevelOneTutorial: View {
                             Spacer()
                             
                             //Area de Execucoes
-                            ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)//(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
+                            ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes).onAppear(){
+                                painelExecucao.addOpcao(opcao: falarOla)
+                            }//(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
                             .opacity(executionAreaShow ? 1 : 0)
                     
                             Spacer()
