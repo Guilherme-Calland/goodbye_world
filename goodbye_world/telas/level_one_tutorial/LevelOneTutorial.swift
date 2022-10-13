@@ -153,15 +153,20 @@ struct LevelOneTutorial: View {
             TapGesture().onEnded{
                 if translucentScreenReady {
                     translucentScreenReady = false
-                    actionAreaReady = true
                     showTranslucentScreen()
-                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() +  2.0){
+                        actionAreaReady = true
+                    }
                 }
                 else if(actionAreaReady){
                     actionAreaReady = false
                     hideClickForNext()
                     showClickForNext(delay: 3.0)
                     showContrastActionArea()
+                    DispatchQueue.main.asyncAfter(deadline: .now() +  3.0){
+                        executionAreaReady = true
+                    }
+                    
                 }
                 else if(executionAreaReady){
                     executionAreaReady = false
@@ -233,7 +238,9 @@ struct LevelOneTutorial: View {
         withAnimation(Animation.linear(duration: 1).delay(1.0)){
             imageShow = true
             showClickForNext(delay: 2.0)
-            translucentScreenReady = true
+            DispatchQueue.main.asyncAfter(deadline: .now() +  2.0){
+                translucentScreenReady = true
+            }
         }
     }
     
@@ -248,7 +255,7 @@ struct LevelOneTutorial: View {
             }
             showContrastImage(delay: 2.0)
             showMainText(delay: 2.0)
-            executionAreaReady = true
+            
         }
     }
     
