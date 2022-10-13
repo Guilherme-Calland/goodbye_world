@@ -125,24 +125,6 @@ struct LevelOneTutorial: View {
             // o textinho que aparece: este é você
             InitialContrastTextPopup(text: "esse é você")
             .opacity(contrastFirstTextShow ? 1 : 0)
-            
-            // Texto tutorial principal
-            HStack{
-                VStack{
-                    if(!isMainTextUp){
-                        Spacer()
-                    }
-                    MainTextPopup(text: mainText)
-                        .offset(x: 30.0, y: isMainTextUp ? 40 : -40)
-                    if(isMainTextUp){
-                        Spacer()
-                    }
-                    
-                }
-                Spacer()
-                
-            }
-                .opacity(mainTextShow ? 1 : 0)
                 
             
             ZStack{
@@ -165,7 +147,7 @@ struct LevelOneTutorial: View {
                     Spacer()
                     // area de acoes que aparece na frente da tela translucida
                     ContrastActionArea()
-                        .opacity(newContrastActionArea ? 1 : 0)
+                        .opacity(newContrastExecutionAreaHide ? 0 : 1)
                     Spacer()
                     // area de execucao que aparece na frente da tela translucida
                     ContrastExecutionArea()
@@ -174,7 +156,23 @@ struct LevelOneTutorial: View {
             }
            
             
-            
+            // Texto tutorial principal
+            HStack{
+                VStack{
+                    if(!isMainTextUp){
+                        Spacer()
+                    }
+                    MainTextPopup(text: mainText)
+                        .offset(x: 30.0, y: isMainTextUp ? 40 : -40)
+                    if(isMainTextUp){
+                        Spacer()
+                    }
+                    
+                }
+                Spacer()
+                
+            }
+                .opacity(mainTextShow ? 1 : 0)
             
             // Mensagem: clique em qualquer lugar para prosseguir
             ClickForNextPopup()
