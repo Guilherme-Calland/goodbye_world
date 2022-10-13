@@ -111,7 +111,7 @@ struct LevelOneTutorial: View {
             .navigationBarHidden(true)
             
             // o textinho que aparece: este é você
-            InitialContrastText(text: "esse é você")
+            InitialContrastTextPopup(text: "esse é você")
             .opacity(contrastFirstTextShow ? 1 : 0)
             
             // Texto tutorial principal
@@ -300,90 +300,5 @@ struct LevelOneTutorial_Previews: PreviewProvider {
     }
 }
 
-struct ExecutionButton : View{
-    var body : some View {
-        Image("execution-buttom")
-            .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 45, trailing: 25))
-    }
-}
 
 
-struct ContrastImage : View {
-    var contrastImagePath: String
-    
-    var body : some View {
-        HStack{
-            Image(contrastImagePath)
-                .resizable()
-                .interpolation(.none)
-            Rectangle().fill().opacity(0.0)
-                .frame(width: panelWidth)
-        }
-    }
-}
-
-struct InitialContrastText : View {
-    var text: String
-    var body : some View {
-        HStack{
-            ZStack{
-                Rectangle().fill(Color(.white))
-                    .border(.black, width: 6)
-                    .frame(width: 400)
-                Textinho.FonteBonita(text, 35)
-            }.frame(height: 80).offset(y: -80)
-                .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
-            Rectangle().opacity(0.0)
-        }
-    }
-}
-
-struct MainTextPopup : View{
-    var text: String
-    var body : some View {
-        ZStack{
-            Rectangle().fill(Color(.white))
-                .border(.black, width: 6)
-                .frame(width: 400, height: 250)
-            Textinho.FonteBonita(text)
-                .frame(width: 400, height: 400)
-        }
-    }
-}
-
-struct ContrastActionArea : View{
-    @StateObject var painelFuncoes = Painel([]);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
-    
-    var body : some View {
-        HStack(alignment: .top){
-            Rectangle().fill(Color(.white)).opacity(0.0)
-            ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-        }.padding(EdgeInsets(top: 20.0, leading: 0.0, bottom: 0.0, trailing: 18))
-    }
-}
-
-struct ContrastExecutionArea : View{
-    @StateObject var painelFuncoes = Painel([]);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 0, correct_output: correct_output);
-    var body : some View {
-        HStack(alignment: .top){
-            Rectangle().fill(Color(.white)).opacity(0.0)
-            ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-        }.padding(EdgeInsets(top: 5.0, leading: 0.0, bottom: 0.0, trailing: 18))
-    }
-}
-
-struct ClickForNextPopup : View {
-    var body : some View {
-        ZStack{
-            Rectangle()
-                .fill(Color(.white))
-                .frame(width: 800, height: 40)
-                .border(.black, width: 4)
-            Textinho.FonteBonita("Clique em qualquer lugar de tela para prosseguir")
-                
-        }
-        .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
-    }
-}
