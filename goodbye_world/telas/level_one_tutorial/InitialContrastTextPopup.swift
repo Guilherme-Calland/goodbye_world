@@ -16,7 +16,7 @@ struct InitialContrastTextPopup : View {
                     .border(.black, width: 6)
                     .frame(width: 400)
                 Textinho.FonteBonita(text, 35)
-            }.frame(height: 80).offset(y: -80)
+            }.frame(height: 80).offset(x: -20, y: -50)
                 .padding(EdgeInsets(top: 0.0, leading: 60.0, bottom: 0.0, trailing: 0.0))
             Rectangle().opacity(0.0)
         }

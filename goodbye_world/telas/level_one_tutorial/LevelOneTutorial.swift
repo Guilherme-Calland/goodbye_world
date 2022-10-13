@@ -150,46 +150,49 @@ struct LevelOneTutorial: View {
             .opacity((clickForNext) ? 1 : 0)
             
             
+            ZStack{
+                Rectangle().fill().opacity(0.0001)
+            }.highPriorityGesture(
+                TapGesture().onEnded{
+                    if translucentScreenReady {
+                        translucentScreenReady = false
+                        showTranslucentScreen()
+                        DispatchQueue.main.asyncAfter(deadline: .now() +  2.0){
+                            actionAreaReady = true
+                        }
+                    }
+                    else if(actionAreaReady){
+                        actionAreaReady = false
+                        hideClickForNext()//
+                        showClickForNext(delay: 3.0)
+                        showContrastActionArea()
+                        DispatchQueue.main.asyncAfter(deadline: .now() +  3.0){
+                            executionAreaReady = true
+                        }
+                        
+                    }
+                    else if(executionAreaReady){
+                        executionAreaReady = false
+                        hideClickForNext()
+                        showClickForNext(delay: 2.0)
+                        showContrastExecutionArea()
+                        wait(time: 2.0, doAfter: {
+                            actionAndExecutionAreaReady = true
+                        })
+                    }
+                    else if(actionAndExecutionAreaReady){
+                        actionAreaReady = false
+                        hideClickForNext()
+                        hideContrastImage()
+                        contrastActionAreaShow = false
+                        contrastExecutionAreaShow = false
+                        showActionAndExecutionArea()
+                        translucentScreenShow = false
+                    }
+                }
+            )
+        }
         
-        } // bota um rectangle que cobre tudo aq
-        .highPriorityGesture(
-            TapGesture().onEnded{
-                if translucentScreenReady {
-                    translucentScreenReady = false
-                    showTranslucentScreen()
-                    DispatchQueue.main.asyncAfter(deadline: .now() +  2.0){
-                        actionAreaReady = true
-                    }
-                }
-                else if(actionAreaReady){
-                    actionAreaReady = false
-                    hideClickForNext()//
-                    showClickForNext(delay: 3.0)
-                    showContrastActionArea()
-                    DispatchQueue.main.asyncAfter(deadline: .now() +  3.0){
-                        executionAreaReady = true
-                    }
-                    
-                }
-                else if(executionAreaReady){
-                    executionAreaReady = false
-                    hideClickForNext()
-                    showClickForNext(delay: 2.0)
-                    showContrastExecutionArea()
-                    wait(time: 2.0, doAfter: {
-                        actionAndExecutionAreaReady = true
-                    })
-                }
-                else if(actionAndExecutionAreaReady){
-                    actionAreaReady = false
-                    hideClickForNext()
-                    hideContrastImage()
-                    contrastActionAreaShow = false
-                    contrastExecutionAreaShow = false
-                    showActionAndExecutionArea()
-                }
-            }
-        )
     }
     
     func wait(time: Double, doAfter: @escaping () -> Void){
