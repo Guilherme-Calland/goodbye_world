@@ -133,31 +133,17 @@ struct LevelOneTutorial: View {
             
             VStack{
                 Spacer()
-                //Contrast Action Area
-                HStack(alignment: .top){
-                    Rectangle().fill(Color(.white)).opacity(0.0)
-                    ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-                }.padding(EdgeInsets(top: 20.0, leading: 0.0, bottom: 0.0, trailing: 18))
+                // area de acoes que aparece na frente da tela translucida
+                ContrastActionArea()
                     .opacity(contrastActionAreaShow ? 1 : 0)
                 Spacer()
-                //Contrast Execution Area
-                HStack(alignment: .top){
-                    Rectangle().fill(Color(.white)).opacity(0.0)
-                    ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-                }.padding(EdgeInsets(top: 5.0, leading: 0.0, bottom: 0.0, trailing: 18))
+                // area de execucao que aparece na frente da tela translucida
+                ContrastExecutionArea()
                     .opacity(contrastExecutionAreaShow ? 1 : 0)
             }
             
             // Mensagem: clique em qualquer lugar para prosseguir
-            ZStack{
-                Rectangle()
-                    .fill(Color(.white))
-                    .frame(width: 800, height: 40)
-                    .border(.black, width: 4)
-                Textinho.FonteBonita("Clique em qualquer lugar de tela para prosseguir")
-                    
-            }
-            .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
+            ClickForNextPopup()
             .opacity((clickForNext) ? 1 : 0)
             
             
@@ -362,5 +348,42 @@ struct MainTextPopup : View{
             Textinho.FonteBonita(text)
                 .frame(width: 400, height: 400)
         }
+    }
+}
+
+struct ContrastActionArea : View{
+    @StateObject var painelFuncoes = Painel([]);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
+    
+    var body : some View {
+        HStack(alignment: .top){
+            Rectangle().fill(Color(.white)).opacity(0.0)
+            ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+        }.padding(EdgeInsets(top: 20.0, leading: 0.0, bottom: 0.0, trailing: 18))
+    }
+}
+
+struct ContrastExecutionArea : View{
+    @StateObject var painelFuncoes = Painel([]);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 0, correct_output: correct_output);
+    var body : some View {
+        HStack(alignment: .top){
+            Rectangle().fill(Color(.white)).opacity(0.0)
+            ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+        }.padding(EdgeInsets(top: 5.0, leading: 0.0, bottom: 0.0, trailing: 18))
+    }
+}
+
+struct ClickForNextPopup : View {
+    var body : some View {
+        ZStack{
+            Rectangle()
+                .fill(Color(.white))
+                .frame(width: 800, height: 40)
+                .border(.black, width: 4)
+            Textinho.FonteBonita("Clique em qualquer lugar de tela para prosseguir")
+                
+        }
+        .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
     }
 }
