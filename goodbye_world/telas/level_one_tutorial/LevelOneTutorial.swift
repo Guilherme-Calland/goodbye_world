@@ -41,6 +41,9 @@ struct LevelOneTutorial: View {
     @State private var mainText = "Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer."
     @State private var actionAndExecutionAreaReady = false
     @State private var fullScreenClick = true
+    @State private var newContrastActionArea = false
+    @State private var functionReady = false
+    @State private var newContrastExecutionAreaHide = false
     
     @StateObject var painelFuncoes = Painel([]);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -111,6 +114,7 @@ struct LevelOneTutorial: View {
                 InitScreenPlaceholder().onAppear(){
                     placeholderScreenFade()
                 }.opacity(fadePlaceholderScreen ? 0 : 1)
+                    .offset(y: -10)
                 
                 
                     //
@@ -141,16 +145,36 @@ struct LevelOneTutorial: View {
                 .opacity(mainTextShow ? 1 : 0)
                 
             
-            VStack{
-                Spacer()
-                // area de acoes que aparece na frente da tela translucida
-                ContrastActionArea()
-                    .opacity(contrastActionAreaShow ? 1 : 0)
-                Spacer()
-                // area de execucao que aparece na frente da tela translucida
-                ContrastExecutionArea()
-                    .opacity(contrastExecutionAreaShow ? 1 : 0)
+            ZStack{
+                VStack{
+                    Spacer()
+                    // area de acoes que aparece na frente da tela translucida
+                    ContrastActionArea()
+                        .opacity(contrastActionAreaShow ? 1 : 0)
+                    Spacer()
+                    // area de execucao que aparece na frente da tela translucida
+                    ContrastExecutionArea()
+                        .opacity(contrastExecutionAreaShow ? 1 : 0)
+                }
+                
+                if(newContrastActionArea){
+                    Rectangle().fill(Color(.black)).opacity(0.5)
+                }
+                    
+                VStack{
+                    Spacer()
+                    // area de acoes que aparece na frente da tela translucida
+                    ContrastActionArea()
+                        .opacity(newContrastActionArea ? 1 : 0)
+                    Spacer()
+                    // area de execucao que aparece na frente da tela translucida
+                    ContrastExecutionArea()
+                        .opacity(newContrastExecutionAreaHide ? 0 :  1)
+                }.opacity(newContrastActionArea ? 1 : 0)
             }
+           
+            
+            
             
             // Mensagem: clique em qualquer lugar para prosseguir
             ClickForNextPopup()
@@ -185,20 +209,42 @@ struct LevelOneTutorial: View {
                             showClickForNext(delay: 2.0)
                             showContrastExecutionArea()
                             wait(time: 2.0, doAfter: {
-                                actionAndExecutionAreaReady = true
+                                functionReady = true
+                            })
+                        }else if(functionReady){
+                            functionReady = false
+                            hideClickForNext()
+                            hideMainText(delay: 0.0)
+                            translucentScreenShow = false
+                            newContrastActionArea = true
+                            hideNewContrastExecutionArea()
+                            wait(time: 2.0, doAfter: {
+                               
                             })
                         }
-                        else if(actionAndExecutionAreaReady){
-                            actionAreaReady = false
-                            hideClickForNext()
-                            hideContrastImage()
-                            hideContrastActionAndExecutionAreas()
-                            showActionAndExecutionArea()
-                            hideTranslucentScreen()
-                        }
+//                        else if(actionAndExecutionAreaReady){
+//                            actionAreaReady = false
+//                            hideClickForNext()
+//                            hideContrastImage()
+//                            hideContrastActionAndExecutionAreas()
+//                            showActionAndExecutionArea()
+//                            hideTranslucentScreen()
+//                        }
                     }
                 )
             }
+        }
+    }
+    
+    func hideNewContrastExecutionArea(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            newContrastExecutionAreaHide = true
+        }
+    }
+    
+    func showNewContrastActionArea(){
+        withAnimation(Animation.linear(duration:1.0).delay(1.0)){
+            newContrastActionArea = true
         }
     }
     
