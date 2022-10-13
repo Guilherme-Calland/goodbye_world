@@ -7,32 +7,22 @@
 
 import SwiftUI
 
-func FalarArthur() -> Void{
-    print("Arthur")
+func test_print(_ text : String) {
+    print(text)
 }
 
-func FalarIgor() -> Void{
-    print("Igor")
-}
+var opcao1 = Opcao(nome: "Printar Arthur", actionHandler: {() in print("Arthur")});
 
-func FalarGuilherme() -> Void{
-    print("Guilherme")
-}
+var opcao2 = Opcao(nome: "Printar Igor", actionHandler: {() in print("Igor")});
 
-var acao1 = ActionHandler (action: FalarArthur);
+var opcao3 = Opcao(nome: "Printar Guilherme", actionHandler: {() in print("Guilherme")});
 
-var acao2 = ActionHandler (action: FalarIgor);
+var opcao_teste_parametro = OpcaoParametros(nome: "Parametro", actionHandler: test_print, parametros: ["Igor", "Arthur", "Guilherme"])
 
-var acao3 = ActionHandler (action: FalarGuilherme);
+var opcao_mudar_parametro = Opcao(nome: "(Test)Mudar parametro", actionHandler: {() in opcao_teste_parametro.parametroSelecionado = opcao_teste_parametro.parametros[1]});
 
-var opcao1 = Opcao(nome: "Printar arthur", actionHandler: acao1);
-
-var opcao2 = Opcao(nome: "Printar Igor", actionHandler: acao2);
-
-var opcao3 = Opcao(nome: "Printar Guilherme", actionHandler: acao3);
-
-var funcoes: [Opcao] = [opcao1, opcao2, opcao3]
-
+//var funcoes: [Opcao] = [opcao1, opcao2, opcao3]
+var funcoes: [Opcao] = [opcao1, opcao2, opcao3, opcao_teste_parametro, opcao_mudar_parametro]
 
 struct PainelTesteView: View {
     @StateObject var painelFuncoes = Painel(funcoes);
@@ -63,7 +53,10 @@ struct PainelTesteView: View {
             }
             
             Button{
-                painelExecucao.executar();
+                //painelExecucao.executar();
+                for opcao in painelExecucao.funcoes {
+                    opcao.exec();
+                }
             } label: {
                 Textinho.FonteBonita("Executar", 128)
             }

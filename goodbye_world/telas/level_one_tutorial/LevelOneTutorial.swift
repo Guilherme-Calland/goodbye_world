@@ -13,13 +13,17 @@ var panelWidth = UIScreen.main.bounds.width * 0.4
 var screenWidth = UIScreen.main.bounds.width
 var screenHeight = UIScreen.main.bounds.height
 
+var falarOla = Opcao(nome: "falar ola", actionHandler: {() in print("olar")});
+
+var funcoesTutOne : [Opcao] = [falarOla]
+
 struct LevelOneTutorial: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
-    @State private var executionButtonAppear = false
+    @State private var executionButtonAppear = true
     @State private var clickForNext = false
     @State private var translucentScreenReady = false
     @State private var translucentScreenShow = false
@@ -38,8 +42,8 @@ struct LevelOneTutorial: View {
     @State private var actionAndExecutionAreaReady = false
     @State private var fullScreenClick = true
     
-    @StateObject var painelFuncoes = Painel(funcoes);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: correct_output);
+    @StateObject var painelFuncoes = Painel(funcoesTutOne);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
     
     var body: some View {
     

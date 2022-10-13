@@ -21,8 +21,10 @@ struct ActionArea : View {
 //    }
     
     func moveToExec(_ action:Opcao){
-        self.painelAcoes.removeOpcao(opcao: action);
-        self.painelExecucao.addOpcao(opcao: action);
+        if (self.painelExecucao.canAdd()){
+            self.painelAcoes.removeOpcao(opcao: action);
+            self.painelExecucao.addOpcao(opcao: action);
+        }
     }
     
     var body: some View{

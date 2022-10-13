@@ -14,27 +14,38 @@ class Opcao : Equatable, Identifiable{
     }
     
     var nome : String;
-    var actionHandler : ActionHandler;
+    var actionHandler : () -> Void;
     
-    init (nome:String, actionHandler : ActionHandler){
-        self.nome = nome
-        self.actionHandler = actionHandler
+    init (nome:String, actionHandler : @escaping () -> Void){
+        self.nome = nome;
+        self.actionHandler = actionHandler;
     }
     
     func exec(){
-        self.actionHandler.play()
+        self.actionHandler()
     }
 }
 
 class OpcaoParametros : Opcao{
     var parametros : [String] = []
-    var indexSelecionado : Int = 0
+    var parametroSelecionado : String = "";
+    var actionHandlerG : (String) -> Void;
     
-    init (nome:String, actionHandler : ActionHandler, parametros : [String], indexSelecionado:Int = 0){
-        super.init(nome: nome, actionHandler: actionHandler)
-        self.parametros = parametros
-        self.indexSelecionado = indexSelecionado
+    static func == (lhs: OpcaoParametros, rhs: OpcaoParametros) -> Bool {
+        return (lhs.nome == rhs.nome && lhs.parametroSelecionado == rhs.parametroSelecionado)
     }
+    
+    init (nome:String, actionHandler : @escaping (String) -> Void, parametros : [String]){
+        self.parametros = parametros;
+        self.parametroSelecionado = self.parametros[0];
+        self.actionHandlerG = actionHandler;
+        super.init(nome: nome, actionHandler: {});
+    }
+    
+    override func exec() {
+        self.actionHandlerG(self.parametroSelecionado);
+    }
+    
 }
 
 class Painel : ObservableObject{
@@ -60,17 +71,13 @@ class Painel : ObservableObject{
 }
 
 
-func nil_test(){
-    print("nill guilherm")
-}
-
 class PainelExecucao : Painel {
     var max_slots = 0;
     var avaliable_slot = 0;
     var count = 0;
     var correct_output : [Opcao] = [];
     
-    let opcao_nil = Opcao(nome: "nil", actionHandler: ActionHandler(action: (nil_test)));
+    let opcao_nil = Opcao(nome: "nil", actionHandler: {});
     
     init(max_slots : Int, correct_output: [Opcao]){
         super.init(Array(repeating: opcao_nil, count: self.max_slots))
