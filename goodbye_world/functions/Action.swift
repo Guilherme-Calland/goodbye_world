@@ -33,8 +33,9 @@ struct Action : View {
                     .fill(Color(readyToExecute ?? false ? "customGreen" : "customOrange"))
                     .frame(width: actionWidth, height: actionHeight, alignment: .leading)
                     .border(.black, width: 4)
-                Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
+                Textinho.FonteBonita(actionText ?? "nil")
             }.onTapGesture {
+                SoundManager.Instance.playSfx("chipsCollide1");
                 self.onClickEvent(self.action_data);
             }
         }

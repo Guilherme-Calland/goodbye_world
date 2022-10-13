@@ -42,8 +42,12 @@ struct PainelTesteView: View {
             ForEach(painelExecucao.funcoes){ funcao in
                 Button{
                     if (funcao.nome != "nil")
-                    {painelFuncoes.addOpcao(opcao: funcao);
-                    painelExecucao.removeOpcao(opcao: funcao);}
+                    {
+                        painelFuncoes.addOpcao(opcao: funcao);
+                    painelExecucao.removeOpcao(opcao: funcao);
+                        
+                        
+                    }
                 } label: {
                     Textinho.FonteBonita(funcao.nome, 64)
                 }

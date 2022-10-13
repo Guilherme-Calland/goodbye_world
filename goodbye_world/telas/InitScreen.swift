@@ -10,6 +10,8 @@ struct InitScreen: View {
     
     init(){
         UINavigationBar.setAnimationsEnabled(false)
+        //Start playing music
+        SoundManager.Instance.playMusic(file_name: "retrobeat1", type: "mp3");
     }
     
     var body: some View {
