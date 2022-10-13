@@ -39,7 +39,7 @@ struct LevelOneTutorial: View {
     
     var body: some View {
     
-        ZStack{
+        ZStack(alignment: .bottom){
             ZStack(alignment: .bottom){
                 ZStack(alignment: .bottomTrailing){
                     HStack{
@@ -93,18 +93,6 @@ struct LevelOneTutorial: View {
                     .opacity(translucentScreenShow ? 0.5 : 0.00001)
     //            : Rectangle()//
                 
-                
-                // Mensagem: clique em qualquer lugar para prosseguir
-                ZStack{
-                    Rectangle()
-                        .fill(Color(.white))
-                        .frame(width: 800, height: 40)
-                        .border(.black, width: 4)
-                    Textinho.FonteBonita("Clique em qualquer lugar de tela para prosseguir")
-                        
-                }
-                .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
-                .opacity((clickForNext) ? 1 : 0)
                 
                 // Contrast Image
                 HStack{
@@ -175,6 +163,18 @@ struct LevelOneTutorial: View {
                     .opacity(contrastExecutionAreaShow ? 1 : 0)
             }
             
+            // Mensagem: clique em qualquer lugar para prosseguir
+            ZStack{
+                Rectangle()
+                    .fill(Color(.white))
+                    .frame(width: 800, height: 40)
+                    .border(.black, width: 4)
+                Textinho.FonteBonita("Clique em qualquer lugar de tela para prosseguir")
+                    
+            }
+            .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))
+            .opacity((clickForNext) ? 1 : 0)
+            
             
         
         } // bota um rectangle que cobre tudo aq
@@ -195,7 +195,6 @@ struct LevelOneTutorial: View {
                 else if(executionAreaReady){
                     executionAreaReady = false
                     hideClickForNext()
-                    hideMainText()
                     showClickForNext(delay: 3.0)
                     showContrastExecutionArea()
                 }
@@ -267,8 +266,8 @@ struct LevelOneTutorial: View {
         }
     }
     
-    func showContrastActionArea(){
-        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+    func showContrastActionArea(delay: Double = 1.0){
+        withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             contrastActionAreaShow = true
             
             hideContrastImage()
@@ -283,8 +282,15 @@ struct LevelOneTutorial: View {
     }
     
     func showContrastExecutionArea(){
-        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+        withAnimation(Animation.linear(duration: 1.0).delay(0.0)){
             contrastExecutionAreaShow = true
+            hideContrastImage()
+            hideMainText(delay: 0.0)//
+            DispatchQueue.main.asyncAfter(deadline: .now() +  1.0){
+                contrastImagePath = "tut1.4"
+                showMainText(delay: 0.0)
+                showContrastImage(delay: 0.0)
+            }
         }
     }
     
@@ -294,14 +300,14 @@ struct LevelOneTutorial: View {
         }
     }
     
-    func showMainText(delay: Double){
+    func showMainText(delay: Double = 1.0){
         withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             mainTextShow = true
         }
     }
     
-    func hideMainText(){
-        withAnimation(Animation.linear(duration: 1.0).delay(1.0)){
+    func hideMainText(delay: Double){
+        withAnimation(Animation.linear(duration: 1.0).delay(delay)){
             mainTextShow = false
         }
     }
