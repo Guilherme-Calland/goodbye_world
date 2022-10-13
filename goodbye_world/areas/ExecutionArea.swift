@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+let green : LinearGradient = LinearGradient(
+    gradient: Gradient(stops: [
+.init(color: Color(#colorLiteral(red: 0.8172042965888977, green: 1, blue: 0.7333333492279053, alpha: 1)), location: 0),
+.init(color: Color(#colorLiteral(red: 0.42352941632270813, green: 0.8078431487083435, blue: 0.24705882370471954, alpha: 1)), location: 1)]),
+    startPoint: UnitPoint(x: 0.7079918490440847, y: 1.000000041185293),
+    endPoint: UnitPoint(x: 0.2643442919563681, y: 5.507062383891537e-8))
+
 struct ExecutionArea : View {
     private var panelWidth = UIScreen.main.bounds.width * 0.4
     private var panelHeight = UIScreen.main.bounds.height * 0.45
@@ -30,7 +37,7 @@ struct ExecutionArea : View {
     var body: some View{
         ZStack(alignment: .topLeading){
             Rectangle()
-                .fill(Color("customGreen"))
+                .fill(green)
                 .frame(width: panelWidth, height: panelHeight, alignment: .leading)
                 .border(.black, width: 4)
             Textinho.FonteBonita("execucao")

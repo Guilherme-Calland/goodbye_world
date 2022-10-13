@@ -7,6 +7,23 @@
 
 import SwiftUI
 
+//func getLinearGradient(initColor: Color, finalColor: Color) -> LinearGradient{
+//    return LinearGradient(
+//        gradient: Gradient(stops: [
+//    .init(color: initColor, location: 0),
+//    .init(color: finalColor, location: 1)]),
+//        startPoint: UnitPoint(x: 0.7079918490440847, y: 1.000000041185293),
+//        endPoint: UnitPoint(x: 0.2643442919563681, y: 5.507062383891537e-8))
+//}
+
+let orange : LinearGradient = LinearGradient(
+    gradient: Gradient(stops: [
+.init(color: Color(#colorLiteral(red: 1, green: 0.7800833582878113, blue: 0.6208333373069763, alpha: 1)), location: 0),
+.init(color: Color(#colorLiteral(red: 1, green: 0.5625833868980408, blue: 0.24583333730697632, alpha: 1)), location: 1)]),
+    startPoint: UnitPoint(x: 0.7079918490440847, y: 1.000000041185293),
+    endPoint: UnitPoint(x: 0.2643442919563681, y: 5.507062383891537e-8))
+
+
 struct ActionArea : View {
     private var panelWidth = UIScreen.main.bounds.width * 0.4
     private var panelHeight = UIScreen.main.bounds.height * 0.45
@@ -30,7 +47,9 @@ struct ActionArea : View {
     var body: some View{
         ZStack(alignment: .topLeading){
             Rectangle()
-                .fill(Color("customOrange"))
+                .fill(
+                    orange
+                )
                 .frame(width: panelWidth, height: panelHeight, alignment: .leading)
                 .border(.black, width: 4)
             Textinho.FonteBonita("acoes")
@@ -60,7 +79,6 @@ struct ActionArea : View {
     //        .previewInterfaceOrientation(.landscapeLeft)
 //    }
 //}
-
 
 
 
