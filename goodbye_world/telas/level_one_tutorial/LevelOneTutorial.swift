@@ -35,6 +35,7 @@ struct LevelOneTutorial: View {
     @State private var mainTextShow = false
     @State private var isMainTextUp = true
     @State private var mainText = "Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer."
+    @State private var actionAndExecutionAreaReady = false
     
     @StateObject var painelFuncoes = Painel(funcoes);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
@@ -121,15 +122,17 @@ struct LevelOneTutorial: View {
                         Spacer()
                     }
                     MainTextPopup(text: mainText)
+                        .offset(x: 30.0, y: isMainTextUp ? 40 : -40)
                     if(isMainTextUp){
                         Spacer()
                     }
                     
                 }
                 Spacer()
-            }.offset(x: 120, y : isMainTextUp ? 50 : -50)
+                
+            }
                 .opacity(mainTextShow ? 1 : 0)
-            
+                
             
             VStack{
                 Spacer()
@@ -160,7 +163,7 @@ struct LevelOneTutorial: View {
                 }
                 else if(actionAreaReady){
                     actionAreaReady = false
-                    hideClickForNext()
+                    hideClickForNext()//
                     showClickForNext(delay: 3.0)
                     showContrastActionArea()
                     DispatchQueue.main.asyncAfter(deadline: .now() +  3.0){
@@ -171,11 +174,28 @@ struct LevelOneTutorial: View {
                 else if(executionAreaReady){
                     executionAreaReady = false
                     hideClickForNext()
-                    showClickForNext(delay: 3.0)
+                    showClickForNext(delay: 2.0)
                     showContrastExecutionArea()
+                    wait(time: 2.0, doAfter: {
+                        actionAndExecutionAreaReady = true
+                    })
+                }
+                else if(actionAndExecutionAreaReady){
+                    actionAreaReady = false
+                    hideClickForNext()
+                    hideContrastImage()
+                    contrastActionAreaShow = false
+                    contrastExecutionAreaShow = false
+                    showActionAndExecutionArea()
                 }
             }
         )
+    }
+    
+    func wait(time: Double, doAfter: @escaping () -> Void){
+        DispatchQueue.main.asyncAfter(deadline: .now() + time){
+            doAfter()
+        }
     }
     
     // Animacao que some com a tela que mostra a imagem da tela inicial
@@ -183,6 +203,13 @@ struct LevelOneTutorial: View {
         withAnimation(Animation.linear(duration: 1.0)){
             fadePlaceholderScreen = true
             showImage()
+        }
+    }
+    
+    func showActionAndExecutionArea(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            actionAreaShow = true
+            executionAreaShow = true
         }
     }
     
