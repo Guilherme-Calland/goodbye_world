@@ -36,9 +36,10 @@ struct LevelOneTutorial: View {
     @State private var isMainTextUp = true
     @State private var mainText = "Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer."
     @State private var actionAndExecutionAreaReady = false
+    @State private var fullScreenClick = true
     
     @StateObject var painelFuncoes = Painel(funcoes);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 3, correct_output: correct_output);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: correct_output);
     
     var body: some View {
     
@@ -149,50 +150,63 @@ struct LevelOneTutorial: View {
             ClickForNextPopup()
             .opacity((clickForNext) ? 1 : 0)
             
-            
-            ZStack{
-                Rectangle().fill().opacity(0.0001)
-            }.highPriorityGesture(
-                TapGesture().onEnded{
-                    if translucentScreenReady {
-                        translucentScreenReady = false
-                        showTranslucentScreen()
-                        DispatchQueue.main.asyncAfter(deadline: .now() +  2.0){
-                            actionAreaReady = true
+            // tela para clicar para avancar
+            if(fullScreenClick){
+                ZStack{
+                    Rectangle().fill().opacity(0.0001)
+                }.highPriorityGesture(
+                    TapGesture().onEnded{
+                        if translucentScreenReady {
+                            translucentScreenReady = false
+                            showTranslucentScreen()
+                            DispatchQueue.main.asyncAfter(deadline: .now() +  2.0){
+                                actionAreaReady = true
+                            }
+                        }
+                        else if(actionAreaReady){
+                            actionAreaReady = false
+                            hideClickForNext()//
+                            showClickForNext(delay: 3.0)
+                            showContrastActionArea()
+                            DispatchQueue.main.asyncAfter(deadline: .now() +  3.0){
+                                executionAreaReady = true
+                            }
+                            
+                        }
+                        else if(executionAreaReady){
+                            executionAreaReady = false
+                            hideClickForNext()
+                            showClickForNext(delay: 2.0)
+                            showContrastExecutionArea()
+                            wait(time: 2.0, doAfter: {
+                                actionAndExecutionAreaReady = true
+                            })
+                        }
+                        else if(actionAndExecutionAreaReady){
+                            actionAreaReady = false
+                            hideClickForNext()
+                            hideContrastImage()
+                            hideContrastActionAndExecutionAreas()
+                            showActionAndExecutionArea()
+                            hideTranslucentScreen()
                         }
                     }
-                    else if(actionAreaReady){
-                        actionAreaReady = false
-                        hideClickForNext()//
-                        showClickForNext(delay: 3.0)
-                        showContrastActionArea()
-                        DispatchQueue.main.asyncAfter(deadline: .now() +  3.0){
-                            executionAreaReady = true
-                        }
-                        
-                    }
-                    else if(executionAreaReady){
-                        executionAreaReady = false
-                        hideClickForNext()
-                        showClickForNext(delay: 2.0)
-                        showContrastExecutionArea()
-                        wait(time: 2.0, doAfter: {
-                            actionAndExecutionAreaReady = true
-                        })
-                    }
-                    else if(actionAndExecutionAreaReady){
-                        actionAreaReady = false
-                        hideClickForNext()
-                        hideContrastImage()
-                        contrastActionAreaShow = false
-                        contrastExecutionAreaShow = false
-                        showActionAndExecutionArea()
-                        translucentScreenShow = false
-                    }
-                }
-            )
+                )
+            }
         }
-        
+    }
+    
+    func hideContrastActionAndExecutionAreas(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            contrastActionAreaShow = false
+            contrastExecutionAreaShow = false
+        }
+    }
+    
+    func hideTranslucentScreen(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            translucentScreenShow = false
+        }
     }
     
     func wait(time: Double, doAfter: @escaping () -> Void){
@@ -213,6 +227,8 @@ struct LevelOneTutorial: View {
         withAnimation(Animation.linear(duration: 1.0)){
             actionAreaShow = true
             executionAreaShow = true
+            fullScreenClick = false
+            hideMainText(delay: 0.0)
         }
     }
     
