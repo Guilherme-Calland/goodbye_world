@@ -8,12 +8,11 @@ import SwiftUI
 
 struct InitScreen: View {
     
+    
     @StateObject var data: Data = Data()
     
     init(){
-        UINavigationBar.setAnimationsEnabled(false);
-        // Play msuic
-        SoundManager.Instance.playMusic(file_name: "music");
+        UINavigationBar.setAnimationsEnabled(false)
     }
     
     var body: some View {
@@ -23,6 +22,8 @@ struct InitScreen: View {
             }.foregroundColor(.black).buttonStyle(NoClickAnimation())
         }.navigationViewStyle(StackNavigationViewStyle.stack)
             .environmentObject(data)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 
@@ -35,7 +36,18 @@ struct InitScreen_Previews: PreviewProvider {
 
 struct ScreenBody : View {
     var body: some View{
+       
+
         VStack(spacing: 0.0){
+            HStack {
+            
+                Spacer()
+                NavigationLink(destination: OptionsMenu()){
+                    Image("Barra de opções")
+                }.frame(width: 60, height: 50)
+                    .padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 45))
+                
+            }
             Textinho.FonteBonita("GOODBYE WORLD", 100)
                     
                     HStack(alignment: .center, spacing: -100.0){
@@ -48,6 +60,9 @@ struct ScreenBody : View {
             .padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
         }.frame(width: UIScreen.main.bounds.width,
                 height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        
+        
     }
 }
-

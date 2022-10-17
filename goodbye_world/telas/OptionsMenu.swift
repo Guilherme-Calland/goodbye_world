@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct OptionsMenu: View {
+    @Environment(\.dismiss) private var dismiss
+    
+    @StateObject var data: Data = Data()
+    
+    init(){
+        UINavigationBar.setAnimationsEnabled(false)
+    }
+    
     var body: some View {
         NavigationView{
         VStack {
@@ -20,51 +28,63 @@ struct OptionsMenu: View {
                 
                 VStack {
                         NavigationLink(destination: ProgressScreen()){
-                            Textinho.FonteBonita("Progresso",30)
+                            Textinho.FonteBonita("Progresso",29)
                                 .padding()
                                 .border(.black)
                                         .foregroundColor(.white)
                                         .background(Color.black)
                                         .cornerRadius(15)
-                        }
+                        }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        .navigationTitle("")
+                        .navigationBarHidden(true)
 
                     NavigationLink(destination: StoryScreen()){
-                        Textinho.FonteBonita("História",30)
+                        Textinho.FonteBonita("História",29)
                             .padding()
                             .border(.black)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                                     .cornerRadius(15)
-                    }
+                    }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        .navigationTitle("")
+                        .navigationBarHidden(true)
                         
                     NavigationLink(destination: ConfigsScreen()){
-                        Textinho.FonteBonita("Configurações",30)
+                        Textinho.FonteBonita("Configurações",29)
                             .padding()
                             .border(.black)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                                     .cornerRadius(15)
-                    }
+                    }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        .navigationTitle("")
+                        .navigationBarHidden(true)
                     
                     NavigationLink(destination: SaveScreen()){
-                        Textinho.FonteBonita("Saves",30)
+                        Textinho.FonteBonita("Saves",29)
                             .padding()
                             .border(.black)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                                     .cornerRadius(15)
-                    }
+                    }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        .navigationTitle("")
+                        .navigationBarHidden(true)
                     
                     NavigationLink(destination: InitScreen()){
-                        Textinho.FonteBonita("Voltar",30)
+                        Textinho.FonteBonita("Voltar",29)
                             .padding()
                             .border(.black)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                                     .cornerRadius(15)
-                    }
-                }.foregroundColor(.black)
-
+                    }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        .navigationTitle("")
+                        .navigationBarHidden(true).onTapGesture {
+                            dismiss()
+                        }
+                }
+                    
                 
                 Image("robo1 1").padding()
             }
@@ -72,9 +92,14 @@ struct OptionsMenu: View {
             Spacer()
             
         }.frame(height: UIScreen.main.bounds.height)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle.stack)
+            .environmentObject(data)
             .frame(width: UIScreen.main.bounds.width,
                     height: UIScreen.main.bounds.height)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         
     }
 }

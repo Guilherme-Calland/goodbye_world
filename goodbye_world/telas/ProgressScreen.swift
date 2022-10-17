@@ -14,7 +14,30 @@ struct ProgressScreen: View {
         ]
         
         VStack(spacing:0) {
-            Textinho.FonteBonita("Progresso", 60).padding()
+            HStack {
+                Spacer()
+                
+                NavigationLink(destination: OptionsMenu()){
+                    Textinho.FonteBonita(" < ", 40)
+                        
+                        .border(.black)
+                                .foregroundColor(.white)
+                                .background(Color.black)
+                                .cornerRadius(15)
+                }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                Spacer()
+                Spacer()
+                
+                Textinho.FonteBonita("Progresso", 60).padding()
+                
+                Spacer()
+                Spacer()
+                
+                
+                Spacer()
+                
+            }
+            
             Spacer()
             ScrollView(.horizontal) {
                 LazyHGrid (rows: rows, alignment: .bottom,
@@ -47,6 +70,8 @@ struct ProgressScreen: View {
             Spacer()
             
         }.frame(height: UIScreen.main.bounds.height)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 
