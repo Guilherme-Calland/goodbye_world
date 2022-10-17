@@ -11,7 +11,11 @@ struct InitScreen: View {
     @StateObject var data: Data = Data()
     
     init(){
-        UINavigationBar.setAnimationsEnabled(false)
+        UINavigationBar.setAnimationsEnabled(false);
+        // Play msuic
+        SoundManager.Instance.print_file_name()
+        SoundManager.Instance.playMusic(file_name: "clicck");
+        print("starting")
     }
     
     var body: some View {
