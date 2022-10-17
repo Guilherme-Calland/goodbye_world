@@ -23,7 +23,7 @@ struct LevelOneTutorial: View {
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
-    @State private var executionButtonAppear = true
+    @State private var executionButtonAppear = false
     @State private var clickForNext = false
     @State private var translucentScreenReady = false
     @State private var translucentScreenShow = false
@@ -45,7 +45,7 @@ struct LevelOneTutorial: View {
     @State private var functionReady = false
     @State private var newContrastExecutionAreaHide = false
     
-    @StateObject var painelFuncoes = Painel([]);
+    @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
     
     var body: some View {
@@ -70,9 +70,7 @@ struct LevelOneTutorial: View {
                             Spacer()
                             
                             //Area de Execucoes
-                            ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes).onAppear(){
-                                painelExecucao.addOpcao(opcao: falarOla)
-                            }//(painelExecucao: painelExecucao, painelAcoes: painelFuncoes)
+                            ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
                             .opacity(executionAreaShow ? 1 : 0)
                     
                             Spacer()
@@ -213,12 +211,16 @@ struct LevelOneTutorial: View {
                             functionReady = false
                             hideClickForNext()
                             hideMainText(delay: 0.0)
-                            translucentScreenShow = false
-                            newContrastActionArea = true
-                            hideNewContrastExecutionArea()
-                            wait(time: 2.0, doAfter: {
-                               
-                            })
+                            hideTranslucentScreen()
+                            hideContrastImage()
+                            hideContrastActionAndExecutionAreas()
+                            showActionAndExecutionArea()
+                            showExecutionButton()
+                            //newContrastActionArea = true
+                            //hideNewContrastExecutionArea()
+//                            wait(time: 2.0, doAfter: {
+//
+//                            })
                         }
 //                        else if(actionAndExecutionAreaReady){
 //                            actionAreaReady = false
@@ -231,6 +233,12 @@ struct LevelOneTutorial: View {
                     }
                 )
             }
+        }
+    }
+    
+    func showExecutionButton(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            executionButtonAppear = true
         }
     }
     
