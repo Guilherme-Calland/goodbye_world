@@ -35,6 +35,7 @@ struct Action : View {
                 Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
             }.onTapGesture {
                 self.onClickEvent(self.action_data);
+                SoundManager.Instance.playSfx("click")
             }
         }
     }

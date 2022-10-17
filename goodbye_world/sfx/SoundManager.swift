@@ -10,8 +10,6 @@ import AVFoundation
 
 class SoundManager {
     static let Instance = SoundManager();
-    let docsPath = Bundle.main.resourcePath! //+ "/Resources"
-    let fileManager = FileManager.default// Singleton
     
     var musicPlayer : AVAudioPlayer?;
     var sfxPlayer : AVAudioPlayer?;
@@ -47,15 +45,16 @@ class SoundManager {
                 sfxPlayer.prepareToPlay()
                 sfxPlayer.play()
             } catch {
+                print("Error playing sfx :")
                 print(error)
             }
         }
     }
     
-    func print_file_name(){
+    func debug_print_file_name(){
         do {
             
-        try print(fileManager.contentsOfDirectory(atPath: docsPath))
+        try print(FileManager.default.contentsOfDirectory(atPath: Bundle.main.resourcePath!))
     
         }catch{
             print(error)

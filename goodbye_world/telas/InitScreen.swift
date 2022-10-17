@@ -13,9 +13,7 @@ struct InitScreen: View {
     init(){
         UINavigationBar.setAnimationsEnabled(false);
         // Play msuic
-        SoundManager.Instance.print_file_name()
-        SoundManager.Instance.playMusic(file_name: "clicck");
-        print("starting")
+        SoundManager.Instance.playMusic(file_name: "music");
     }
     
     var body: some View {
