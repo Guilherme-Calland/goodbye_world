@@ -47,6 +47,7 @@ struct LevelOneTutorial: View {
     @State private var mainTextText = 0
     @State private var execuButtonFuncional = true
     @State private var imagePath = "tut1.1"
+    @State private var hideRedArrows = false
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -62,14 +63,16 @@ struct LevelOneTutorial: View {
                         Image(imagePath)
                             .resizable()
                             .interpolation(.none)
-                            .opacity(imageShow ? 1 : 0)
+                            .opacity(imageShow ? 1 : 0)//
                             
                         VStack(alignment: .trailing){
                             //Rectangle().fill(Color(.white)).frame(height:15)
                             Spacer()
                             //Area de Acoes
                             ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-                            .opacity(actionAreaShow ? 1 : 0)////
+                                .opacity(actionAreaShow ? 1 : 0).onTapGesture{
+                                    hideRedArrows = true
+                                }
                             Spacer()
                             
                             //Area de Execucoes
@@ -182,13 +185,17 @@ struct LevelOneTutorial: View {
 //                            .offset(x : 30.0)
                         
                         VStack{
-                            Image("red_arrow_long")
-                                .interpolation(.none)
-                                .resizable()
-                                .frame(width: 400, height: 100)
-                                .offset(x: 210, y : 64.0)
                             
-                            Spacer()
+                                Image("red_arrow_long")
+                                    .interpolation(.none)
+                                    .resizable()
+                                    .frame(width: 400, height: 100)
+                                    .offset(x: 210, y : 64.0)
+                                    .opacity(hideRedArrows ? 0 : 1)
+                                
+                                Spacer()
+                            
+                            
                         }
                         ZStack{
                             Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
@@ -196,15 +203,16 @@ struct LevelOneTutorial: View {
                                                  "a area de execucao" +
                                                  "\n  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões"
                             )
-                            Image("red_arrow_long")
-                                .interpolation(.none)
-                                .resizable()
-                                .frame(width: 400, height: 100)
-                                .offset(x: 440, y : 100)
+                            
+                                Image("red_arrow_long")
+                                    .interpolation(.none)
+                                    .resizable()
+                                    .frame(width: 400, height: 100)
+                                    .offset(x: 440, y : 100)
+                                    
+                            
                             
                                 
-                                
-                            
                         }.frame(width: 400).offset(x: 60, y: -30)
                     
                     }
@@ -263,6 +271,9 @@ struct LevelOneTutorial: View {
                             wait(time: 1, doAfter: {
                                 mainTextText = 1;
                             })
+                            wait(time: 6, doAfter: {
+                                redArrowsHide()
+                            })
                             //newContrastActionArea = true
                             //hideNewContrastExecutionArea()
 //                            wait(time: 2.0, doAfter: {
@@ -280,6 +291,12 @@ struct LevelOneTutorial: View {
                     }
                 )
             }
+        }
+    }
+    
+    func redArrowsHide(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            hideRedArrows = true
         }
     }
     
