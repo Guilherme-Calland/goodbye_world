@@ -70,9 +70,7 @@ struct LevelOneTutorial: View {
                             Spacer()
                             //Area de Acoes
                             ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-                                .opacity(actionAreaShow ? 1 : 0).onTapGesture{
-                                    hideRedArrows = true
-                                }
+                                .opacity(actionAreaShow ? 1 : 0)
                             Spacer()
                             
                             //Area de Execucoes
@@ -95,6 +93,7 @@ struct LevelOneTutorial: View {
                             if(execuButtonFuncional){
                                 if (painelExecucao.executar() == false){
                                     print("Verificão falhou");
+                                    // barulho de falha
                                 }else{
                                     execuButtonFuncional = false
                                     mainTextText = 3
