@@ -44,6 +44,7 @@ struct LevelOneTutorial: View {
     @State private var newContrastActionArea = false
     @State private var functionReady = false
     @State private var newContrastExecutionAreaHide = false
+    @State private var mainTextText = 0
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -112,7 +113,7 @@ struct LevelOneTutorial: View {
                 InitScreenPlaceholder().onAppear(){
                     placeholderScreenFade()
                 }.opacity(fadePlaceholderScreen ? 0 : 1)
-                    .offset(y: -10)
+                    .offset(y: 0.0)
                 
                 
                     //
@@ -157,13 +158,49 @@ struct LevelOneTutorial: View {
             // Texto tutorial principal
             HStack{
                 VStack{
-                    if(!isMainTextUp){
-                        Spacer()
-                    }
-                    MainTextPopup(text: mainText)
-                        .offset(x: 30.0, y: isMainTextUp ? 40 : -40)
-                    if(isMainTextUp){
-                        Spacer()
+                    if(mainTextText == 0){
+                        if(!isMainTextUp){
+                            Spacer()
+                        }
+                        MainTextPopup(text: mainText)
+                            .offset(x: 30.0, y: isMainTextUp ? 40 : -40)
+                        if(isMainTextUp){
+                            Spacer()
+                        }
+                    }else if(mainTextText == 1){
+                    
+//                        MainTextPopup(text: "aperte na acao \npara levá-la para " +
+//                        "a area de execucao")
+//                            .offset(x : 30.0)
+//                        MainTextPopup(text: "  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões")
+//                            .offset(x : 30.0)
+                        
+                        VStack{
+                            Image("red_arrow_long")
+                                .interpolation(.none)
+                                .resizable()
+                                .frame(width: 400, height: 100)
+                                .offset(x: 210, y : 64.0)
+                            
+                            Spacer()
+                        }
+                        ZStack{
+                            Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
+                            Textinho.FonteBonita("  aperte na acao para levá-la \n  para " +
+                                                 "a area de execucao" +
+                                                 "\n  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões"
+                            )
+                            Image("red_arrow_long")
+                                .interpolation(.none)
+                                .resizable()
+                                .frame(width: 400, height: 100)
+                                .offset(x: 440, y : 100)
+                            
+                                
+                                
+                            
+                        }.frame(width: 400).offset(x: 60, y: -30)
+                    
                     }
                     
                 }
@@ -216,6 +253,10 @@ struct LevelOneTutorial: View {
                             hideContrastActionAndExecutionAreas()
                             showActionAndExecutionArea()
                             showExecutionButton()
+                            showMainText(delay: 2.0)
+                            wait(time: 1, doAfter: {
+                                mainTextText = 1;
+                            })
                             //newContrastActionArea = true
                             //hideNewContrastExecutionArea()
 //                            wait(time: 2.0, doAfter: {
