@@ -14,14 +14,40 @@ struct SaveScreen: View {
                 ]
                 
                 VStack {
-                    Textinho.FonteBonita("Saves", 60).padding()
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink(destination: OptionsMenu()){
+                            Textinho.FonteBonita(" < ", 40)
+                                
+                                .border(.black)
+                                        .foregroundColor(.white)
+                                        .background(Color.black)
+                                        .cornerRadius(15)
+                        }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                            .navigationBarTitle("")
+                            .navigationBarHidden(true)
+                        
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        Textinho.FonteBonita("Saves", 60).padding()
+                        
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        
+                        Spacer()
+                        
+                    }
                     
                     Spacer()
                     
                     ScrollView(.horizontal) {
                         LazyHGrid (rows: rows, alignment: .center,
                                    spacing: 80) {
-                            Spacer()
                             Spacer()
                             Spacer()
                                 .padding()
