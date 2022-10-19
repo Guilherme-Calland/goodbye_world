@@ -45,6 +45,8 @@ struct LevelOneTutorial: View {
     @State private var functionReady = false
     @State private var newContrastExecutionAreaHide = false
     @State private var mainTextText = 0
+    @State private var execuButtonFuncional = true
+    @State private var imagePath = "tut1.1"
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -57,7 +59,7 @@ struct LevelOneTutorial: View {
                     HStack{
                         
                         //Imagem Principal
-                        Image("tut1.1")
+                        Image(imagePath)
                             .resizable()
                             .interpolation(.none)
                             .opacity(imageShow ? 1 : 0)
@@ -85,12 +87,16 @@ struct LevelOneTutorial: View {
                     
                     
                     ExecutionButton()
-                        .opacity(executionButtonAppear ? 1 : 0)
+                        .opacity(executionButtonAppear ? 1 : 0).opacity(execuButtonFuncional ? 1 : 0.5)
                         .onTapGesture {
-                            if (painelExecucao.executar() == false){
-                                print("Verificão falhou");
-                            }else{
-                                print("Verificão passou");
+                            if(execuButtonFuncional){
+                                if (painelExecucao.executar() == false){
+                                    print("Verificão falhou");
+                                }else{
+                                    execuButtonFuncional = false
+                                    mainTextText = 3
+                                    imagePath = "tut1.5"
+                                }
                             }
                         }
                 
