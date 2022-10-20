@@ -4,7 +4,7 @@
 //
 //  Created by Igor Rocha on 27/09/22.
 //
-import SwiftUI
+import SwiftUI//
 
 struct InitScreen: View {
     

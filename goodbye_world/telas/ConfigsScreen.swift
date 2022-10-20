@@ -15,7 +15,32 @@ struct ConfigsScreen: View {
     var body: some View {
        
         VStack {
-            Textinho.FonteBonita("Configurações", 60)
+            HStack {
+                Spacer()
+                
+                NavigationLink(destination: OptionsMenu()){
+                    Textinho.FonteBonita(" < ", 40)
+                        
+                        .border(.black)
+                                .foregroundColor(.white)
+                                .background(Color.black)
+                                .cornerRadius(15)
+                }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                
+                Spacer()
+                Spacer()
+                
+                Textinho.FonteBonita("Configurações", 60).padding()
+                
+                Spacer()
+                Spacer()
+                
+                
+                Spacer()
+                
+            }
             Spacer()
             VStack {
                 Textinho.FonteBonita("Áudio", 40)
