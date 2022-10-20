@@ -18,8 +18,8 @@ import SwiftUI
 
 let orange : LinearGradient = LinearGradient(
     gradient: Gradient(stops: [
-.init(color: Color(#colorLiteral(red: 1, green: 0.7800833582878113, blue: 0.6208333373069763, alpha: 1)), location: 0),
-.init(color: Color(#colorLiteral(red: 1, green: 0.5625833868980408, blue: 0.24583333730697632, alpha: 1)), location: 1)]),
+        .init(color: Color( #colorLiteral(red: 1, green: 0.7800833582878113, blue: 0.6208333373069763, alpha: 1)), location: 0),
+        .init(color: Color( #colorLiteral(red: 1, green: 0.5625833868980408, blue: 0.24583333730697632, alpha: 1)), location: 1)]),
     startPoint: UnitPoint(x: 0.7079918490440847, y: 1.000000041185293),
     endPoint: UnitPoint(x: 0.2643442919563681, y: 5.507062383891537e-8))
 
@@ -60,7 +60,12 @@ struct ActionArea : View {
             VStack(){
                 ForEach(self.painelAcoes.funcoes){
                     action in
-                    Action(readyToExecute: false, actionText: action.nome, action_data: action, onClickEvent: self.moveToExec);
+                    if (action is OpcaoParametros){
+                        Function(readyToExecute: false, actionText: action.nome, action_data: action as! OpcaoParametros, onClickEvent: self.moveToExec)
+                    }else{
+                        Action(readyToExecute: false, actionText: action.nome, action_data: action, onClickEvent: self.moveToExec);
+                    }
+                    
                      // mover acao desse painel para o outro
                         //self.painelAcoes.removeOpcao(opcao: action);
                         //self.painelExecucao.addOpcao(opcao: action);
@@ -79,6 +84,5 @@ struct ActionArea : View {
     //        .previewInterfaceOrientation(.landscapeLeft)
 //    }
 //}
-
 
 

@@ -9,8 +9,8 @@ import SwiftUI
 
 let green : LinearGradient = LinearGradient(
     gradient: Gradient(stops: [
-.init(color: Color(#colorLiteral(red: 0.8172042965888977, green: 1, blue: 0.7333333492279053, alpha: 1)), location: 0),
-.init(color: Color(#colorLiteral(red: 0.42352941632270813, green: 0.8078431487083435, blue: 0.24705882370471954, alpha: 1)), location: 1)]),
+        .init(color: Color( #colorLiteral(red: 0.8172042965888977, green: 1, blue: 0.7333333492279053, alpha: 1)), location: 0),
+        .init(color: Color( #colorLiteral(red: 0.42352941632270813, green: 0.8078431487083435, blue: 0.24705882370471954, alpha: 1)), location: 1)]),
     startPoint: UnitPoint(x: 0.7079918490440847, y: 1.000000041185293),
     endPoint: UnitPoint(x: 0.2643442919563681, y: 5.507062383891537e-8))
 
@@ -52,7 +52,12 @@ struct ExecutionArea : View {
                             .fill(Color(.black).opacity(1.0))
                             .frame(width: actionWidth, height: actionHeight)
                     }else{
-                        Action(readyToExecute : true, actionText: action.nome, action_data: action, onClickEvent: self.moveToAction)
+                        
+                        if (action is OpcaoParametros){
+                            Action(readyToExecute : true, actionText: "\(action.nome) ( \((action as! OpcaoParametros).parametroSelecionado) )", action_data: action, onClickEvent: self.moveToAction)
+                        }else{
+                            Action(readyToExecute : true, actionText: action.nome, action_data: action, onClickEvent: self.moveToAction)
+                        }
                     }
                             
                 }

@@ -18,9 +18,11 @@
 		827081F928F84B2C0044F6D6 /* ContrastImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827081F828F84B2C0044F6D6 /* ContrastImage.swift */; };
 		827081FB28F84B550044F6D6 /* ExecutionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827081FA28F84B550044F6D6 /* ExecutionButton.swift */; };
 		82A0A9C328F47E06001C4304 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A0A9C228F47E06001C4304 /* Data.swift */; };
+		82A108162901AD050057AE3C /* LevelOneTutorial2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A108152901AD050057AE3C /* LevelOneTutorial2.swift */; };
 		82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A1824028E329980056D0A2 /* goodbye_worldApp.swift */; };
 		82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824428E3299B0056D0A2 /* Assets.xcassets */; };
 		82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */; };
+		82AEFF202901AA97006D6C9D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEFF1F2901AA97006D6C9D /* Function.swift */; };
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
 		82B5204228F0719F003CFC45 /* AreaShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5204128F0719F003CFC45 /* AreaShadows.swift */; };
@@ -53,10 +55,12 @@
 		827081F828F84B2C0044F6D6 /* ContrastImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrastImage.swift; sourceTree = "<group>"; };
 		827081FA28F84B550044F6D6 /* ExecutionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionButton.swift; sourceTree = "<group>"; };
 		82A0A9C228F47E06001C4304 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		82A108152901AD050057AE3C /* LevelOneTutorial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorial2.swift; sourceTree = "<group>"; };
 		82A1823D28E329980056D0A2 /* goodbye_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goodbye_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A1824028E329980056D0A2 /* goodbye_worldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodbye_worldApp.swift; sourceTree = "<group>"; };
 		82A1824428E3299B0056D0A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		82AEFF1F2901AA97006D6C9D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
 		82B5204128F0719F003CFC45 /* AreaShadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaShadows.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				827081F628F84B000044F6D6 /* InitialContrastTextPopup.swift */,
 				827081F828F84B2C0044F6D6 /* ContrastImage.swift */,
 				827081FA28F84B550044F6D6 /* ExecutionButton.swift */,
+				82A108152901AD050057AE3C /* LevelOneTutorial2.swift */,
 			);
 			path = level_one_tutorial;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				82B5204428F073CA003CFC45 /* Action.swift */,
+				82AEFF1F2901AA97006D6C9D /* Function.swift */,
 			);
 			path = functions;
 			sourceTree = "<group>";
@@ -308,11 +314,13 @@
 				82B5204228F0719F003CFC45 /* AreaShadows.swift in Sources */,
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,
 				82340DAB28FDE86B0085EF25 /* SoundManager.swift in Sources */,
+				82A108162901AD050057AE3C /* LevelOneTutorial2.swift in Sources */,
 				82FD111E28EF1354006D9316 /* InitScreenPlaceholder.swift in Sources */,
 				82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */,
 				82B5204528F073CA003CFC45 /* Action.swift in Sources */,
 				827081FB28F84B550044F6D6 /* ExecutionButton.swift in Sources */,
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
+				82AEFF202901AA97006D6C9D /* Function.swift in Sources */,
 				827081F728F84B000044F6D6 /* InitialContrastTextPopup.swift in Sources */,
 				82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */,
 				827081F328F84A750044F6D6 /* ContrastExecutionArea.swift in Sources */,
