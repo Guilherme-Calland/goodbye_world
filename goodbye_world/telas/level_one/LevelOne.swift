@@ -13,6 +13,12 @@ struct LevelOne : View{
     @State var onScreenTapActive = true
     @State var imagePath = "tut1.1"
     @State var imageShow = false
+    @State var actionAreaShow = false
+    @State var executionAreaShow = false
+    @State var executionButtonShow = false
+    
+    @StateObject var painelFuncoes = Painel(funcoesTutOne);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
     
     var body: some View{
         ZStack{
@@ -22,11 +28,14 @@ struct LevelOne : View{
             if(onScreenTapActive){
                 TapOnScreen()
                     .onTapGesture{
-                        hide("anim1")
-                        hide("clickForNext")
+                        show("anim1", show: false)
+                        show("clickForNext", show: false)
                         onScreenTapActive = false
                         wait(time: 1, doAfter: {
                             show("image")
+                            show("actionArea")
+                            show("executionArea")
+                            show("execButton")
                         })
                         
                         
@@ -48,14 +57,23 @@ struct LevelOne : View{
                         .opacity(actionAreaShow ? 1 : 0)
                     Spacer()
                     
-                    //Area de Execucoes
-                    ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
-                    .opacity(executionAreaShow ? 1 : 0)
-            
+                    ZStack(alignment: .bottomTrailing){
+                        //Area de Execucoes
+                        ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+                        .opacity(executionAreaShow ? 1 : 0)
+                        
+                        ExecutionButton()
+                            .offset(x: 30, y: 35)
+                            .opacity(executionButtonShow ? 1 : 0)
+                    }
+                    
+                    
                     Spacer()
-                    //Rectangle().fill(Color(.white)).frame(height:20)
         
                 }.frame(height: UIScreen.main.bounds.height)
+                Rectangle().fill(Color(.white)).frame(width:10)
+                
+                
             }
             
         }.onAppear(){
@@ -64,26 +82,20 @@ struct LevelOne : View{
         }
     }
     
-    func show(_ objName: String){
+    func show(_ objName: String, show: Bool = true){
         withAnimation(Animation.linear(duration: 1.0)){
             if(objName == "image"){
-                imageShow = true
+                imageShow = show
             }else if(objName == "anim1"){
-                anim1Show = true
+                anim1Show = show
             }else if(objName == "clickForNext"){
-                clickForNextShow = true
-            }
-        }
-    }
-    
-    func hide(_ objName: String){
-        withAnimation(Animation.linear(duration: 1.0)){
-            if(objName == "image"){
-                imageShow = false
-            }else if(objName == "anim1"){
-                anim1Show = false
-            }else if(objName == "clickForNext"){
-                clickForNextShow = false
+                clickForNextShow = show
+            }else if(objName == "actionArea"){
+                actionAreaShow = show
+            }else if(objName == "executionArea"){
+                executionAreaShow = show
+            }else if(objName == "execButton"){
+                executionButtonShow = show
             }
         }
     }
