@@ -19,6 +19,7 @@ struct Function: View {
     @State private var selectedParameter = " ? "
     @State var dropdown = false;
     @State var readyToExecute : Bool;
+
     
     @State var actionText: String?
     var onClickEvent: (Opcao) -> ();

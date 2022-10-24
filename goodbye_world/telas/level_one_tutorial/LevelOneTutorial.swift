@@ -20,6 +20,7 @@ var funcoesTutOne : [Opcao] = [falarOla]
 struct LevelOneTutorial: View {
     @Environment(\.dismiss) private var dismiss
     
+    
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
     @State private var clickOnScreenAppear = false
@@ -51,6 +52,7 @@ struct LevelOneTutorial: View {
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
+    @StateObject var g = GlobalVars()
     
     var body: some View {
         
@@ -98,6 +100,13 @@ struct LevelOneTutorial: View {
                                     execuButtonFuncional = false
                                     mainTextText = 3
                                     imagePath = "tut1.5"
+                                    wait(time: 3.0, doAfter: {
+                                        fadeToWhite()
+//                                        wait(time: 1.0) {
+//                                            g.level = "level1"
+//                                        }
+                                    })
+                                    
                                 }
                             }
                         }
@@ -199,7 +208,7 @@ struct LevelOneTutorial: View {
                         ZStack{
                             Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
                             Textinho.FonteBonita("  aperte na acao para levá-la \n  para " +
-                                                 "a area de execucao" +
+                                                 "a area de execucao." +
                                                  "\n  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões"
                             )
                             
@@ -379,6 +388,16 @@ struct LevelOneTutorial: View {
         withAnimation(Animation.linear(duration: 1.0)){
             clickForNext = false
         }//
+    }
+    
+    func fadeToWhite(){
+        withAnimation(Animation.linear(duration: 1)){
+            imageShow = false
+            actionAreaShow = false
+            executionAreaShow = false
+            executionButtonAppear = false
+        
+        }
     }
     
     // mostra a imagem que está em contraste, ou seja, a imagem que está na frente da tela meio transparente
