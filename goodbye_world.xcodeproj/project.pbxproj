@@ -24,6 +24,9 @@
 		82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */; };
 		82A708B82906F4ED00B4BFCF /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708B72906F4ED00B4BFCF /* Levels.swift */; };
 		82A708BB2907130700B4BFCF /* LevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708BA2907130700B4BFCF /* LevelOne.swift */; };
+		82A708BD2907193700B4BFCF /* ClickForNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708BC2907193700B4BFCF /* ClickForNext.swift */; };
+		82A708BF2907197F00B4BFCF /* LevelText1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708BE2907197F00B4BFCF /* LevelText1.swift */; };
+		82A708C1290719F800B4BFCF /* TapOnScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708C0290719F800B4BFCF /* TapOnScreen.swift */; };
 		82AEFF202901AA97006D6C9D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEFF1F2901AA97006D6C9D /* Function.swift */; };
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
@@ -64,6 +67,9 @@
 		82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82A708B72906F4ED00B4BFCF /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		82A708BA2907130700B4BFCF /* LevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOne.swift; sourceTree = "<group>"; };
+		82A708BC2907193700B4BFCF /* ClickForNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickForNext.swift; sourceTree = "<group>"; };
+		82A708BE2907197F00B4BFCF /* LevelText1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelText1.swift; sourceTree = "<group>"; };
+		82A708C0290719F800B4BFCF /* TapOnScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapOnScreen.swift; sourceTree = "<group>"; };
 		82AEFF1F2901AA97006D6C9D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
@@ -187,6 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				82A708BA2907130700B4BFCF /* LevelOne.swift */,
+				82A708BC2907193700B4BFCF /* ClickForNext.swift */,
+				82A708BE2907197F00B4BFCF /* LevelText1.swift */,
+				82A708C0290719F800B4BFCF /* TapOnScreen.swift */,
 			);
 			path = level_one;
 			sourceTree = "<group>";
@@ -320,8 +329,10 @@
 				82FD110728E77D40006D9316 /* Fontinha.swift in Sources */,
 				82F4FC5C28F4A20A00A05F9E /* Painel.swift in Sources */,
 				82A708BB2907130700B4BFCF /* LevelOne.swift in Sources */,
+				82A708C1290719F800B4BFCF /* TapOnScreen.swift in Sources */,
 				EE98259628E37C9A00FB12B3 /* ProgressScreen.swift in Sources */,
 				EE98259428E3406800FB12B3 /* OptionsMenu.swift in Sources */,
+				82A708BF2907197F00B4BFCF /* LevelText1.swift in Sources */,
 				827081F128F84A580044F6D6 /* ContrastActionArea.swift in Sources */,
 				82FD111228EDFEBC006D9316 /* styles.swift in Sources */,
 				827081EE28F849F10044F6D6 /* ClickForNextPopup.swift in Sources */,
@@ -335,6 +346,7 @@
 				82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */,
 				82B5204528F073CA003CFC45 /* Action.swift in Sources */,
 				827081FB28F84B550044F6D6 /* ExecutionButton.swift in Sources */,
+				82A708BD2907193700B4BFCF /* ClickForNext.swift in Sources */,
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
 				82AEFF202901AA97006D6C9D /* Function.swift in Sources */,
 				827081F728F84B000044F6D6 /* InitialContrastTextPopup.swift in Sources */,

@@ -9,18 +9,51 @@ import SwiftUI
 
 struct LevelOne : View{
     @State var anim1Show = false
+    @State var clickForNextShow = false
+    @State var onScreenTapActive = true
+    
     var body: some View{
         ZStack{
-            ZStack{
-                Rectangle().fill(Color(.white)).frame(width: 640, height: 300)
-                    .border(.black, width: 8)
-                Textinho.FonteBonita("Ok. agora vamos ver se você consegue concluir o objetivo a seguir.", 32)
-                    .frame(width: 560, height: 240, alignment: .center)
+            LevelText1().opacity(anim1Show ? 1 : 0)
+            ClickForNext().opacity(clickForNextShow ? 1 : 0)
+    
+            if(onScreenTapActive){
+                TapOnScreen()
+                    .onTapGesture{
+                        hideAnim1()
+                        hideClickForNext()
+                        onScreenTapActive = false
+                    }
             }
-            VStack{
-                Spacer()
-                ClickForNextPopup()
-            }
+            
+        }.onAppear(){
+            showAnim1()
+            showClickForNext()
+        }
+    }
+    
+    func showAnim1(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            anim1Show = true
+        }
+    }
+    
+    func hideAnim1(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            anim1Show = false
+        }
+    }
+    
+    func showClickForNext(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            clickForNextShow = true
+        }
+    }
+    
+    func hideClickForNext(){
+        withAnimation(Animation.linear(duration: 1.0)){
+            clickForNextShow = false
         }
     }
 }
+
