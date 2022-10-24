@@ -61,7 +61,7 @@
 		827081FA28F84B550044F6D6 /* ExecutionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionButton.swift; sourceTree = "<group>"; };
 		82A0A9C228F47E06001C4304 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		82A108152901AD050057AE3C /* LevelOneTutorial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneTutorial2.swift; sourceTree = "<group>"; };
-		82A1823D28E329980056D0A2 /* goodbye_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goodbye_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82A1823D28E329980056D0A2 /* Goodbye World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goodbye World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A1824028E329980056D0A2 /* goodbye_worldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodbye_worldApp.swift; sourceTree = "<group>"; };
 		82A1824428E3299B0056D0A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		82A1823E28E329980056D0A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82A1823D28E329980056D0A2 /* goodbye_world.app */,
+				82A1823D28E329980056D0A2 /* Goodbye World.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,9 +249,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		82A1823C28E329980056D0A2 /* goodbye_world */ = {
+		82A1823C28E329980056D0A2 /* Goodbye World */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82A1824B28E3299B0056D0A2 /* Build configuration list for PBXNativeTarget "goodbye_world" */;
+			buildConfigurationList = 82A1824B28E3299B0056D0A2 /* Build configuration list for PBXNativeTarget "Goodbye World" */;
 			buildPhases = (
 				82A1823928E329980056D0A2 /* Sources */,
 				82A1823A28E329980056D0A2 /* Frameworks */,
@@ -261,9 +261,9 @@
 			);
 			dependencies = (
 			);
-			name = goodbye_world;
+			name = "Goodbye World";
 			productName = goodbye_world;
-			productReference = 82A1823D28E329980056D0A2 /* goodbye_world.app */;
+			productReference = 82A1823D28E329980056D0A2 /* Goodbye World.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -294,7 +294,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				82A1823C28E329980056D0A2 /* goodbye_world */,
+				82A1823C28E329980056D0A2 /* Goodbye World */,
 			);
 		};
 /* End PBXProject section */
@@ -551,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82A1824B28E3299B0056D0A2 /* Build configuration list for PBXNativeTarget "goodbye_world" */ = {
+		82A1824B28E3299B0056D0A2 /* Build configuration list for PBXNativeTarget "Goodbye World" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				82A1824C28E3299B0056D0A2 /* Debug */,
