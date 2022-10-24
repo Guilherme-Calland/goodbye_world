@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+var falarTchau = Opcao(nome: "falar \"tchau\"", actionHandler: {() in print("tchau")});
+var falarTudoBem = Opcao(nome: "falar \"tudo bem\"", actionHandler: {() in print("tudo bem")});
+var darUmPulo = Opcao(nome: "dar um pulo", actionHandler: {() in print("pulando")});
+
+var funcoesLevelOne : [Opcao] = [falarTchau, falarTudoBem, darUmPulo]
+
 struct LevelOne : View{
     @State var anim1Show = false
     @State var clickForNextShow = false
@@ -18,8 +24,8 @@ struct LevelOne : View{
     @State var executionButtonShow = false
     @State var objetivoShow = false
     
-    @StateObject var painelFuncoes = Painel(funcoesTutOne);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
+    @StateObject var painelFuncoes = Painel(funcoesLevelOne);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesLevelOne);
     
     var body: some View{
         ZStack{
