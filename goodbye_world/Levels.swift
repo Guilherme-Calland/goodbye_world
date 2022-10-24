@@ -9,22 +9,20 @@ import SwiftUI
 
 struct Levels: View {
     
-    @StateObject var g = GlobalVars()
+    @StateObject var data = Data()
     
     var body: some View{
         ZStack{
-            if(g.level == "level1Tut"){
+            if(data.level == "level1tut"){
                 LevelOneTutorial()
-            }else if(g.level == "level1"){
+            }else if(data.level == "level1"){
     //            LevelOne
                 ZStack{
                     Rectangle().fill(Color(.black))
                 }
             }
-        }
+        }.environmentObject(data)
     }
 }
 
-class GlobalVars : ObservableObject {
-    @Published var level = "level1Tut"
-}
+

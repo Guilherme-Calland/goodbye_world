@@ -10,4 +10,5 @@ import SwiftUI
 class Data : ObservableObject {
     @Published var actions = ["action 1", "action 2"]
     @Published var executions = []
+    @Published var level = "level1tut"
 }

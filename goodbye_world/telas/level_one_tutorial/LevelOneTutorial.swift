@@ -19,7 +19,7 @@ var funcoesTutOne : [Opcao] = [falarOla]
 
 struct LevelOneTutorial: View {
     @Environment(\.dismiss) private var dismiss
-    
+    @EnvironmentObject var data: Data
     
     @State private var fadePlaceholderScreen = false
     @State private var imageShow = false
@@ -52,7 +52,6 @@ struct LevelOneTutorial: View {
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
-    @StateObject var g = GlobalVars()
     
     var body: some View {
         
@@ -102,14 +101,14 @@ struct LevelOneTutorial: View {
                                     imagePath = "tut1.5"
                                     wait(time: 3.0, doAfter: {
                                         fadeToWhite()
-//                                        wait(time: 1.0) {
-//                                            g.level = "level1"
-//                                        }
+                                        wait(time: 1.0) {
+                                            data.level = "level1"
+                                        }
                                     })
                                     
                                 }
                             }
-                        }
+                        }.environmentObject(data)
                 
                     
                 }
