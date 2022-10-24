@@ -29,6 +29,7 @@ struct LevelOne : View{
                             show("image")
                         })
                         
+                        
                     }
             }
             
@@ -38,6 +39,23 @@ struct LevelOne : View{
                     .resizable()
                     .interpolation(.none)
                     .opacity(imageShow ? 1 : 0)
+                
+                VStack(){
+                    //Rectangle().fill(Color(.white)).frame(height:15)
+                    Spacer()
+                    //Area de Acoes
+                    ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+                        .opacity(actionAreaShow ? 1 : 0)
+                    Spacer()
+                    
+                    //Area de Execucoes
+                    ExecutionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+                    .opacity(executionAreaShow ? 1 : 0)
+            
+                    Spacer()
+                    //Rectangle().fill(Color(.white)).frame(height:20)
+        
+                }.frame(height: UIScreen.main.bounds.height)
             }
             
         }.onAppear(){
