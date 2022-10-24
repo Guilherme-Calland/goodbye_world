@@ -22,9 +22,13 @@ struct LevelOne : View{
             if(onScreenTapActive){
                 TapOnScreen()
                     .onTapGesture{
-                        hideAnim1()
-                        hideClickForNext()
+                        hide("anim1")
+                        hide("clickForNext")
                         onScreenTapActive = false
+                        wait(time: 1, doAfter: {
+                            show("image")
+                        })
+                        
                     }
             }
             
@@ -37,33 +41,41 @@ struct LevelOne : View{
             }
             
         }.onAppear(){
-            showAnim1()
-            showClickForNext()
+            show("anim1")
+            show("clickForNext")
         }
     }
     
-    func showAnim1(){
+    func show(_ objName: String){
         withAnimation(Animation.linear(duration: 1.0)){
-            anim1Show = true
+            if(objName == "image"){
+                imageShow = true
+            }else if(objName == "anim1"){
+                anim1Show = true
+            }else if(objName == "clickForNext"){
+                clickForNextShow = true
+            }
         }
     }
     
-    func hideAnim1(){
+    func hide(_ objName: String){
         withAnimation(Animation.linear(duration: 1.0)){
-            anim1Show = false
+            if(objName == "image"){
+                imageShow = false
+            }else if(objName == "anim1"){
+                anim1Show = false
+            }else if(objName == "clickForNext"){
+                clickForNextShow = false
+            }
         }
     }
     
-    func showClickForNext(){
-        withAnimation(Animation.linear(duration: 1.0)){
-            clickForNextShow = true
+    func wait(time: Double, doAfter: @escaping () -> Void){
+        DispatchQueue.main.asyncAfter(deadline: .now() + time){
+            doAfter()
         }
     }
     
-    func hideClickForNext(){
-        withAnimation(Animation.linear(duration: 1.0)){
-            clickForNextShow = false
-        }
-    }
+    
 }
 
