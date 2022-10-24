@@ -23,9 +23,10 @@ struct LevelOne : View{
     @State var executionAreaShow = false
     @State var executionButtonShow = false
     @State var objetivoShow = false
+    @State var activeExecButton = true
     
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesLevelOne);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
     
     var body: some View{
         ZStack{
@@ -75,7 +76,17 @@ struct LevelOne : View{
                         
                         ExecutionButton()
                             .offset(x: 30, y: 35)
-                            .opacity(executionButtonShow ? 1 : 0)
+                            .opacity(executionButtonShow ? 1 : 0).opacity(activeExecButton ? 1 : 0.5)
+                            .onTapGesture{
+                                if (painelExecucao.executar() == false){
+                                    print("Verificão falhou");
+                                    // barulho de falha
+                                }else{
+                                    activeExecButton = false
+                                    
+                                }
+                                
+                            }
                     }
                     
                     
