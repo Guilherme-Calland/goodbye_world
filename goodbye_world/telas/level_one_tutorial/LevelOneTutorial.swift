@@ -99,7 +99,7 @@ struct LevelOneTutorial: View {
                                     execuButtonFuncional = false
                                     mainTextText = 3
                                     imagePath = "tut1.5"
-                                    wait(time: 3.0, doAfter: {
+                                    wait(time: 2.0, doAfter: {
                                         fadeToWhite()
                                         wait(time: 1.0) {
                                             data.level = "level1"
@@ -134,8 +134,6 @@ struct LevelOneTutorial: View {
                 
                     //
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
             
             // o textinho que aparece: este é você
             InitialContrastTextPopup(text: "esse é você")

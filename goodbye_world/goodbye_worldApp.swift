@@ -11,7 +11,7 @@ import SwiftUI
 struct goodbye_worldApp: App {
     var body: some Scene {
         WindowGroup {
-            InitScreen();
+            LevelOne();
         }
     }
 }

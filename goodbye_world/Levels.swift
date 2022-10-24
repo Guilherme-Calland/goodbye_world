@@ -16,12 +16,11 @@ struct Levels: View {
             if(data.level == "level1tut"){
                 LevelOneTutorial()
             }else if(data.level == "level1"){
-    //            LevelOne
-                ZStack{
-                    Rectangle().fill(Color(.black))
-                }
+                LevelOne()
             }
         }.environmentObject(data)
+            .navigationBarTitle("")
+                .navigationBarHidden(true)
     }
 }
 
