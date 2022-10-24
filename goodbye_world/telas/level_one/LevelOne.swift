@@ -16,6 +16,7 @@ struct LevelOne : View{
     @State var actionAreaShow = false
     @State var executionAreaShow = false
     @State var executionButtonShow = false
+    @State var objetivoShow = false
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -36,6 +37,9 @@ struct LevelOne : View{
                             show("actionArea")
                             show("executionArea")
                             show("execButton")
+                            wait(time: 1, doAfter: {
+                                show("objetivo")
+                            })
                         })
                         
                         
@@ -53,7 +57,8 @@ struct LevelOne : View{
                     //Rectangle().fill(Color(.white)).frame(height:15)
                     Spacer()
                     //Area de Acoes
-                    ActionArea().environmentObject(painelExecucao).environmentObject(painelFuncoes)
+                    ActionArea().environmentObject(painelExecucao)
+                        .environmentObject(painelFuncoes)
                         .opacity(actionAreaShow ? 1 : 0)
                     Spacer()
                     
@@ -72,9 +77,12 @@ struct LevelOne : View{
         
                 }.frame(height: UIScreen.main.bounds.height)
                 Rectangle().fill(Color(.white)).frame(width:10)
-                
-                
             }
+            
+            Objetivo()
+                .opacity(objetivoShow ? 1 : 0)
+                
+            
             
         }.onAppear(){
             show("anim1")
@@ -96,6 +104,8 @@ struct LevelOne : View{
                 executionAreaShow = show
             }else if(objName == "execButton"){
                 executionButtonShow = show
+            }else if(objName == "objetivo"){
+                objetivoShow = show
             }
         }
     }
