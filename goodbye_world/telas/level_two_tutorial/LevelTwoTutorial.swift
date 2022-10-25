@@ -32,25 +32,28 @@ struct LevelTwoTutorial : View{
     @State var imageShow = false
     @State var actionAreaShow = false
     @State var executionAreaShow = false
-    @State var executionButtonShow = true
+    @State var executionButtonShow = false
     @State var activeExecButton = true
+    @State var tutMessage1Show = false
+    @State var redArrowShow = false
+    @State var clickForNextShow = false
     
     var body: some View{
         ZStack{
             
             HStack{
                 ZStack(alignment: .topLeading){
-                    ZStack{
-                        Rectangle().fill(Color(.white)).border(.black, width: 4.0)
-                            .frame(width: 200, height: 200)
-                        Textinho.FonteBonita("isso é a area de funcões.\n\n em programacao, uma funcao é um pedaco de código que faz alguma tarefa específica.\n\noprincípio de uma funcão está, naturalmente, em permitir encapsular uma ideia ou operacão, dando-lhe um nome, e então chamar essa operacão de várias partes do programa simplesmente usando seu nome")
-                            .frame(width: 160)
-                    }.offset(x: 40, y: 100)
-                    
                     Image("tut2.1")
                         .interpolation(.none)
                         .resizable()
                         .opacity(imageShow ? 1 : 0)
+                    
+                    TutMessage1().opacity(tutMessage1Show ? 1 : 0)
+                    
+                    RedArrow().opacity(redArrowShow ? 1 : 0)
+                    
+                    
+                    //
                 }
                 
                 
@@ -90,32 +93,50 @@ struct LevelTwoTutorial : View{
                 
                 
             }
+            
+            ClickForNext()
+                .opacity(clickForNextShow ? 1 : 0)
+            
+            
+            
+            
         }.onAppear(perform: {
             show("image")
             wait(time: 1.0, doAfter: {
                 show("actionArea")
                 show("executionArea")
                 //show("execButton")
+                wait(time: 1.0, doAfter: {
+                    show("redArrow")
+                    show("tutMessage1")
+                    wait(time: 1.0, doAfter: {
+                        show("clickForNext")
+                    })
+                })
             })
         })
+        
+        
     }
+    
+    
     
     func show(_ objName: String, show: Bool = true){
         withAnimation(Animation.linear(duration: 1.0)){
             if(objName == "image"){
                 imageShow = show
-            }else if(objName == "anim1"){
-                //anim1Show = show
-            }else if(objName == "clickForNext"){
-                //clickForNextShow = show
+            }else if(objName == "redArrow"){
+                redArrowShow = show
+            }else if(objName == "tutMessage1"){
+                tutMessage1Show = show
             }else if(objName == "actionArea"){
                 actionAreaShow = show
             }else if(objName == "executionArea"){
                 executionAreaShow = show
             }else if(objName == "execButton"){
                 executionButtonShow = show
-            }else if(objName == "objetivo"){
-                //objetivoShow = show
+            }else if(objName == "clickForNext"){
+                clickForNextShow = show
             }else if(objName == "speachBubble1"){
                 //speachBubble1Show = show
             }else if(objName == "speachBubble2"){

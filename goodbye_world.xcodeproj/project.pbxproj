@@ -32,6 +32,10 @@
 		82A708C7290814E600B4BFCF /* SpeachBubble2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708C6290814E600B4BFCF /* SpeachBubble2.swift */; };
 		82A708C92908218E00B4BFCF /* ObjectiveComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708C82908218E00B4BFCF /* ObjectiveComplete.swift */; };
 		82A708CC2908353C00B4BFCF /* LevelTwoTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708CB2908353C00B4BFCF /* LevelTwoTutorial.swift */; };
+		82A708CE290854C200B4BFCF /* TutMessage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708CD290854C200B4BFCF /* TutMessage1.swift */; };
+		82A708D0290854F300B4BFCF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708CF290854F300B4BFCF /* File.swift */; };
+		82A708D22908598600B4BFCF /* ClickForNext2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708D12908598600B4BFCF /* ClickForNext2.swift */; };
+		82A708D4290859D000B4BFCF /* TapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708D3290859D000B4BFCF /* TapScreen.swift */; };
 		82AEFF202901AA97006D6C9D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEFF1F2901AA97006D6C9D /* Function.swift */; };
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
@@ -80,6 +84,10 @@
 		82A708C6290814E600B4BFCF /* SpeachBubble2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeachBubble2.swift; sourceTree = "<group>"; };
 		82A708C82908218E00B4BFCF /* ObjectiveComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveComplete.swift; sourceTree = "<group>"; };
 		82A708CB2908353C00B4BFCF /* LevelTwoTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoTutorial.swift; sourceTree = "<group>"; };
+		82A708CD290854C200B4BFCF /* TutMessage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutMessage1.swift; sourceTree = "<group>"; };
+		82A708CF290854F300B4BFCF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		82A708D12908598600B4BFCF /* ClickForNext2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickForNext2.swift; sourceTree = "<group>"; };
+		82A708D3290859D000B4BFCF /* TapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapScreen.swift; sourceTree = "<group>"; };
 		82AEFF1F2901AA97006D6C9D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
@@ -218,6 +226,10 @@
 			isa = PBXGroup;
 			children = (
 				82A708CB2908353C00B4BFCF /* LevelTwoTutorial.swift */,
+				82A708CD290854C200B4BFCF /* TutMessage1.swift */,
+				82A708CF290854F300B4BFCF /* File.swift */,
+				82A708D12908598600B4BFCF /* ClickForNext2.swift */,
+				82A708D3290859D000B4BFCF /* TapScreen.swift */,
 			);
 			path = level_two_tutorial;
 			sourceTree = "<group>";
@@ -349,8 +361,11 @@
 				82A708CC2908353C00B4BFCF /* LevelTwoTutorial.swift in Sources */,
 				82F4FC5E28F4A22700A05F9E /* PainelTesteView.swift in Sources */,
 				82F4FC6028F5E40A00A05F9E /* SaveScreen.swift in Sources */,
+				82A708D22908598600B4BFCF /* ClickForNext2.swift in Sources */,
+				82A708CE290854C200B4BFCF /* TutMessage1.swift in Sources */,
 				827081F528F84AB30044F6D6 /* MainTextPopup.swift in Sources */,
 				82FD110728E77D40006D9316 /* Fontinha.swift in Sources */,
+				82A708D0290854F300B4BFCF /* File.swift in Sources */,
 				82F4FC5C28F4A20A00A05F9E /* Painel.swift in Sources */,
 				82A708BB2907130700B4BFCF /* LevelOne.swift in Sources */,
 				82A708C1290719F800B4BFCF /* TapOnScreen.swift in Sources */,
@@ -375,6 +390,7 @@
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
 				82AEFF202901AA97006D6C9D /* Function.swift in Sources */,
 				827081F728F84B000044F6D6 /* InitialContrastTextPopup.swift in Sources */,
+				82A708D4290859D000B4BFCF /* TapScreen.swift in Sources */,
 				82A708C5290814A400B4BFCF /* SpeachBubble1.swift in Sources */,
 				82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */,
 				82A708C7290814E600B4BFCF /* SpeachBubble2.swift in Sources */,
