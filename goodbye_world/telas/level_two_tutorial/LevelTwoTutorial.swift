@@ -37,6 +37,8 @@ struct LevelTwoTutorial : View{
     @State var tutMessage2Show = false
     @State var objetiveShow = false
     @State var imagePath = "tut2.1"
+    @State var speachBubble1Show = false
+    @State var speachBubble2Show = false
     
     var body: some View{
         ZStack{
@@ -53,8 +55,15 @@ struct LevelTwoTutorial : View{
                     RedArrow().opacity(redArrowShow ? 1 : 0)
                     
                     
+                    VStack{
+                        Lvl2SpeachBubble()
+                            .opacity(speachBubble1Show ? 1 : 0)
+                        if(speachBubble2Show){
+                            Lvl2SpeachBubble2()
+                                .opacity(speachBubble2Show ? 1 : 0)
+                        }
+                    }
                     
-                    Lvl2SpeachBubble()
                 }
                 
                 
@@ -84,9 +93,9 @@ struct LevelTwoTutorial : View{
                                         activeExecButton = false
                                         show("objetive", show: false)
                                         wait(time: 1, doAfter: {
-                                            // mostrar bolha 1
+                                            show("speachBubble1")
                                             wait(time: 1, doAfter: {
-                                                //mostrat bolha2
+                                                show("speachBubble2")
                                                 imagePath = "tut2.2"
                                             })
                                         })
@@ -198,8 +207,10 @@ struct LevelTwoTutorial : View{
                 tutMessage2Show = show
             }else if(objName == "objetive"){
                 objetiveShow = show
-            }else if(objName == "fadeToWhite"){
-                //fadeToWhite = show
+            }else if(objName == "speachBubble1"){
+                speachBubble1Show = show
+            }else if(objName == "speachBubble2"){
+                speachBubble2Show = show
             }
         }
     }
