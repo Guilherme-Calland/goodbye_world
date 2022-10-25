@@ -39,6 +39,7 @@
 		82A708D62908635600B4BFCF /* Lvl2RedArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708D52908635600B4BFCF /* Lvl2RedArrow.swift */; };
 		82A708D8290869B200B4BFCF /* Lvl2TutText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708D7290869B200B4BFCF /* Lvl2TutText.swift */; };
 		82A708DA2908704E00B4BFCF /* Lvl2Objetivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708D92908704E00B4BFCF /* Lvl2Objetivo.swift */; };
+		82A708DC2908790800B4BFCF /* Lvl2SpeachBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708DB2908790800B4BFCF /* Lvl2SpeachBubble.swift */; };
 		82AEFF202901AA97006D6C9D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEFF1F2901AA97006D6C9D /* Function.swift */; };
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
@@ -94,6 +95,7 @@
 		82A708D52908635600B4BFCF /* Lvl2RedArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl2RedArrow.swift; sourceTree = "<group>"; };
 		82A708D7290869B200B4BFCF /* Lvl2TutText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl2TutText.swift; sourceTree = "<group>"; };
 		82A708D92908704E00B4BFCF /* Lvl2Objetivo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl2Objetivo.swift; sourceTree = "<group>"; };
+		82A708DB2908790800B4BFCF /* Lvl2SpeachBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl2SpeachBubble.swift; sourceTree = "<group>"; };
 		82AEFF1F2901AA97006D6C9D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				82A708D52908635600B4BFCF /* Lvl2RedArrow.swift */,
 				82A708D7290869B200B4BFCF /* Lvl2TutText.swift */,
 				82A708D92908704E00B4BFCF /* Lvl2Objetivo.swift */,
+				82A708DB2908790800B4BFCF /* Lvl2SpeachBubble.swift */,
 			);
 			path = level_two_tutorial;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				82F4FC5E28F4A22700A05F9E /* PainelTesteView.swift in Sources */,
 				82A708D8290869B200B4BFCF /* Lvl2TutText.swift in Sources */,
 				82F4FC6028F5E40A00A05F9E /* SaveScreen.swift in Sources */,
+				82A708DC2908790800B4BFCF /* Lvl2SpeachBubble.swift in Sources */,
 				82A708D22908598600B4BFCF /* ClickForNext2.swift in Sources */,
 				82A708CE290854C200B4BFCF /* TutMessage1.swift in Sources */,
 				827081F528F84AB30044F6D6 /* MainTextPopup.swift in Sources */,

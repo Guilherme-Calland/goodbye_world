@@ -36,27 +36,25 @@ struct LevelTwoTutorial : View{
     @State var redArrow2Show = false
     @State var tutMessage2Show = false
     @State var objetiveShow = false
+    @State var imagePath = "tut2.1"
     
     var body: some View{
         ZStack{
             
             HStack{
-                ZStack(alignment: .topLeading){
-                    Image("tut2.1")
+                ZStack{
+                    Image(imagePath)
                         .interpolation(.none)
                         .resizable()
                         .opacity(imageShow ? 1 : 0)
                     
-                    TutMessage1().opacity(tutMessage1Show ? 1 : 0)
                     
+                    TutMessage1().opacity(tutMessage1Show ? 1 : 0)
                     RedArrow().opacity(redArrowShow ? 1 : 0)
                     
                     
                     
-                    
-                    
-                    
-                    //
+                    Lvl2SpeachBubble()
                 }
                 
                 
@@ -78,12 +76,23 @@ struct LevelTwoTutorial : View{
                             .offset(x: 30, y: 35)
                             .opacity(executionButtonShow ? 1 : 0).opacity(activeExecButton ? 1 : 0.5)
                             .onTapGesture{
-                                if (painelExecucao.executar() == false){
-                                    print("Verificão falhou");
-                                    // barulho de falha
-                                }else{
-                                    print("tudo ok")
+                                if(activeExecButton){
+                                    if (painelExecucao.executar() == false){
+                                        print("Verificão falhou");
+                                        // barulho de falha
+                                    }else{
+                                        activeExecButton = false
+                                        show("objetive", show: false)
+                                        wait(time: 1, doAfter: {
+                                            // mostrar bolha 1
+                                            wait(time: 1, doAfter: {
+                                                //mostrat bolha2
+                                                imagePath = "tut2.2"
+                                            })
+                                        })
+                                    }
                                 }
+                                
                                 
                             }
                     }
