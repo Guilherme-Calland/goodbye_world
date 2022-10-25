@@ -8,7 +8,7 @@
 import SwiftUI
 
 var falarTchau = Opcao(nome: "falar \"tchau\"", actionHandler: {() in print("tchau")});
-var falarTudoBem = Opcao(nome: "falar \"tudo bem\"", actionHandler: {() in print("tudo bem")});
+var falarTudoBem = Opcao(nome: "falar \"tudo bem?\"", actionHandler: {() in print("tudo bem?")});
 var darUmPulo = Opcao(nome: "dar um pulo", actionHandler: {() in print("pulando")});
 
 var funcoesLevelOne : [Opcao] = [falarTchau, falarTudoBem, darUmPulo]
@@ -24,6 +24,8 @@ struct LevelOne : View{
     @State var executionButtonShow = false
     @State var objetivoShow = false
     @State var activeExecButton = true
+    @State var speachBubble1Show = false
+    @State var speachBubble2Show = false
     
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
@@ -54,11 +56,21 @@ struct LevelOne : View{
             }
             
             HStack{
-                //Imagem Principal
-                Image(imagePath)
-                    .resizable()
-                    .interpolation(.none)
-                    .opacity(imageShow ? 1 : 0)
+                
+                ZStack{
+                    // Bolhas de texto
+                    VStack{
+                        SpeachBubble1().opacity(speachBubble1Show ? 1 : 0)
+                        SpeachBubble2().opacity(speachBubble2Show ? 1 : 0)
+                    }
+                    
+                    //Imagem Principal
+                    Image(imagePath)
+                        .resizable()
+                        .interpolation(.none)
+                        .opacity(imageShow ? 1 : 0)
+                }
+                
                 
                 VStack(){
                     //Rectangle().fill(Color(.white)).frame(height:15)
@@ -83,7 +95,15 @@ struct LevelOne : View{
                                     // barulho de falha
                                 }else{
                                     activeExecButton = false
-                                    
+                                    show("objetivo", show: false)
+                                    wait(time: 1.0, doAfter: {
+                                        show("speachBubble1")
+                                        wait(time: 1, doAfter: {
+                                            show("speachBubble2")
+                                            imagePath = "tut1.6"
+                                        })
+                                        
+                                    })
                                 }
                                 
                             }
@@ -123,6 +143,10 @@ struct LevelOne : View{
                 executionButtonShow = show
             }else if(objName == "objetivo"){
                 objetivoShow = show
+            }else if(objName == "speachBubble1"){
+                speachBubble1Show = show
+            }else if(objName == "speachBubble2"){
+                speachBubble2Show = show
             }
         }
     }
@@ -132,7 +156,5 @@ struct LevelOne : View{
             doAfter()
         }
     }
-    
-    
 }
 
