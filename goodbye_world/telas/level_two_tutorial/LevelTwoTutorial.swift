@@ -13,11 +13,17 @@ import SwiftUI
 //
 //var funcoesLevelOne : [Opcao] = [falarTchau, falarTudoBem, darUmPulo]
 
+var funcoesLevel2Tut : OpcaoParametros = OpcaoParametros(
+    nome: "falar",
+    actionHandler: {(arg:String) in
+       print("Falei: " + arg)
+    }
+    , parametros: ["morte aos humanos,\nnão é mesmo?"])
 
 struct LevelTwoTutorial : View{
     
-    @StateObject var painelFuncoes = Painel([]);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
+    @StateObject var painelFuncoes = Painel([funcoesLevel2Tut]);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel2Tut]);
     
     @State var imageShow = false
     @State var actionAreaShow = false

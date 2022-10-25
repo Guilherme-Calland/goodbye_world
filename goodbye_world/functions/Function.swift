@@ -37,6 +37,7 @@ struct Function: View {
         ZStack{
             VStack{
                 ZStack{
+                    ActionShadow()
                     Rectangle()
                         .fill(Color(self.readyToExecute ?  "customGreen" : "customOrange"))
                         .border(.black, width: 4)
@@ -88,8 +89,8 @@ struct Function: View {
                         parameter in
                         ZStack{
                             Rectangle()
-                                .fill(Color( "customOrange"))
-                                .frame(width: actionWidth, height: actionHeight, alignment: .leading)
+                                .fill(orange3)
+                                .frame(width: actionWidth + 30, height: actionHeight * 2, alignment: .leading)
                                 .border(.black, width: 4)
                             HStack{
                                 Textinho.FonteBonita("\(parameter)")
