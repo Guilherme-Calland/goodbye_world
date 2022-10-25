@@ -26,6 +26,7 @@ struct LevelOne : View{
     @State var activeExecButton = true
     @State var speachBubble1Show = false
     @State var speachBubble2Show = false
+    @State var tapCount = 0
     
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
@@ -33,27 +34,6 @@ struct LevelOne : View{
     var body: some View{
         ZStack{
             LevelText1().opacity(anim1Show ? 1 : 0)
-            ClickForNext().opacity(clickForNextShow ? 1 : 0)
-    
-            if(onScreenTapActive){
-                TapOnScreen()
-                    .onTapGesture{
-                        show("anim1", show: false)
-                        show("clickForNext", show: false)
-                        onScreenTapActive = false
-                        wait(time: 1, doAfter: {
-                            show("image")
-                            show("actionArea")
-                            show("executionArea")
-                            show("execButton")
-                            wait(time: 1, doAfter: {
-                                show("objetivo")
-                            })
-                        })
-                        
-                        
-                    }
-            }
             
             HStack{
                 
@@ -101,6 +81,10 @@ struct LevelOne : View{
                                         wait(time: 1, doAfter: {
                                             show("speachBubble2")
                                             imagePath = "tut1.6"
+                                            wait(time: 2.0, doAfter: {
+                                                show("clickForNext")
+                                                onScreenTapActive = true
+                                            })
                                         })
                                         
                                     })
@@ -118,6 +102,35 @@ struct LevelOne : View{
             
             Objetivo()
                 .opacity(objetivoShow ? 1 : 0)
+            
+            ClickForNext().opacity(clickForNextShow ? 1 : 0)
+            
+            if(onScreenTapActive){
+                TapOnScreen()
+                    .onTapGesture{
+                        
+                        if(tapCount == 0){
+                            tapCount += 1
+                            onScreenTapActive = false
+                            show("anim1", show: false)
+                            show("clickForNext", show: false)
+                            wait(time: 1, doAfter: {
+                                show("image")
+                                show("actionArea")
+                                show("executionArea")
+                                show("execButton")
+                                wait(time: 1, doAfter: {
+                                    show("objetivo")
+                                })
+                            })
+                        }else if(tapCount == 1){
+                            print("hello world!!!!")
+                        }
+                        
+                        
+                        
+                    }
+            }
                 
             
             
