@@ -23,6 +23,9 @@ struct LevelTwoTutorial : View{
     @StateObject var painelFuncoes = Painel([funcoesLevel2Tut]);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel2Tut.OpcaoComResposta(morteAosHumanos)]);
     
+    @EnvironmentObject var data: Data
+    @Environment(\.dismiss) private var dismiss
+    
     @State var imageShow = false
     @State var actionAreaShow = false
     @State var executionAreaShow = false
@@ -40,6 +43,7 @@ struct LevelTwoTutorial : View{
     @State var speachBubble1Show = false
     @State var speachBubble2Show = false
     @State var objetiveCompleteShow = false
+    @State var fadeToWhite = false
     
     var body: some View{
         ZStack{
@@ -123,6 +127,18 @@ struct LevelTwoTutorial : View{
             ClickForNext()
                 .opacity(clickForNextShow ? 1 : 0)
             
+            Lvl2TutText()
+                .opacity(tutMessage2Show ? 1 : 0)
+            
+            Lvl2RedArrow()
+                .opacity(redArrow2Show ? 1 : 0)
+            
+            Lvl2Objetivo()
+                .opacity(objetiveShow ? 1 : 0)
+            
+            ObjectiveComplete()
+                .opacity(objetiveCompleteShow ? 1 : 0)
+            
             if(tapScreenActive){
                 TapScreen()
                     .onTapGesture{
@@ -166,21 +182,21 @@ struct LevelTwoTutorial : View{
                                     tapScreenActive = true
                                 })
                             })
+                        }else if(tapCounter == 3){
+                            tapCounter += 1
+                            tapScreenActive = false
+                            show("fadeToWhite")
+                            wait(time: 1, doAfter: {
+                                //data.level = "level3"
+                            })
                         }
                     }
             }
 
-            Lvl2TutText()
-                .opacity(tutMessage2Show ? 1 : 0)
             
-            Lvl2RedArrow()
-                .opacity(redArrow2Show ? 1 : 0)
             
-            Lvl2Objetivo()
-                .opacity(objetiveShow ? 1 : 0)
-            
-            ObjectiveComplete()
-                .opacity(objetiveCompleteShow ? 1 : 0)
+            Rectangle().fill(Color(.white))
+                .opacity(fadeToWhite ? 1 : 0)
    
         }.onAppear(perform: {
             show("image")
@@ -198,6 +214,7 @@ struct LevelTwoTutorial : View{
                 })
             })
         })
+            //.environmentObject(data)
         
         
     }
@@ -232,6 +249,8 @@ struct LevelTwoTutorial : View{
                 speachBubble2Show = show
             }else if(objName == "objetiveComplete"){
                 objetiveCompleteShow = show
+            }else if(objName == "fadeToWhite"){
+                fadeToWhite = show
             }
         }
     }
