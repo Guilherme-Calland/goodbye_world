@@ -13,17 +13,21 @@ import SwiftUI
 //
 //var funcoesLevelOne : [Opcao] = [falarTchau, falarTudoBem, darUmPulo]
 
+var morteAosHumanos = "morte aos humanos,\nnão é mesmo?"
+var queHorasSao = "que horas são?"
+var odeioRobos = "odeio robôs"
+
 var funcoesLevel2Tut : OpcaoParametros = OpcaoParametros(
     nome: "falar",
     actionHandler: {(arg:String) in
        print("Falei: " + arg)
     }
-    , parametros: ["morte aos humanos,\nnão é mesmo?"])
+    , parametros: [odeioRobos ,queHorasSao, morteAosHumanos])
 
 struct LevelTwoTutorial : View{
     
     @StateObject var painelFuncoes = Painel([funcoesLevel2Tut]);
-    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel2Tut]);
+    @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel2Tut.OpcaoComResposta(morteAosHumanos)]);
     
     @State var imageShow = false
     @State var actionAreaShow = false
@@ -61,7 +65,7 @@ struct LevelTwoTutorial : View{
                                     print("Verificão falhou");
                                     // barulho de falha
                                 }else{
-                                    
+                                    print("tudo ok")
                                 }
                                 
                             }
@@ -78,7 +82,7 @@ struct LevelTwoTutorial : View{
             wait(time: 1.0, doAfter: {
                 show("actionArea")
                 show("executionArea")
-                show("executionButton")
+                //show("execButton")
             })
         })
     }

@@ -46,6 +46,12 @@ class OpcaoParametros : Opcao{
         self.actionHandlerG(self.parametroSelecionado);
     }
     
+    func OpcaoComResposta (_ parametroCorreto : String) -> OpcaoParametros {
+       let copia = OpcaoParametros(nome: self.nome, actionHandler: self.actionHandlerG, parametros: self.parametros);
+       copia.parametroSelecionado = parametroCorreto;
+       return copia;
+   }
+    
 }
 
 class Painel : ObservableObject{
