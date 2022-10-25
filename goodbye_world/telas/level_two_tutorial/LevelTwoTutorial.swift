@@ -37,7 +37,7 @@ struct LevelTwoTutorial : View{
                     //Rectangle().fill(Color(.white)).frame(height:15)
                     Spacer()
                     //Area de Acoes
-                    ActionArea().environmentObject(painelExecucao)
+                    ActionArea(isFunc: true).environmentObject(painelExecucao)
                         .environmentObject(painelFuncoes)
                         .opacity(actionAreaShow ? 1 : 0)
                     Spacer()
