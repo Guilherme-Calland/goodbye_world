@@ -19,6 +19,8 @@ struct Levels: View {
                 LevelOne()
             }else if(data.level == "level2tut"){
                 LevelTwoTutorial()
+            }else if(data.level == "level3"){
+                LevelThree()
             }
         }.environmentObject(data)
             .navigationBarTitle("")

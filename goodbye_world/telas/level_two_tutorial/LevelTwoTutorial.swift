@@ -187,7 +187,7 @@ struct LevelTwoTutorial : View{
                             tapScreenActive = false
                             show("fadeToWhite")
                             wait(time: 1, doAfter: {
-                                //data.level = "level3"
+                                data.level = "level3"
                             })
                         }
                     }
@@ -214,7 +214,7 @@ struct LevelTwoTutorial : View{
                 })
             })
         })
-            //.environmentObject(data)
+            .environmentObject(data)
         
         
     }
