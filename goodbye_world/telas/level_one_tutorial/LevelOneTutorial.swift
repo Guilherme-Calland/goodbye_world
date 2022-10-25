@@ -102,7 +102,7 @@ struct LevelOneTutorial: View {
                                     imagePath = "tut1.5"
                                     fullScreenClick = true
                                     
-                                    showClickForNext(delay: 0.0)
+                                    showClickForNext(delay: 1.0)
                                     
                                     
                                 }

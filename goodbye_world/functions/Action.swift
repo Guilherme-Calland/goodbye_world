@@ -32,7 +32,10 @@ struct Action : View {
                     .fill(Color(readyToExecute ?? false ? "customGreen" : "customOrange"))
                     .frame(width: actionWidth, height: actionHeight, alignment: .leading)
                     .border(.black, width: 4)
+            
                 Textinho.FonteBonita(actionText ?? "Falar \"Ola\"")
+                    .padding(EdgeInsets.init(top: 0.0, leading: 10, bottom: 0.0, trailing: 0.0))
+                    .frame(width: actionWidth, height: actionHeight, alignment: .leading)
             }.onTapGesture {
                 self.onClickEvent(self.action_data);
                 SoundManager.Instance.playSfx("click")

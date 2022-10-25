@@ -56,7 +56,7 @@ struct LevelOne : View{
                 }
                 
                 
-                VStack{
+                VStack(){
                     //Rectangle().fill(Color(.white)).frame(height:15)
                     Spacer()
                     //Area de Acoes
