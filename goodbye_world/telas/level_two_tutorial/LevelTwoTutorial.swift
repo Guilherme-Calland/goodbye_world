@@ -32,16 +32,27 @@ struct LevelTwoTutorial : View{
     @State var imageShow = false
     @State var actionAreaShow = false
     @State var executionAreaShow = false
-    @State var executionButtonShow = false
+    @State var executionButtonShow = true
     @State var activeExecButton = true
     
     var body: some View{
         ZStack{
+            
             HStack{
-                Image("tut2.1")
-                    .interpolation(.none)
-                    .resizable()
-                    .opacity(imageShow ? 1 : 0)
+                ZStack(alignment: .topLeading){
+                    ZStack{
+                        Rectangle().fill(Color(.white)).border(.black, width: 4.0)
+                            .frame(width: 200, height: 200)
+                        Textinho.FonteBonita("isso é a area de funcões.\n\n em programacao, uma funcao é um pedaco de código que faz alguma tarefa específica.\n\noprincípio de uma funcão está, naturalmente, em permitir encapsular uma ideia ou operacão, dando-lhe um nome, e então chamar essa operacão de várias partes do programa simplesmente usando seu nome")
+                            .frame(width: 160)
+                    }.offset(x: 40, y: 100)
+                    
+                    Image("tut2.1")
+                        .interpolation(.none)
+                        .resizable()
+                        .opacity(imageShow ? 1 : 0)
+                }
+                
                 
                 VStack{
                     //Rectangle().fill(Color(.white)).frame(height:15)
@@ -76,6 +87,8 @@ struct LevelTwoTutorial : View{
         
                 }.frame(height: UIScreen.main.bounds.height)
                 Rectangle().fill(Color(.white)).frame(width:10)
+                
+                
             }
         }.onAppear(perform: {
             show("image")

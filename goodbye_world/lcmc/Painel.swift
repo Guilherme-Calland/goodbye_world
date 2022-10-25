@@ -9,10 +9,23 @@ import Foundation
 import UIKit
 
 class Opcao : Equatable, Identifiable{
-    static func == (lhs: Opcao, rhs: Opcao) -> Bool {
-        return (lhs.nome == rhs.nome)
-    }
+//    static func == (lhs: Opcao, rhs: Opcao) -> Bool {
+//        return (lhs.nome == rhs.nome)
+//    }
     
+    static func == (lhs: Opcao, rhs: Opcao) -> Bool {
+            if (lhs is OpcaoParametros){
+                if (rhs is OpcaoParametros){
+                    return (lhs as! OpcaoParametros) == (rhs as! OpcaoParametros);
+                }
+            }else{
+                if !(rhs is OpcaoParametros){
+                    return (lhs.nome == rhs.nome);
+                }
+            }
+            return false;
+        }
+
     var nome : String;
     var actionHandler : () -> Void;
     
