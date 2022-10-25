@@ -45,7 +45,9 @@ struct LevelOne : View{
                     // Bolhas de texto
                     VStack{
                         SpeachBubble1().opacity(speachBubble1Show ? 1 : 0)
-                        SpeachBubble2().opacity(speachBubble2Show ? 1 : 0)
+                        if(speachBubble2Show){
+                            SpeachBubble2().opacity(speachBubble2Show ? 1 : 0)
+                        }
                     }
                     
                     //Imagem Principal
