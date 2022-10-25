@@ -17,6 +17,8 @@ struct Levels: View {
                 LevelOneTutorial()
             }else if(data.level == "level1"){
                 LevelOne()
+            }else if(data.level == "initScreen"){
+                InitScreen()
             }
         }.environmentObject(data)
             .navigationBarTitle("")

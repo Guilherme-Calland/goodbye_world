@@ -28,6 +28,8 @@ struct LevelOne : View{
     @State var speachBubble2Show = false
     @State var tapCount = 0
     @State var objetivoConlcuidoShow = false
+    @State var fadeToWhite = false
+    @EnvironmentObject var data: Data
     
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
@@ -130,14 +132,19 @@ struct LevelOne : View{
                             tapCount += 1
                             show("objetivoConcluido")
                         }else if(tapCount == 2){
-                            
+                            show("fadeToWhite")
+                            wait(time: 1.0, doAfter: {
+                                data.level = "initScreen"
+                            })
                         }
                         
                         
                         
-                    }
+                    }.environmentObject(data)
             }
                 
+            Rectangle().fill(Color(.white))
+                .opacity(fadeToWhite ? 1 : 0)
             
             
         }.onAppear(){
@@ -168,6 +175,8 @@ struct LevelOne : View{
                 speachBubble2Show = show
             }else if(objName == "objetivoConcluido"){
                 objetivoConlcuidoShow = show
+            }else if(objName == "fadeToWhite"){
+                fadeToWhite = show
             }
         }
     }
