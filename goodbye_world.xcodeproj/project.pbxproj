@@ -42,6 +42,9 @@
 		82A708DC2908790800B4BFCF /* Lvl2SpeachBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708DB2908790800B4BFCF /* Lvl2SpeachBubble.swift */; };
 		82A708DE29087A0A00B4BFCF /* Lvl2SpeachBubble2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708DD29087A0A00B4BFCF /* Lvl2SpeachBubble2.swift */; };
 		82A708E12908820300B4BFCF /* LevelThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E02908820300B4BFCF /* LevelThree.swift */; };
+		82A708E329088D6100B4BFCF /* Level3Text1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E229088D6100B4BFCF /* Level3Text1.swift */; };
+		82A708E5290892BB00B4BFCF /* Lvl3Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E4290892BB00B4BFCF /* Lvl3Objective.swift */; };
+		82A708E7290894BB00B4BFCF /* Lvl3SpeachBubble1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E6290894BB00B4BFCF /* Lvl3SpeachBubble1.swift */; };
 		82AEFF202901AA97006D6C9D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEFF1F2901AA97006D6C9D /* Function.swift */; };
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
@@ -100,6 +103,9 @@
 		82A708DB2908790800B4BFCF /* Lvl2SpeachBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl2SpeachBubble.swift; sourceTree = "<group>"; };
 		82A708DD29087A0A00B4BFCF /* Lvl2SpeachBubble2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl2SpeachBubble2.swift; sourceTree = "<group>"; };
 		82A708E02908820300B4BFCF /* LevelThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThree.swift; sourceTree = "<group>"; };
+		82A708E229088D6100B4BFCF /* Level3Text1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3Text1.swift; sourceTree = "<group>"; };
+		82A708E4290892BB00B4BFCF /* Lvl3Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl3Objective.swift; sourceTree = "<group>"; };
+		82A708E6290894BB00B4BFCF /* Lvl3SpeachBubble1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl3SpeachBubble1.swift; sourceTree = "<group>"; };
 		82AEFF1F2901AA97006D6C9D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
@@ -255,6 +261,9 @@
 			isa = PBXGroup;
 			children = (
 				82A708E02908820300B4BFCF /* LevelThree.swift */,
+				82A708E229088D6100B4BFCF /* Level3Text1.swift */,
+				82A708E4290892BB00B4BFCF /* Lvl3Objective.swift */,
+				82A708E6290894BB00B4BFCF /* Lvl3SpeachBubble1.swift */,
 			);
 			path = level_three;
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A708E7290894BB00B4BFCF /* Lvl3SpeachBubble1.swift in Sources */,
 				82A708B82906F4ED00B4BFCF /* Levels.swift in Sources */,
 				82B5204728F0A799003CFC45 /* ActionShadow.swift in Sources */,
 				827081F928F84B2C0044F6D6 /* ContrastImage.swift in Sources */,
@@ -414,6 +424,7 @@
 				82340DAB28FDE86B0085EF25 /* SoundManager.swift in Sources */,
 				82A108162901AD050057AE3C /* LevelOneTutorial2.swift in Sources */,
 				82FD111E28EF1354006D9316 /* InitScreenPlaceholder.swift in Sources */,
+				82A708E5290892BB00B4BFCF /* Lvl3Objective.swift in Sources */,
 				82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */,
 				82B5204528F073CA003CFC45 /* Action.swift in Sources */,
 				827081FB28F84B550044F6D6 /* ExecutionButton.swift in Sources */,
@@ -421,6 +432,7 @@
 				82FD110C28E7809C006D9316 /* InitScreen.swift in Sources */,
 				82AEFF202901AA97006D6C9D /* Function.swift in Sources */,
 				827081F728F84B000044F6D6 /* InitialContrastTextPopup.swift in Sources */,
+				82A708E329088D6100B4BFCF /* Level3Text1.swift in Sources */,
 				82A708D4290859D000B4BFCF /* TapScreen.swift in Sources */,
 				82A708C5290814A400B4BFCF /* SpeachBubble1.swift in Sources */,
 				82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */,
