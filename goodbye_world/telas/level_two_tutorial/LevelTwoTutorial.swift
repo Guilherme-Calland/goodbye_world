@@ -35,6 +35,7 @@ struct LevelTwoTutorial : View{
     @State var tapCounter = 0
     @State var redArrow2Show = false
     @State var tutMessage2Show = false
+    @State var objetiveShow = false
     
     var body: some View{
         ZStack{
@@ -122,6 +123,12 @@ struct LevelTwoTutorial : View{
                             show("tutMessage2", show: false)
                             show("redArrow2", show: false)
                             show("clickForNext", show: false)
+                            wait(time: 1, doAfter: {
+                                show("objetive")
+                                wait(time: 2, doAfter: {
+                                    show("execButton")
+                                })
+                            })
                             
                             
                         
@@ -134,6 +141,9 @@ struct LevelTwoTutorial : View{
             
             Lvl2RedArrow()
                 .opacity(redArrow2Show ? 1 : 0)
+            
+            Lvl2Objetivo()
+                .opacity(objetiveShow ? 1 : 0)
    
         }.onAppear(perform: {
             show("image")
@@ -177,8 +187,8 @@ struct LevelTwoTutorial : View{
                 redArrow2Show = show
             }else if(objName == "tutMessage2"){
                 tutMessage2Show = show
-            }else if(objName == "objetivoConcluido"){
-                //objetivoConlcuidoShow = show
+            }else if(objName == "objetive"){
+                objetiveShow = show
             }else if(objName == "fadeToWhite"){
                 //fadeToWhite = show
             }
