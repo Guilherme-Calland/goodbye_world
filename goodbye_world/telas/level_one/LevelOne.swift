@@ -27,6 +27,7 @@ struct LevelOne : View{
     @State var speachBubble1Show = false
     @State var speachBubble2Show = false
     @State var tapCount = 0
+    @State var objetivoConlcuidoShow = false
     
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
@@ -103,6 +104,8 @@ struct LevelOne : View{
             Objetivo()
                 .opacity(objetivoShow ? 1 : 0)
             
+            ObjectiveComplete().opacity(objetivoConlcuidoShow ? 1 : 0)
+            
             ClickForNext().opacity(clickForNextShow ? 1 : 0)
             
             if(onScreenTapActive){
@@ -124,7 +127,10 @@ struct LevelOne : View{
                                 })
                             })
                         }else if(tapCount == 1){
-                            print("hello world!!!!")
+                            tapCount += 1
+                            show("objetivoConcluido")
+                        }else if(tapCount == 2){
+                            
                         }
                         
                         
@@ -160,6 +166,8 @@ struct LevelOne : View{
                 speachBubble1Show = show
             }else if(objName == "speachBubble2"){
                 speachBubble2Show = show
+            }else if(objName == "objetivoConcluido"){
+                objetivoConlcuidoShow = show
             }
         }
     }

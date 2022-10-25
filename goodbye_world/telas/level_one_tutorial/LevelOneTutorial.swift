@@ -49,6 +49,7 @@ struct LevelOneTutorial: View {
     @State private var execuButtonFuncional = true
     @State private var imagePath = "tut1.1"
     @State private var hideRedArrows = false
+    @State private var endReady = false
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -99,12 +100,10 @@ struct LevelOneTutorial: View {
                                     execuButtonFuncional = false
                                     mainTextText = 3
                                     imagePath = "tut1.5"
-                                    wait(time: 2.0, doAfter: {
-                                        fadeToWhite()
-                                        wait(time: 1.0) {
-                                            data.level = "level1"
-                                        }
-                                    })
+                                    fullScreenClick = true
+                                    
+                                    showClickForNext(delay: 0.0)
+                                    
                                     
                                 }
                             }
@@ -265,6 +264,7 @@ struct LevelOneTutorial: View {
                             })
                         }else if(functionReady){
                             functionReady = false
+                            endReady = true
                             hideClickForNext()
                             hideMainText(delay: 0.0)
                             hideTranslucentScreen()
@@ -284,6 +284,12 @@ struct LevelOneTutorial: View {
 //                            wait(time: 2.0, doAfter: {
 //
 //                            })
+                        }else if(endReady){
+                            fadeToWhite()
+                            hideClickForNext()
+                            wait(time: 1.0) {
+                                data.level = "level1"
+                            }
                         }
 //                        else if(actionAndExecutionAreaReady){
 //                            actionAreaReady = false
