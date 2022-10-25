@@ -9,11 +9,6 @@ import SwiftUI
 
 struct TapScreen : View {
     var body: some View{
-        VStack{
-            Spacer()
-            HStack{
-                ClickForNextPopup()
-            }
-        }
+        Rectangle().fill().opacity(0.0001)
     }
 }

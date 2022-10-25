@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-//var falarTchau = Opcao(nome: "falar \"tchau\"", actionHandler: {() in print("tchau")});
-//var falarTudoBem = Opcao(nome: "falar \"tudo bem?\"", actionHandler: {() in print("tudo bem?")});
-//var darUmPulo = Opcao(nome: "dar um pulo", actionHandler: {() in print("pulando")});
-//
-//var funcoesLevelOne : [Opcao] = [falarTchau, falarTudoBem, darUmPulo]
-
 var morteAosHumanos = "morte aos humanos,\nnão é mesmo?"
 var queHorasSao = "que horas são?"
 var odeioRobos = "odeio robôs"
@@ -37,6 +31,10 @@ struct LevelTwoTutorial : View{
     @State var tutMessage1Show = false
     @State var redArrowShow = false
     @State var clickForNextShow = false
+    @State var tapScreenActive = false
+    @State var tapCounter = 0
+    @State var redArrow2Show = false
+    @State var tutMessage2Show = false
     
     var body: some View{
         ZStack{
@@ -51,6 +49,10 @@ struct LevelTwoTutorial : View{
                     TutMessage1().opacity(tutMessage1Show ? 1 : 0)
                     
                     RedArrow().opacity(redArrowShow ? 1 : 0)
+                    
+                    
+                    
+                    
                     
                     
                     //
@@ -97,9 +99,42 @@ struct LevelTwoTutorial : View{
             ClickForNext()
                 .opacity(clickForNextShow ? 1 : 0)
             
+            if(tapScreenActive){
+                TapScreen()
+                    .onTapGesture{
+                        if(tapCounter == 0){
+                            tapScreenActive = false
+                            tapCounter += 1
+                            show("tutMessage1", show: false)
+                            show("redArrow", show: false)
+                            show("clickForNext", show: false)
+                            wait(time: 1, doAfter: {
+                                show("redArrow2")
+                                show("tutMessage2")
+                                wait(time: 2, doAfter: {
+                                    show("clickForNext")
+                                    tapScreenActive = true
+                                })
+                            })
+                        }else if(tapCounter == 1){
+                            tapScreenActive = false
+                            tapCounter += 1
+                            show("tutMessage2", show: false)
+                            show("redArrow2", show: false)
+                            show("clickForNext", show: false)
+                            
+                            
+                        
+                    }
+                    }
+            }
+
+            Lvl2TutText()
+                .opacity(tutMessage2Show ? 1 : 0)
             
-            
-            
+            Lvl2RedArrow()
+                .opacity(redArrow2Show ? 1 : 0)
+   
         }.onAppear(perform: {
             show("image")
             wait(time: 1.0, doAfter: {
@@ -109,8 +144,9 @@ struct LevelTwoTutorial : View{
                 wait(time: 1.0, doAfter: {
                     show("redArrow")
                     show("tutMessage1")
-                    wait(time: 1.0, doAfter: {
+                    wait(time: 2.0, doAfter: {
                         show("clickForNext")
+                        tapScreenActive = true
                     })
                 })
             })
@@ -137,10 +173,10 @@ struct LevelTwoTutorial : View{
                 executionButtonShow = show
             }else if(objName == "clickForNext"){
                 clickForNextShow = show
-            }else if(objName == "speachBubble1"){
-                //speachBubble1Show = show
-            }else if(objName == "speachBubble2"){
-                //speachBubble2Show = show
+            }else if(objName == "redArrow2"){
+                redArrow2Show = show
+            }else if(objName == "tutMessage2"){
+                tutMessage2Show = show
             }else if(objName == "objetivoConcluido"){
                 //objetivoConlcuidoShow = show
             }else if(objName == "fadeToWhite"){
