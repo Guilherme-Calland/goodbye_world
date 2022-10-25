@@ -30,6 +30,7 @@ struct LevelOne : View{
     @State var objetivoConlcuidoShow = false
     @State var fadeToWhite = false
     @EnvironmentObject var data: Data
+    @Environment(\.dismiss) private var dismiss
     
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
@@ -55,7 +56,7 @@ struct LevelOne : View{
                 }
                 
                 
-                VStack(){
+                VStack{
                     //Rectangle().fill(Color(.white)).frame(height:15)
                     Spacer()
                     //Area de Acoes
@@ -134,7 +135,8 @@ struct LevelOne : View{
                         }else if(tapCount == 2){
                             show("fadeToWhite")
                             wait(time: 1.0, doAfter: {
-                                data.level = "initScreen"
+                                //dismiss()
+                                data.level = "level2tut"
                             })
                         }
                         

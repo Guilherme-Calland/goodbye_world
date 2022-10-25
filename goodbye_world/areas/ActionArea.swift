@@ -52,7 +52,7 @@ struct ActionArea : View {
                 )
                 .frame(width: panelWidth, height: panelHeight, alignment: .leading)
                 .border(.black, width: 4)
-            Textinho.FonteBonita("acoes")
+            Textinho.FonteBonita(isFunc ? "funcoes" : "acoes")
                 .padding()
                 .border(.black, width: 4)
             
