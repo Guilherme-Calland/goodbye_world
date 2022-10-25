@@ -39,6 +39,7 @@ struct LevelTwoTutorial : View{
     @State var imagePath = "tut2.1"
     @State var speachBubble1Show = false
     @State var speachBubble2Show = false
+    @State var objetiveCompleteShow = false
     
     var body: some View{
         ZStack{
@@ -94,9 +95,13 @@ struct LevelTwoTutorial : View{
                                         show("objetive", show: false)
                                         wait(time: 1, doAfter: {
                                             show("speachBubble1")
-                                            wait(time: 1, doAfter: {
+                                            wait(time: 2.5, doAfter: {
                                                 show("speachBubble2")
                                                 imagePath = "tut2.2"
+                                                wait(time: 1, doAfter: {
+                                                    show("clickForNext")
+                                                    tapScreenActive = true
+                                                })
                                             })
                                         })
                                     }
@@ -150,7 +155,18 @@ struct LevelTwoTutorial : View{
                             
                             
                         
-                    }
+                        }else if(tapCounter == 2){
+                            tapCounter += 1
+                            tapScreenActive = false
+                            show("clickForNext", show: false)
+                            wait(time: 1, doAfter: {
+                                show("objetiveComplete")
+                                wait(time: 1, doAfter: {
+                                    show("clickForNext")
+                                    tapScreenActive = true
+                                })
+                            })
+                        }
                     }
             }
 
@@ -162,6 +178,9 @@ struct LevelTwoTutorial : View{
             
             Lvl2Objetivo()
                 .opacity(objetiveShow ? 1 : 0)
+            
+            ObjectiveComplete()
+                .opacity(objetiveCompleteShow ? 1 : 0)
    
         }.onAppear(perform: {
             show("image")
@@ -211,6 +230,8 @@ struct LevelTwoTutorial : View{
                 speachBubble1Show = show
             }else if(objName == "speachBubble2"){
                 speachBubble2Show = show
+            }else if(objName == "objetiveComplete"){
+                objetiveCompleteShow = show
             }
         }
     }
