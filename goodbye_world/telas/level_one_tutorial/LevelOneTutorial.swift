@@ -94,8 +94,7 @@ struct LevelOneTutorial: View {
                         .onTapGesture {
                             if(execuButtonFuncional){
                                 if (painelExecucao.executar() == false){
-                                    print("Verificão falhou");
-                                    // barulho de falha
+                                    SoundManager.Instance.playSfx("click")
                                 }else{
                                     execuButtonFuncional = false
                                     hideMainText(delay: 0.0)
@@ -111,7 +110,8 @@ struct LevelOneTutorial: View {
                                     
                                 }
                             }
-                        }.environmentObject(data)
+                        }.offset(x : 10, y: -15)
+                        .environmentObject(data)
                 
                     
                 }

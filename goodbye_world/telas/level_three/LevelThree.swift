@@ -147,7 +147,7 @@ struct LevelThree : View {
                     Image("tut3.3")
                         .resizable()
                         .interpolation(.none)
-                    Rectangle().fill().frame(width: 10.0)
+                    Rectangle().fill(Color.white).frame(width: 10.0)
                 }
                 
                 
