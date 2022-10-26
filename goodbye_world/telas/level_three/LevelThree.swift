@@ -143,9 +143,13 @@ struct LevelThree : View {
             
             
             Group{
-                Image("tut3.3")
-                    .resizable()
-                    .interpolation(.none)
+                HStack{
+                    Image("tut3.3")
+                        .resizable()
+                        .interpolation(.none)
+                    Rectangle().fill().frame(width: 10.0)
+                }
+                
                 
                 Textinho.FonteBonita("nããããããããããão", 100)
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 80, trailing: 0.0))

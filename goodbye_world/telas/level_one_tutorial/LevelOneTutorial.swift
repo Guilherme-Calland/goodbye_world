@@ -18,6 +18,7 @@ var falarOla = Opcao(nome: "falar ola", actionHandler: {() in print("olar")});
 var funcoesTutOne : [Opcao] = [falarOla]
 
 struct LevelOneTutorial: View {
+    
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var data: Data
     
@@ -55,7 +56,6 @@ struct LevelOneTutorial: View {
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
     
     var body: some View {
-        
         ZStack(alignment: .bottom){
             ZStack(alignment: .bottom){
                 ZStack(alignment: .bottomTrailing){
@@ -131,9 +131,11 @@ struct LevelOneTutorial: View {
                     .padding(EdgeInsets.init(top:0, leading:0, bottom: 0, trailing: 14))
                 
                 // Apenas a imagem da tela inicial
-                InitScreenPlaceholder().onAppear(){
-                    placeholderScreenFade()
-                }.opacity(fadePlaceholderScreen ? 0 : 1)
+                InitScreenPlaceholder()
+                    .onAppear{
+                        placeholderScreenFade()
+                    }
+                    .opacity(fadePlaceholderScreen ? 0 : 1)
                     .offset(y: 0.0)
                 
                 
@@ -355,11 +357,12 @@ struct LevelOneTutorial: View {
     }
     
     // Animacao que some com a tela que mostra a imagem da tela inicial
-    func placeholderScreenFade(){
+    func placeholderScreenFade() -> Bool{
         withAnimation(Animation.linear(duration: 1.0)){
             fadePlaceholderScreen = true
             showImage()
         }
+        return false
     }
     
     func showActionAndExecutionArea(){
