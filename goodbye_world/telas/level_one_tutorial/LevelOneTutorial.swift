@@ -13,7 +13,7 @@ var panelWidth = UIScreen.main.bounds.width * 0.4
 var screenWidth = UIScreen.main.bounds.width
 var screenHeight = UIScreen.main.bounds.height
 
-var falarOla = Opcao(nome: "falar ola", actionHandler: {() in print("olar")});
+var falarOla = Opcao(nome: "falar olá", actionHandler: {() in print("olar")});
 
 var funcoesTutOne : [Opcao] = [falarOla]
 
@@ -40,7 +40,7 @@ struct LevelOneTutorial: View {
     @State private var contrastFirstTextShow = false
     @State private var mainTextShow = false
     @State private var isMainTextUp = true
-    @State private var mainText = "Isso é a área de acoes\n\naqui aparecerá todas as escolhas que você poderá fazer."
+    @State private var mainText = "Isso é a área de ações\n\naqui aparecerá todas as escolhas que você poderá fazer."
     @State private var actionAndExecutionAreaReady = false
     @State private var fullScreenClick = true
     @State private var newContrastActionArea = false
@@ -241,9 +241,9 @@ struct LevelOneTutorial: View {
                     VStack{
                         ZStack{
                             Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
-                            Textinho.FonteBonita("  aperte na acao para levá-la \n  para " +
-                                                 "a area de execucao." +
-                                                 "\n  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões"
+                            Textinho.FonteBonita("  aperte na ação para levá-la \n  para " +
+                                                 "a area de execução." +
+                                                 "\n  uma vez que as ações\n  estiverem na area \n  de execução, aperte \n  no ícone para executar \n  as ações"
                             )
                             
                             

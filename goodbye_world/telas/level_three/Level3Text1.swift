@@ -15,7 +15,7 @@ struct Level3Text1 : View{
                     ZStack{
                         Rectangle().fill(Color(.white)).border(.black, width: 4)
                             .frame(width: 540, height: 200)
-                        Textinho.FonteBonita("vamos agora para a linguagem swift.\n\nprint, do inglês, imprimir, é uma funcão de swift que recebe como parâmetro um texto, e imprime o texto recebido na tela.")
+                        Textinho.FonteBonita("vamos agora para a linguagem swift.\n\nprint, do inglês, imprimir, é uma função de swift que recebe como parâmetro um texto, e imprime o texto recebido na tela.")
                             .frame(width: 500)
                     }
                     

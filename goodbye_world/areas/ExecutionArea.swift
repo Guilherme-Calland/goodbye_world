@@ -40,7 +40,7 @@ struct ExecutionArea : View {
                 .fill(green)
                 .frame(width: panelWidth, height: panelHeight, alignment: .leading)
                 .border(.black, width: 4)
-            Textinho.FonteBonita("execucao")
+            Textinho.FonteBonita("execução")
                 .padding()
                 .border(.black, width: 4)
             

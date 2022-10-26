@@ -205,7 +205,7 @@ struct LevelThree : View {
                     wait(time: 2.5, doAfter: {
                         show(speachBubble1ShowKey, show: false)
                     })
-                    wait(time: 3.6, doAfter: {
+                    wait(time: 3.65, doAfter: {
                         show(actionAreaShowKey)
                         show(executionAreaShowKey)
                         show(text1ShowKey)
