@@ -109,7 +109,7 @@ struct LevelThree : View {
                                                         show(finalImageShowKey)
                                                         wait(time: 3, doAfter: {
                                                             show(fadeToWhiteShowKey)
-                                                            wait(time: 1, doAfter: {
+                                                            wait(time: 2, doAfter: {
                                                                 dismiss()
                                                             })
                                                         })
