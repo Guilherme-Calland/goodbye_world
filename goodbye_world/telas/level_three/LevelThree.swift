@@ -23,6 +23,9 @@ struct LevelThree : View {
     @StateObject var painelFuncoes = Painel([funcoesLevel3]);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel3.OpcaoComResposta(levemNo)]);
     
+    @EnvironmentObject var data: Data
+    @Environment(\.dismiss) private var dismiss
+    
     @State var executionButtonShow = false
     @State var actionAreaShow = false
     @State var executionAreaShow = false
@@ -106,17 +109,16 @@ struct LevelThree : View {
                                                         show(finalImageShowKey)
                                                         wait(time: 3, doAfter: {
                                                             show(fadeToWhiteShowKey)
+                                                            wait(time: 1, doAfter: {
+                                                                dismiss()
+                                                            })
                                                         })
                                                     })
                                                 })
-                                                
                                             })
                                         })
-                                        
                                     }
                                 }
-//                                
-//                                
                             }
                     }
                     
@@ -169,7 +171,7 @@ struct LevelThree : View {
                                     show(objectiveShowKey)
                                     wait(time: 1, doAfter: {
                                         show(executionButtonShowKey)
-                                    
+                                        
                                     })
                                 })
                             })
@@ -196,7 +198,7 @@ struct LevelThree : View {
                     })
                 })
             })
-        }
+        }.environmentObject(data)
     }
     
     func show(_ objName: String, show: Bool = true){

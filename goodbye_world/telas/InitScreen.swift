@@ -11,6 +11,7 @@ struct InitScreen: View {
     
     @StateObject var data: Data = Data()
     
+    
     init(){
         UINavigationBar.setAnimationsEnabled(false);
         SoundManager.Instance.playMusic(file_name: "music");
@@ -36,33 +37,48 @@ struct InitScreen_Previews: PreviewProvider {
 }
 
 struct ScreenBody : View {
+    
+    @State var fadeOutWhite = false
+    
     var body: some View{
        
-
-        VStack(spacing: 0.0){
-            HStack {
+        ZStack{
             
-                Spacer()
-                NavigationLink(destination: OptionsMenu()){
-                    Image("Barra de opções")
-                }.frame(width: 60, height: 50)
-                    .padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 45))
+            VStack(spacing: 0.0){
+                HStack {
                 
-            }
-            Textinho.FonteBonita("GOODBYE WORLD", 100)
+                    Spacer()
+                    NavigationLink(destination: OptionsMenu()){
+                        Image("Barra de opções")
+                    }.frame(width: 60, height: 50)
+                        .padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 45))
                     
-                    HStack(alignment: .center, spacing: -100.0){
-                        Image("Juquinha")
-                        Image("robo1 1")
-                        Image("robo2 1").padding(EdgeInsets(top: 0.0, leading: 40, bottom: 0.0, trailing: 0.0))
-                    }
-                    
-            Textinho.FonteBonita("PRESSIONE EM QUALQUER LUGAR PARA INICIAR", 30)
-            .padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
-        }.frame(width: UIScreen.main.bounds.width,
-                height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+                }
+                Textinho.FonteBonita("GOODBYE WORLD", 100)
+                        
+                        HStack(alignment: .center, spacing: -100.0){
+                            Image("Juquinha")
+                            Image("robo1 1")
+                            Image("robo2 1").padding(EdgeInsets(top: 0.0, leading: 40, bottom: 0.0, trailing: 0.0))
+                        }
+                        
+                Textinho.FonteBonita("PRESSIONE EM QUALQUER LUGAR PARA INICIAR", 30)
+                .padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
+            }.frame(width: UIScreen.main.bounds.width,
+                    height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+            
+            
+        }
+        
+        
+//            .onAppear(perform: {
+//                withAnimation(Animation.linear(duration: 1.0)){
+//                    fadeOutWhite = true
+//                }
+//            })
+        
         
         
     }

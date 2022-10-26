@@ -98,9 +98,13 @@ struct LevelOneTutorial: View {
                                     // barulho de falha
                                 }else{
                                     execuButtonFuncional = false
-                                    mainTextText = 3
-                                    imagePath = "tut1.5"
-                                    fullScreenClick = true
+                                    hideMainText(delay: 0.0)
+                                    wait(time: 1.0, doAfter: {
+                                        imagePath = "tut1.5"
+                                        fullScreenClick = true
+                                    })
+                                    
+                                    
                                     
                                     showClickForNext(delay: 1.0)
                                     
@@ -116,6 +120,8 @@ struct LevelOneTutorial: View {
                 Rectangle()
                     .fill(Color(.black))
                     .opacity(translucentScreenShow ? 0.5 : 0.0)
+                    .frame(width: screenWidth, height: screenHeight + 40)
+                    .offset(x: 0.0, y: -20.0)
     //            : Rectangle()//
                 
                 
@@ -194,7 +200,7 @@ struct LevelOneTutorial: View {
                                     .interpolation(.none)
                                     .resizable()
                                     .frame(width: 400, height: 100)
-                                    .offset(x: 210, y : 64.0)
+                                    .offset(x: 210, y : 80.0)
                                     .opacity(hideRedArrows ? 0 : 1)
                                 
                                 Spacer()
