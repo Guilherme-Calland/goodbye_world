@@ -51,6 +51,7 @@ struct LevelOneTutorial: View {
     @State private var imagePath = "tut1.1"
     @State private var hideRedArrows = false
     @State private var endReady = false
+    @State private var showThis = false
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -99,6 +100,9 @@ struct LevelOneTutorial: View {
                                     //SoundManager.Instance.playSfx("correct")
                                     execuButtonFuncional = false
                                     hideMainText(delay: 0.0)
+                                    withAnimation(Animation.linear(duration: 1), {
+                                        showThis = false
+                                    })
                                     wait(time: 1.0, doAfter: {
                                         imagePath = "tut1.5"
                                         fullScreenClick = true
@@ -198,35 +202,27 @@ struct LevelOneTutorial: View {
 //                            .offset(x : 30.0)
                         
                         VStack{
-                            
-                                Image("red_arrow_long")
+                            HStack{
+                                Spacer()
+                                Image("little_red_arrow")
                                     .interpolation(.none)
                                     .resizable()
-                                    .frame(width: 400, height: 100)
-                                    .offset(x: 210, y : 80.0)
-                                    .opacity(hideRedArrows ? 0 : 1)
-                                
+                                    .frame(width: 100, height: 100)
+                                    .offset(x: 55, y : 85)
                                 Spacer()
-                            
+                                
+                            }
+                            Spacer()
+                                
                             
                         }
                         ZStack{
-                            Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
-                            Textinho.FonteBonita("  aperte na acao para levá-la \n  para " +
-                                                 "a area de execucao." +
-                                                 "\n  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões"
-                            )
-                            
-                                Image("red_arrow_long")
-                                    .interpolation(.none)
-                                    .resizable()
-                                    .frame(width: 400, height: 100)
-                                    .offset(x: 440, y : 75)
-                                    
-                            
-                            
-                                
-                        }.frame(width: 400).offset(x: 60, y: -30)
+                            Image("red_arrow_long")
+                                .interpolation(.none)
+                                .resizable()
+                                .frame(width: 400, height: 100)
+                                .offset(x: 80.0, y : 75)
+                        }.frame(width: 400).offset(x: 120, y: -125)
                     
                     }
                     
@@ -239,6 +235,27 @@ struct LevelOneTutorial: View {
             // Mensagem: clique em qualquer lugar para prosseguir
             ClickForNextPopup()
             .opacity((clickForNext) ? 1 : 0)
+            
+            if(mainTextText == 1){
+                HStack{
+                    VStack{
+                        ZStack{
+                            Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
+                            Textinho.FonteBonita("  aperte na acao para levá-la \n  para " +
+                                                 "a area de execucao." +
+                                                 "\n  uma vez que as acoes\n  estiverem na area \n  de execucao, aperte \n  no ícone para executar \n  as acões"
+                            )
+                            
+                            
+                        }
+                        Spacer()
+                    }
+                    Spacer()
+                }.offset(x: 40, y: 40)
+                    .opacity(showThis ? 1 : 0)
+            }
+            
+            
             
             // tela para clicar para avancar
             if(fullScreenClick){
@@ -282,6 +299,12 @@ struct LevelOneTutorial: View {
                             showActionAndExecutionArea()
                             showExecutionButton()
                             showMainText(delay: 2.0)
+                            wait(time: 2, doAfter: {
+                                withAnimation(Animation.linear(duration: 1), {
+                                    showThis = true
+                                })
+                            })
+                            
                             wait(time: 1, doAfter: {
                                 mainTextText = 1;
                             })
@@ -498,12 +521,12 @@ struct LevelOneTutorial: View {
 }
 
 
-struct LevelOneTutorial_Previews: PreviewProvider {
-    static var previews: some View {
-        LevelOneTutorial()
-            .previewInterfaceOrientation(.landscapeLeft)
-            .environmentObject(Data())
-    }
-}
+//struct LevelOneTutorial_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LevelOneTutorial()
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .environmentObject(Data())
+//    }
+//}
 
 
