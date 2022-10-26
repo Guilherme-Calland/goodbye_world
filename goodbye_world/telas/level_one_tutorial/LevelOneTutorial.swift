@@ -94,8 +94,9 @@ struct LevelOneTutorial: View {
                         .onTapGesture {
                             if(execuButtonFuncional){
                                 if (painelExecucao.executar() == false){
-                                    SoundManager.Instance.playSfx("click")
+                                    SoundManager.Instance.playSfx("error")
                                 }else{
+                                    //SoundManager.Instance.playSfx("correct")
                                     execuButtonFuncional = false
                                     hideMainText(delay: 0.0)
                                     wait(time: 1.0, doAfter: {
@@ -220,7 +221,7 @@ struct LevelOneTutorial: View {
                                     .interpolation(.none)
                                     .resizable()
                                     .frame(width: 400, height: 100)
-                                    .offset(x: 440, y : 100)
+                                    .offset(x: 440, y : 75)
                                     
                             
                             

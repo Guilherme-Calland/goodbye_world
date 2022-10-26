@@ -20,6 +20,10 @@ var funcoesLevel2Tut : OpcaoParametros = OpcaoParametros(
 
 struct LevelTwoTutorial : View{
     
+    init(){
+        SoundManager.Instance.playMusic(file_name: "music2");
+    }
+    
     @StateObject var painelFuncoes = Painel([funcoesLevel2Tut]);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel2Tut.OpcaoComResposta(morteAosHumanos)]);
     
@@ -92,9 +96,9 @@ struct LevelTwoTutorial : View{
                             .onTapGesture{
                                 if(activeExecButton){
                                     if (painelExecucao.executar() == false){
-                                        print("Verificão falhou");
-                                        // barulho de falha
+                                        SoundManager.Instance.playSfx("error")
                                     }else{
+                                        //SoundManager.Instance.playSfx("correct")
                                         activeExecButton = false
                                         show("objetive", show: false)
                                         wait(time: 1, doAfter: {
@@ -177,10 +181,15 @@ struct LevelTwoTutorial : View{
                             show("clickForNext", show: false)
                             wait(time: 1, doAfter: {
                                 show("objetiveComplete")
-                                wait(time: 1, doAfter: {
-                                    show("clickForNext")
-                                    tapScreenActive = true
+                                wait(time: 0.2, doAfter: {
+                                    SoundManager.Instance.playSfx("correct")
+                                    wait(time: 1, doAfter: {
+                                        
+                                        show("clickForNext")
+                                        tapScreenActive = true
+                                    })
                                 })
+                                
                             })
                         }else if(tapCounter == 3){
                             tapCounter += 1

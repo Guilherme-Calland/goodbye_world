@@ -45,6 +45,11 @@
 		82A708E329088D6100B4BFCF /* Level3Text1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E229088D6100B4BFCF /* Level3Text1.swift */; };
 		82A708E5290892BB00B4BFCF /* Lvl3Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E4290892BB00B4BFCF /* Lvl3Objective.swift */; };
 		82A708E7290894BB00B4BFCF /* Lvl3SpeachBubble1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708E6290894BB00B4BFCF /* Lvl3SpeachBubble1.swift */; };
+		82A708EA29099A3B00B4BFCF /* music2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A708E829099A3B00B4BFCF /* music2.mp3 */; };
+		82A708EB29099A3B00B4BFCF /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A708E929099A3B00B4BFCF /* error.mp3 */; };
+		82A708ED29099E6F00B4BFCF /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A708EC29099E6F00B4BFCF /* correct.mp3 */; };
+		82A708EF29099FB400B4BFCF /* music3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A708EE29099FB400B4BFCF /* music3.mp3 */; };
+		82A708F12909A65D00B4BFCF /* congrats.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A708F02909A65D00B4BFCF /* congrats.mp3 */; };
 		82AEFF202901AA97006D6C9D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEFF1F2901AA97006D6C9D /* Function.swift */; };
 		82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203D28F06E61003CFC45 /* ActionArea.swift */; };
 		82B5204028F0709A003CFC45 /* ExecutionArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5203F28F0709A003CFC45 /* ExecutionArea.swift */; };
@@ -106,6 +111,11 @@
 		82A708E229088D6100B4BFCF /* Level3Text1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3Text1.swift; sourceTree = "<group>"; };
 		82A708E4290892BB00B4BFCF /* Lvl3Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl3Objective.swift; sourceTree = "<group>"; };
 		82A708E6290894BB00B4BFCF /* Lvl3SpeachBubble1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lvl3SpeachBubble1.swift; sourceTree = "<group>"; };
+		82A708E829099A3B00B4BFCF /* music2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music2.mp3; sourceTree = "<group>"; };
+		82A708E929099A3B00B4BFCF /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
+		82A708EC29099E6F00B4BFCF /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		82A708EE29099FB400B4BFCF /* music3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music3.mp3; sourceTree = "<group>"; };
+		82A708F02909A65D00B4BFCF /* congrats.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = congrats.mp3; sourceTree = "<group>"; };
 		82AEFF1F2901AA97006D6C9D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		82B5203D28F06E61003CFC45 /* ActionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionArea.swift; sourceTree = "<group>"; };
 		82B5203F28F0709A003CFC45 /* ExecutionArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionArea.swift; sourceTree = "<group>"; };
@@ -143,6 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				82340DAC28FDE9D10085EF25 /* click.mp3 */,
+				82A708E929099A3B00B4BFCF /* error.mp3 */,
+				82A708F02909A65D00B4BFCF /* congrats.mp3 */,
+				82A708E829099A3B00B4BFCF /* music2.mp3 */,
+				82A708EE29099FB400B4BFCF /* music3.mp3 */,
+				82A708EC29099E6F00B4BFCF /* correct.mp3 */,
 				82340DAE28FDE9DB0085EF25 /* music.mp3 */,
 				82340DAA28FDE86B0085EF25 /* SoundManager.swift */,
 			);
@@ -376,8 +391,13 @@
 			files = (
 				82340DAF28FDE9DB0085EF25 /* music.mp3 in Resources */,
 				82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */,
+				82A708EF29099FB400B4BFCF /* music3.mp3 in Resources */,
+				82A708F12909A65D00B4BFCF /* congrats.mp3 in Resources */,
 				82340DAD28FDE9D10085EF25 /* click.mp3 in Resources */,
+				82A708ED29099E6F00B4BFCF /* correct.mp3 in Resources */,
+				82A708EA29099A3B00B4BFCF /* music2.mp3 in Resources */,
 				82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */,
+				82A708EB29099A3B00B4BFCF /* error.mp3 in Resources */,
 				82FD110928E7802A006D9316 /* Silkscreen-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

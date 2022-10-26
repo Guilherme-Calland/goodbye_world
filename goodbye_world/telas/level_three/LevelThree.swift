@@ -20,6 +20,10 @@ var funcoesLevel3 : OpcaoParametros = OpcaoParametros(
 
 struct LevelThree : View {
     
+    init(){
+        SoundManager.Instance.playMusic(file_name: "music3")
+    }
+    
     @StateObject var painelFuncoes = Painel([funcoesLevel3]);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [funcoesLevel3.OpcaoComResposta(levemNo)]);
     
@@ -53,6 +57,9 @@ struct LevelThree : View {
     @State var imagePath = "tut3.1"
     
     var body: some View{
+        
+        
+        
         ZStack{
             HStack{
                 ZStack{
@@ -90,9 +97,9 @@ struct LevelThree : View {
                             .onTapGesture{
                                 if(activeExecButton){
                                     if (painelExecucao.executar() == false){
-                                        print("Verificão falhou");
-                                        // barulho de falha
+                                        SoundManager.Instance.playSfx("error")
                                     }else{
+                                        //SoundManager.Instance.playSfx("correct")
                                         activeExecButton = false
                                         show(objectiveShowKey, show: false)
                                         wait(time: 1, doAfter: {
@@ -110,6 +117,7 @@ struct LevelThree : View {
                                                         wait(time: 3, doAfter: {
                                                             show(fadeToWhiteShowKey)
                                                             wait(time: 2, doAfter: {
+                                                                SoundManager.Instance.playMusic(file_name: "music");
                                                                 dismiss()
                                                             })
                                                         })
@@ -170,8 +178,8 @@ struct LevelThree : View {
                             show(clickForNextShowKey, show: false)
                             show(text1ShowKey, show: false)
                             wait(time: 1, doAfter: {
-                                show(speachBubble1ShowKey)
-                                wait(time: 2, doAfter: {
+                                show(speachBubble1ShowKey, show: false)
+                                wait(time: 0.0, doAfter: {
                                     show(objectiveShowKey)
                                     wait(time: 1, doAfter: {
                                         show(executionButtonShowKey)
@@ -190,18 +198,27 @@ struct LevelThree : View {
             
             
         }.onAppear(){
-            show(imageShowKey)
             wait(time: 1, doAfter: {
-                show(actionAreaShowKey)
-                show(executionAreaShowKey)
-                wait(time: 1, doAfter: {
-                    show(text1ShowKey)
-                    wait(time: 2, doAfter: {
-                        show(clickForNextShowKey)
-                        tapScreenActive = true
+                show(imageShowKey)
+                wait(time: 3, doAfter: {
+                    show(speachBubble1ShowKey)
+                    wait(time: 2.5, doAfter: {
+                        show(speachBubble1ShowKey, show: false)
                     })
+                    wait(time: 3.5, doAfter: {
+                        show(actionAreaShowKey)
+                        show(executionAreaShowKey)
+                        show(text1ShowKey)
+                        wait(time: 2, doAfter: {
+                            show(clickForNextShowKey)
+                            tapScreenActive = true
+                        })
+                    })
+                    
                 })
             })
+            
+            
         }.environmentObject(data)
     }
     

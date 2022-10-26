@@ -77,9 +77,9 @@ struct LevelOne : View{
                             .opacity(executionButtonShow ? 1 : 0).opacity(activeExecButton ? 1 : 0.5)
                             .onTapGesture{
                                 if (painelExecucao.executar() == false){
-                                    print("Verificão falhou");
-                                    // barulho de falha
+                                    SoundManager.Instance.playSfx("error")
                                 }else{
+                                    //SoundManager.Instance.playSfx("correct")
                                     activeExecButton = false
                                     show("objetivo", show: false)
                                     wait(time: 1.0, doAfter: {
@@ -134,6 +134,9 @@ struct LevelOne : View{
                         }else if(tapCount == 1){
                             tapCount += 1
                             show("objetivoConcluido")
+                            wait(time: 0.2, doAfter: {
+                                SoundManager.Instance.playSfx("correct")
+                            })
                         }else if(tapCount == 2){
                             show("fadeToWhite")
                             wait(time: 1.0, doAfter: {
