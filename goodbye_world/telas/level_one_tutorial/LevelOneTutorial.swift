@@ -52,6 +52,8 @@ struct LevelOneTutorial: View {
     @State private var hideRedArrows = false
     @State private var endReady = false
     @State private var showThis = false
+    @State private var redScreenShow = false
+    @State private var redScreenHide = false
     
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
@@ -96,6 +98,7 @@ struct LevelOneTutorial: View {
                             if(execuButtonFuncional){
                                 if (painelExecucao.executar() == false){
                                     SoundManager.Instance.playSfx("error")
+                                    redScreenShow = true
                                 }else{
                                     //SoundManager.Instance.playSfx("correct")
                                     execuButtonFuncional = false
@@ -142,8 +145,6 @@ struct LevelOneTutorial: View {
                     }
                     .opacity(fadePlaceholderScreen ? 0 : 1)
                     .offset(y: 0.0)
-                
-                
                     //
             }
             
@@ -151,7 +152,6 @@ struct LevelOneTutorial: View {
             InitialContrastTextPopup(text: "esse é você")
             .opacity(contrastFirstTextShow ? 1 : 0)
                 
-            
             ZStack{
                 VStack{
                     Spacer()
@@ -333,6 +333,21 @@ struct LevelOneTutorial: View {
 //                        }
                     }
                 )
+            }
+        }
+        
+        if(redScreenShow){
+            ZStack{
+                Rectangle().fill(Color(.red))
+                    .opacity(redScreenHide ? 0.0 : 0.4)
+            }.onAppear{
+                withAnimation(Animation.linear(duration: 1.0)){
+                    redScreenHide = true
+                }
+                wait(time: 1.0, doAfter: {
+                    redScreenHide = false
+                    redScreenShow = false
+                })
             }
         }
     }
