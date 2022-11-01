@@ -142,7 +142,8 @@ struct LevelOneTutorial: View {
                 // Apenas a imagem da tela inicial
                 InitScreenPlaceholder(text: pressAnywhere[global_language] ?? "")
                     .onAppear{
-                        placeholderScreenFade()
+                        let x = placeholderScreenFade()
+                        print(x)
                     }
                     .opacity(fadePlaceholderScreen ? 0 : 1)
                     .offset(y: 0.0)
@@ -209,7 +210,7 @@ struct LevelOneTutorial: View {
                                     .interpolation(.none)
                                     .resizable()
                                     .frame(width: 100, height: 100)
-                                    .offset(x: 55, y : 85)
+                                    .offset(x: 55, y : 65)
                                 Spacer()
                                 
                             }
@@ -510,7 +511,7 @@ struct LevelOneTutorial: View {
                 showMainText(delay: 0.0)
                 showContrastImage(delay: 0.0)
                 changeMainText(mainTextUp: false,
-                               inMainText: "essa é a area de execucões.\n\nas acoes só poderão ser realizadas uma vez que estiverem nessa area")
+                               inMainText: lvl1_tut_text3[global_language] ?? "")
             }
         }
     }
@@ -538,14 +539,3 @@ struct LevelOneTutorial: View {
         }
     }
 }
-
-
-//struct LevelOneTutorial_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LevelOneTutorial()
-//            .previewInterfaceOrientation(.landscapeLeft)
-//            .environmentObject(Data())
-//    }
-//}
-
-

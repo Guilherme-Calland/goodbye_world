@@ -89,14 +89,19 @@ let lvl1_tut_text1 = [
 
 let lvl1_tut_text2 = [
     Language.portuguese : "Isso é a área de ações\n\naqui aparecerá todas as escolhas que você poderá fazer.",
-    Language.english : "This is the action area\n\nhere will appear all the chosew you can make."
+    Language.english : "This is the action area\n\nhere will appear all the choses you can make."
+]
+
+let lvl1_tut_text3 = [
+    Language.portuguese : "essa é a area de execucões.\n\nas acoes só poderão ser realizadas uma vez que estiverem nessa area",
+    Language.english : " this is the execution area.\n\n actions can only be\n utilized once they are\n in this area"
 ]
 
 let lvl1_tut_tap_action = [
     Language.portuguese : "  aperte na ação para levá-la \n  para " +
     "a area de execução." +
     "\n  uma vez que as ações\n  estiverem na area \n  de execução, aperte \n  no ícone para executar \n  as ações",
-    Language.english : "  tap on the action to take \n it to the execution area.\n once the actions\n are in the execution \n area, tap on the execution\n icon to execute\n your actions."
+    Language.english : "tap on the action to take \n it to the execution area.\n once the actions\n are in the execution \n area, tap on the execution\n icon to execute\n your actions."
 ]
 
 let lvl2_option1 = [
