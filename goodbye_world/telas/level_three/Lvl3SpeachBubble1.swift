@@ -14,7 +14,7 @@ struct Lvl3SpeachBubble1 : View{
                 .resizable()
                 .interpolation(.none)
                 .frame(width: 300, height: 100)
-            Textinho.FonteBonita("amigo, pare! sou eu!!")
+            Textinho.FonteBonita(lvl3_speach_bubble1[global_language] ?? " ")
         }
         
     }

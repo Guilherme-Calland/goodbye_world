@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-var familiar = "essa voz é\nfamiliar"
-var levemNo = "levem-no"
-var recarregar = "preciso recarregar"
+var familiar = global_language == Language.portuguese ? "essa voz é\nfamiliar" : "that voice sounds\nfamiliar"
+var levemNo = global_language == Language.portuguese ? "levem-no" : "take him away"
+var recarregar = global_language == Language.portuguese ? "preciso recarregar" : "I must recharge"
 
 var funcoesLevel3 : OpcaoParametros = OpcaoParametros(
     nome: "print",
@@ -113,7 +113,7 @@ struct LevelThree : View {
                                             wait(time: 1, doAfter: {
                                                 show(speachBubble1ShowKey, show: false)
                                                 wait(time: 2, doAfter: {
-                                                    imagePath = "tut3.2"
+                                                    imagePath = global_language == Language.portuguese ? "tut3.2" : "tut3.4"
                                                     wait(time: 2.5, doAfter: {
                                                         show(imageShowKey, show: false)
                                                         show(finalImageShowKey)
@@ -155,14 +155,14 @@ struct LevelThree : View {
             
             Group{
                 HStack{
-                    Image("tut3.3")
+                    Image(global_language == Language.portuguese ? "tut3.3" : "tut3.5")
                         .resizable()
                         .interpolation(.none)
                     Rectangle().fill(Color.white).frame(width: 10.0)
                 }
                 
                 
-                Textinho.FonteBonita("nããããããããããão", 100)
+                Textinho.FonteBonita(global_language == Language.portuguese ? "nããããããããããão" : "noooooooooooo", 100)
                     .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 80, trailing: 0.0))
             }
             .opacity(finalImageShow ? 1 : 0)

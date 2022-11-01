@@ -171,4 +171,19 @@ let lvl2_robot_speach = [
     Language.english : "haha! of course!"
 ]
 
+let lvl3_text1 = [
+    Language.portuguese : "vamos agora para a linguagem swift.\n\nprint, do inglês, imprimir, é uma função de swift que recebe como parâmetro um texto, e imprime o texto recebido na tela.",
+    Language.english : "let's move on to the swift programming language.\n\nprint, is a function that recieves a text as a parameter and prints out the text on the screen."
+]
+
+let lvl3_objective = [
+    Language.portuguese : "mande os robôs levarem o intruso",
+    Language.english : "get rid of the intruder"
+]
+
+let lvl3_speach_bubble1 = [
+    Language.portuguese : "amigo, pare! sou eu!!",
+    Language.english : "buddy, stop! it's me!!"
+]
+
 
