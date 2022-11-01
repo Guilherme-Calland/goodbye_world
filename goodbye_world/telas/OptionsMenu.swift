@@ -36,6 +36,7 @@ struct OptionsMenu: View {
                             .frame(width: 90, height: 60)
                             .onTapGesture{
                                 data.language = Language.portuguese
+                                global_language = Language.portuguese
                             }
                         Spacer()
                         Image(data.language == Language.english ? "flag_usa" : "flag_usa_unselected")
@@ -44,6 +45,7 @@ struct OptionsMenu: View {
                             .frame(width: 90, height: 60)
                             .onTapGesture {
                                 data.language = Language.english
+                                global_language = Language.english
                             }
                     }.frame(width: 300, height: 100, alignment: .top)
                     

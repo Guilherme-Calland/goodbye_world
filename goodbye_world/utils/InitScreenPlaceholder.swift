@@ -8,9 +8,17 @@ import SwiftUI
 
 struct InitScreenPlaceholder: View {
     
+    var text: String
+    
+    init(text: String){
+        self.text = text
+    }
+    
+    
     var body: some View {
         NavigationView{
-                ScreenBody()
+                ScreenBody(text: text)
         }.navigationViewStyle(StackNavigationViewStyle.stack)
+            
     }
 }

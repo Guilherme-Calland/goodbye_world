@@ -5,6 +5,8 @@
 //  Created by Guilherme Calland Rosa Borba on 01/11/22.
 //
 
+var global_language = Language.english
+
 enum Language {
     case portuguese
     case english
@@ -13,6 +15,11 @@ enum Language {
 let pressAnywhere = [
     Language.portuguese : "PRESSIONE EM QUALQUER LUGAR PARA INICIAR",
     Language.english : "tap anywhere to start"
+]
+
+let tap_anywhere = [
+    Language.english : "tap anywhere to continue",
+    Language.portuguese : "Pressione em qualquer lugar para continuar"
 ]
 
 let menu_title = [

@@ -14,7 +14,7 @@ struct ClickForNextPopup : View {
                 .fill(Color(.white))
                 .frame(width: 800, height: 40)
                 .border(.black, width: 4)
-            Textinho.FonteBonita("tap anywhere to continue")
+            Textinho.FonteBonita(tap_anywhere[global_language] ?? "")
                 
         }
         .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 60.0, trailing: 0.0))

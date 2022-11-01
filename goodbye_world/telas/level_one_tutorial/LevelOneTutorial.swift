@@ -136,7 +136,7 @@ struct LevelOneTutorial: View {
                     .padding(EdgeInsets.init(top:0, leading:0, bottom: 0, trailing: 14))
                 
                 // Apenas a imagem da tela inicial
-                InitScreenPlaceholder()
+                InitScreenPlaceholder(text: pressAnywhere[global_language] ?? "")
                     .onAppear{
                         placeholderScreenFade()
                     }

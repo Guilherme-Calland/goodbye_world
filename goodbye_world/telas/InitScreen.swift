@@ -46,6 +46,14 @@ struct ScreenBody : View {
     
     @State var fadeOutWhite = false
     @EnvironmentObject var data: Data
+    
+    var text : String
+    init(text: String = ""){
+        self.text = text;
+    }
+        
+    
+    
     var body: some View{
        
         ZStack{
@@ -67,19 +75,12 @@ struct ScreenBody : View {
                             Image("robo2 1").padding(EdgeInsets(top: 0.0, leading: 40, bottom: 0.0, trailing: 0.0))
                         }
                         
-                Textinho.FonteBonita(pressAnywhere[data.language] ?? "", 30)
+                Textinho.FonteBonita(text == "" ? (pressAnywhere[data.language] ?? "") : text, 30)
                 .padding(EdgeInsets(top: 40, leading: 0.0, bottom: 0.0, trailing: 0.0))
             }.frame(width: UIScreen.main.bounds.width,
                     height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
-                .onAppear{
-                    if(data.language == Language.portuguese){
-                        print("portuguese")
-                    }else{
-                        print("english")
-                    }
-                    
                 }.environmentObject(data)
             
             
@@ -95,4 +96,4 @@ struct ScreenBody : View {
         
         
     }
-}
+
