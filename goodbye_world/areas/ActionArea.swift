@@ -57,7 +57,9 @@ struct ActionArea : View {
                 )
                 .frame(width: panelWidth, height: panelHeight, alignment: .leading)
                 .border(.black, width: 4)
-            Textinho.FonteBonita(isFunc ? "functions" : "actions")
+            Textinho.FonteBonita(isFunc ?
+                                 global_language == Language.portuguese ? "funções" : "functions" :
+                                    global_language == Language.portuguese ? "ações" : "actions")
                 .padding()
                 .border(.black, width: 4)
             

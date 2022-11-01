@@ -13,9 +13,10 @@ var panelWidth = UIScreen.main.bounds.width * 0.4
 var screenWidth = UIScreen.main.bounds.width
 var screenHeight = UIScreen.main.bounds.height
 
-var falarOla = Opcao(nome: "falar olá", actionHandler: {() in print("olar")});
+var falarOla = Opcao(nome: global_language == Language.portuguese ? "falar \"olá\"" : "say \"hello" , actionHandler: {() in print("olar")});
 
 var funcoesTutOne : [Opcao] = [falarOla]
+
 
 struct LevelOneTutorial: View {
     
@@ -40,7 +41,7 @@ struct LevelOneTutorial: View {
     @State private var contrastFirstTextShow = false
     @State private var mainTextShow = false
     @State private var isMainTextUp = true
-    @State private var mainText = "Isso é a área de ações\n\naqui aparecerá todas as escolhas que você poderá fazer."
+    @State private var mainText = lvl1_tut_text2[global_language] ?? ""
     @State private var actionAndExecutionAreaReady = false
     @State private var fullScreenClick = true
     @State private var newContrastActionArea = false
@@ -146,7 +147,7 @@ struct LevelOneTutorial: View {
             }
             
             // o textinho que aparece: este é você
-            InitialContrastTextPopup(text: "esse é você")
+            InitialContrastTextPopup(text: lvl1_tut_text1[global_language] ?? "")
             .opacity(contrastFirstTextShow ? 1 : 0)
                 
             ZStack{
@@ -238,9 +239,7 @@ struct LevelOneTutorial: View {
                     VStack{
                         ZStack{
                             Rectangle().fill(Color(.white)).frame(width: 450, height: 300).border(.black, width: 4)
-                            Textinho.FonteBonita("  aperte na ação para levá-la \n  para " +
-                                                 "a area de execução." +
-                                                 "\n  uma vez que as ações\n  estiverem na area \n  de execução, aperte \n  no ícone para executar \n  as ações"
+                            Textinho.FonteBonita(lvl1_tut_tap_action[global_language] ?? ""
                             )
                             
                             

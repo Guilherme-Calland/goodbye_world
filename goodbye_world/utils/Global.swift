@@ -82,6 +82,23 @@ let story_text5 = [
     Language.english : " In order to stand a chance against the robots and achieve his goal, he must start acting like a robot, at the cost of him losing his own humanity."
 ]
 
+let lvl1_tut_text1 = [
+    Language.portuguese : "esse é você",
+    Language.english : "this is you"
+]
+
+let lvl1_tut_text2 = [
+    Language.portuguese : "Isso é a área de ações\n\naqui aparecerá todas as escolhas que você poderá fazer.",
+    Language.english : "This is the action area\n\nhere will appear all the chosew you can make."
+]
+
+let lvl1_tut_tap_action = [
+    Language.portuguese : "  aperte na ação para levá-la \n  para " +
+    "a area de execução." +
+    "\n  uma vez que as ações\n  estiverem na area \n  de execução, aperte \n  no ícone para executar \n  as ações",
+    Language.english : "  tap on the action to take \n it to the execution area.\n once the actions\n are in the execution \n area, tap on the execution\n icon to execute\n your actions."
+]
+
 let lvl2_option1 = [
     Language.portuguese : "odeio robôs",
     Language.english : "I hate robots"
