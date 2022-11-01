@@ -29,6 +29,8 @@ struct LevelOne : View{
     @State var tapCount = 0
     @State var objetivoConlcuidoShow = false
     @State var fadeToWhite = false
+    @State var redScreenShow = false
+    @State var redScreenHide = false
     @EnvironmentObject var data: Data
     @Environment(\.dismiss) private var dismiss
     
@@ -78,6 +80,7 @@ struct LevelOne : View{
                             .onTapGesture{
                                 if (painelExecucao.executar() == false){
                                     SoundManager.Instance.playSfx("error")
+                                    redScreenShow = true
                                 }else{
                                     //SoundManager.Instance.playSfx("correct")
                                     activeExecButton = false
@@ -152,6 +155,23 @@ struct LevelOne : View{
                 
             Rectangle().fill(Color(.white))
                 .opacity(fadeToWhite ? 1 : 0)
+            
+            if(redScreenShow){
+                ZStack{
+                    Rectangle().fill(Color(.red))
+                        .opacity(redScreenHide ? 0.0 : 0.4)
+                }
+                .frame(height: screenHeight + 40)
+                .onAppear{
+                    withAnimation(Animation.linear(duration: 1.0)){
+                        redScreenHide = true
+                    }
+                    wait(time: 1.0, doAfter: {
+                        redScreenHide = false
+                        redScreenShow = false
+                    })
+                }
+            }
             
             
         }.onAppear(){

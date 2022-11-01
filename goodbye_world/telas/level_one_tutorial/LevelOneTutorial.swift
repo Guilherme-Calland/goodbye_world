@@ -336,7 +336,9 @@ struct LevelOneTutorial: View {
             ZStack{
                 Rectangle().fill(Color(.red))
                     .opacity(redScreenHide ? 0.0 : 0.4)
-            }.onAppear{
+            }
+            .frame(height: screenHeight + 40)
+            .onAppear{
                 withAnimation(Animation.linear(duration: 1.0)){
                     redScreenHide = true
                 }
