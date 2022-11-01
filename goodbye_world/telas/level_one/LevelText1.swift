@@ -12,7 +12,7 @@ struct LevelText1 : View {
         ZStack{
             Rectangle().fill(Color(.white)).frame(width: 640, height: 300)
                 .border(.black, width: 8)
-            Textinho.FonteBonita("Ok. agora vamos ver se você consegue concluir o objetivo a seguir.", 32)
+            Textinho.FonteBonita(lvl1_text1[global_language] ?? "", 32)
                 .frame(width: 560, height: 240, alignment: .center)
         }
     }

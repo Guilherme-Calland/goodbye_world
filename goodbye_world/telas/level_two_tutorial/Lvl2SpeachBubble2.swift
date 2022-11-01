@@ -14,7 +14,7 @@ struct Lvl2SpeachBubble2: View {
                 .resizable()
                 .interpolation(.none)
                 .frame(width: 300, height: 100)
-            Textinho.FonteBonita("haha! of course!")
+            Textinho.FonteBonita(lvl2_robot_speach[global_language] ?? "")
                 
         }
     }

@@ -13,7 +13,7 @@ let orange3 = Color( #colorLiteral(red: 1, green: 0.3798591729, blue: 0.11811451
 
 
 struct Function: View {
-    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
+    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.7
     private var actionHeight = 40.0
     var parameters = ["Hello World", "Goodbye World", "Olá Mundo"]
     @State private var selectedParameter = " ? "

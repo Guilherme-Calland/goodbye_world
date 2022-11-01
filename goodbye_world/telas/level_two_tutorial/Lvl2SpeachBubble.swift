@@ -14,7 +14,7 @@ struct Lvl2SpeachBubble : View {
                 .resizable()
                 .interpolation(.none)
                 .frame(width: 300, height: 100)
-            Textinho.FonteBonita("destroy all\nhumans?")
+            Textinho.FonteBonita(lvl2_option3[global_language] ?? "")
                 
         }
     }

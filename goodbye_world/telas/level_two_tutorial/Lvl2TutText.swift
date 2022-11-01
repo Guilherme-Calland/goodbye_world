@@ -15,7 +15,7 @@ struct Lvl2TutText : View {
                     ZStack{
                         Rectangle().fill(Color(.white)).border(.black, width: 4)
                             .frame(width: 520, height: 400)
-                        Textinho.FonteBonita("Essa é uma função\n\nfunções muitas vezes recebem parâmetros. parâmetros são informacões que passamos para dentro das funções para controlarmos como ela será executada.\n\npara ver quais parâmetros a função pode receber, aperte na caixinha do lado direito da função.")
+                        Textinho.FonteBonita(lvl2_message2[global_language] ?? "")
                             .frame(width: 500)
                     }
                     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActionShadow : View{
-    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
+    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.7
     private var actionHeight = 40.0
     var body : some View {
         Rectangle()

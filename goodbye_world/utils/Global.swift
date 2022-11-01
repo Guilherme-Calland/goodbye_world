@@ -12,6 +12,16 @@ enum Language {
     case english
 }
 
+let objective_text = [
+    Language.portuguese : "Objetivo",
+    Language.english: "Objective"
+]
+
+let objective_completed_text = [
+    Language.portuguese : "Objetivo concluído",
+    Language.english: "Objective Completed"
+]
+
 let pressAnywhere = [
     Language.portuguese : "PRESSIONE EM QUALQUER LUGAR PARA INICIAR",
     Language.english : "tap anywhere to start"
@@ -104,6 +114,28 @@ let lvl1_tut_tap_action = [
     Language.english : "tap on the action to take \n it to the execution area.\n once the actions\n are in the execution \n area, tap on the execution\n icon to execute\n your actions."
 ]
 
+// LEVEL 1
+
+let lvl1_objective = [
+    Language.portuguese : "Pergunte se está tudo bem",
+    Language.english : "Ask how he's doing"
+]
+
+let lvl1_text1 = [
+    Language.portuguese : "Ok. agora vamos ver se você consegue concluir o objetivo a seguir.",
+    Language.english : "Ok. now lets see if you can manage to complete this next objetive"
+]
+
+let lvl1_speach1 = [
+    Language.portuguese : "tudo bem?",
+    Language.english : "how are you?"
+]
+
+let lvl1_speach2 = [
+    Language.portuguese : "tudo ótimo amigão!",
+    Language.english : "I'm great buddy!"
+]
+
 let lvl2_option1 = [
     Language.portuguese : "odeio robôs",
     Language.english : "I hate robots"
@@ -122,6 +154,21 @@ let lvl2_option3 = [
 let lvl2_message1 = [
     Language.portuguese : "isso é a área de funções.\n\nem programacao, uma função é um pedaco de código que faz alguma tarefa específica.\n\no princípio de uma função está, naturalmente, em permitir encapsular uma ideia ou operacão, dando-lhe um nome, e então chamar essa operacão de várias partes do programa simplesmente usando seu nome",
     Language.english : "this is the function area.\n\nin programming, a function is a piece of code that performs a specefic task.\n\nthe ideia behind a function is, naturally, to allow us to encapsulate an operation, giving it a name, and so to allow us to call this operation from any part of the code simply using the function name"
+]
+
+let lvl2_message2 = [
+    Language.portuguese : "Essa é uma função\n\nfunções muitas vezes recebem parâmetros. parâmetros são informacões que passamos para dentro das funções para controlarmos como ela será executada.\n\npara ver quais parâmetros a função pode receber, aperte na caixinha do lado direito da função.",
+    Language.english : "this is a function\n\na lot of times functions recieve parameters. parameters are information that we pass into the function so we can control how it will get executed.\n\nto see what parameters the function can recieve, push the box on the right-hand side of the function."
+]
+
+let lvl2_objective = [
+    Language.portuguese : "mantenha seu disfarce",
+    Language.english : "don't blow your cover"
+]
+
+let lvl2_robot_speach = [
+    Language.portuguese : "haha! com certeza.",
+    Language.english : "haha! of course!"
 ]
 
 

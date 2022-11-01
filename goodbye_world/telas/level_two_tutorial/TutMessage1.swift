@@ -16,7 +16,7 @@ struct TutMessage1 : View{
             ZStack{
                 Rectangle().fill(Color(.white)).border(.black, width: 4.0)
                     .frame(width: 500, height: 450)
-                Textinho.FonteBonita(lvl2_message1[data.language] ?? "").environmentObject(data)
+                Textinho.FonteBonita(lvl2_message1[global_language] ?? "").environmentObject(data)
                     .frame(width: 450)
     //
                 

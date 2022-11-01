@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-var falarTchau = Opcao(nome: "falar \"tchau\"", actionHandler: {() in print("tchau")});
-var falarTudoBem = Opcao(nome: "falar \"tudo bem?\"", actionHandler: {() in print("tudo bem?")});
-var darUmPulo = Opcao(nome: "dar um pulo", actionHandler: {() in print("pulando")});
+var falarTchau = Opcao(nome: global_language == Language.portuguese ? "falar \"tchau\"" : "say \"goodbye\"", actionHandler: {() in print("tchau")});
+var falarTudoBem = Opcao(nome: global_language == Language.portuguese ? "falar \"tudo bem?\"" : "say \"how are you?\"", actionHandler: {() in print("tudo bem?")});
+var darUmPulo = Opcao(nome: global_language == Language.portuguese ? "dar um pulo" : "jump" , actionHandler: {() in print("pulando")});
 
 var funcoesLevelOne : [Opcao] = [falarTchau, falarTudoBem, darUmPulo]
 

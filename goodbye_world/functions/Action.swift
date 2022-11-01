@@ -13,7 +13,7 @@ struct Action : View {
     var onClickEvent: (Opcao) -> ();
     var action_data: Opcao;
     
-    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.6
+    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.7
     private var actionHeight = 40.0
     @EnvironmentObject var data : Data
     

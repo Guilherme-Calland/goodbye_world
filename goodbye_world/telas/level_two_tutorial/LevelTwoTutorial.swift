@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-var morteAosHumanos = "destroy all\nhumans??"
-var queHorasSao = "what time is it?"
-var odeioRobos = "I hate robots"
+var morteAosHumanos = global_language == Language.portuguese ? "morte aos humanos,\nnão é mesmo?" : "destroy all\nhumans?"
+var queHorasSao = global_language == Language.english ? "what time is it?" : "que horas são?"
+var odeioRobos = global_language == Language.english ? "I hate robots" : "odeio robôs"
 
 var funcoesLevel2Tut : OpcaoParametros = OpcaoParametros(
-    nome: "say",
+    nome: global_language == Language.portuguese ? "falar" : "say",
     actionHandler: {(arg:String) in
        print("Falei: " + arg)
     }

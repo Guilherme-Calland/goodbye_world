@@ -14,11 +14,11 @@ struct Lvl2Objetivo : View {
                 VStack{
                     ZStack{
                         Rectangle().fill(Color(.white)).frame(width: 400, height: 100).border(.black, width: 8)
-                        Textinho.FonteBonita("Objetive", 32).frame(width: 360, height: 60)
+                        Textinho.FonteBonita(objective_text[global_language] ?? "", 32).frame(width: 360, height: 60)
                     }
                     ZStack{
                         Rectangle().fill(Color(.white)).frame(width: 400, height: 200).border(.black, width: 8)
-                        Textinho.FonteBonita("don't blow your cover", 32).frame(width: 360, height: 160)
+                        Textinho.FonteBonita(lvl2_objective[global_language] ?? "", 32).frame(width: 360, height: 160)
                     }.offset(y: -20)
                 }
                 

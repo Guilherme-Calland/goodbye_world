@@ -14,7 +14,7 @@ struct SpeachBubble2: View{
                 .resizable()
                 .interpolation(.none)
                 .frame(width: 300, height: 100)
-            Textinho.FonteBonita("tudo ótimo amigão!")
+            Textinho.FonteBonita(lvl1_speach2[global_language] ?? "")
         }
     }
 }

@@ -22,6 +22,7 @@
 		82A1824528E3299B0056D0A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824428E3299B0056D0A2 /* Assets.xcassets */; };
 		82A1824828E3299B0056D0A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */; };
 		82A3FFF52911688D00B5F1BD /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3FFF42911688D00B5F1BD /* Global.swift */; };
+		82A3FFF72911B77E00B5F1BD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3FFF62911B77E00B5F1BD /* Game.swift */; };
 		82A708B82906F4ED00B4BFCF /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708B72906F4ED00B4BFCF /* Levels.swift */; };
 		82A708BB2907130700B4BFCF /* LevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708BA2907130700B4BFCF /* LevelOne.swift */; };
 		82A708BD2907193700B4BFCF /* ClickForNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A708BC2907193700B4BFCF /* ClickForNext.swift */; };
@@ -88,6 +89,7 @@
 		82A1824428E3299B0056D0A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A1824728E3299B0056D0A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82A3FFF42911688D00B5F1BD /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		82A3FFF62911B77E00B5F1BD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		82A708B72906F4ED00B4BFCF /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		82A708BA2907130700B4BFCF /* LevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOne.swift; sourceTree = "<group>"; };
 		82A708BC2907193700B4BFCF /* ClickForNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickForNext.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				82A1824428E3299B0056D0A2 /* Assets.xcassets */,
 				82A1824628E3299B0056D0A2 /* Preview Content */,
 				82A708B72906F4ED00B4BFCF /* Levels.swift */,
+				82A3FFF62911B77E00B5F1BD /* Game.swift */,
 			);
 			path = goodbye_world;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				82B5204228F0719F003CFC45 /* AreaShadows.swift in Sources */,
 				82A1824128E329980056D0A2 /* goodbye_worldApp.swift in Sources */,
 				82340DAB28FDE86B0085EF25 /* SoundManager.swift in Sources */,
+				82A3FFF72911B77E00B5F1BD /* Game.swift in Sources */,
 				82FD111E28EF1354006D9316 /* InitScreenPlaceholder.swift in Sources */,
 				82A708E5290892BB00B4BFCF /* Lvl3Objective.swift in Sources */,
 				82B5203E28F06E61003CFC45 /* ActionArea.swift in Sources */,
