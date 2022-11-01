@@ -196,7 +196,6 @@ struct LevelThree : View {
                     }
             }
             
-            
         }.onAppear(){
             wait(time: 1, doAfter: {
                 show(imageShowKey)
