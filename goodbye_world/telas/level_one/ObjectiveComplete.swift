@@ -20,7 +20,7 @@ struct ObjectiveComplete : View{
                     .interpolation(.none)
                     .frame(width: 95, height: 215)
                 Rectangle().fill().opacity(0.0).frame(width: 20, height: 0.0)
-                Textinho.FonteBonita("Objetivo concluído", 54)
+                Textinho.FonteBonita("Objective Completed", 54)
                 Rectangle().fill().opacity(0.0).frame(width: 20, height: 0.0)
                 Image("blue_baloon")
                     .resizable()

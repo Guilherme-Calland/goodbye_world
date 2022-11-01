@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-var morteAosHumanos = "morte aos humanos,\nnão é mesmo?"
-var queHorasSao = "que horas são?"
-var odeioRobos = "odeio robôs"
+var morteAosHumanos = "destroy all\nhumans??"
+var queHorasSao = "what time is it?"
+var odeioRobos = "I hate robots"
 
 var funcoesLevel2Tut : OpcaoParametros = OpcaoParametros(
-    nome: "falar",
+    nome: "say",
     actionHandler: {(arg:String) in
        print("Falei: " + arg)
     }
@@ -48,6 +48,8 @@ struct LevelTwoTutorial : View{
     @State var speachBubble2Show = false
     @State var objetiveCompleteShow = false
     @State var fadeToWhite = false
+    @State var redScreenShow = false
+    @State var redScreenHide = false
     
     var body: some View{
         ZStack{
@@ -97,6 +99,7 @@ struct LevelTwoTutorial : View{
                                 if(activeExecButton){
                                     if (painelExecucao.executar() == false){
                                         SoundManager.Instance.playSfx("error")
+                                        redScreenShow = true
                                     }else{
                                         //SoundManager.Instance.playSfx("correct")
                                         activeExecButton = false
@@ -206,6 +209,21 @@ struct LevelTwoTutorial : View{
             
             Rectangle().fill(Color(.white))
                 .opacity(fadeToWhite ? 1 : 0)
+            
+            if(redScreenShow){
+                ZStack{
+                    Rectangle().fill(Color(.red))
+                        .opacity(redScreenHide ? 0.0 : 0.4)
+                }.onAppear{
+                    withAnimation(Animation.linear(duration: 1.0)){
+                        redScreenHide = true
+                    }
+                    wait(time: 1.0, doAfter: {
+                        redScreenHide = false
+                        redScreenShow = false
+                    })
+                }
+            }
    
         }.onAppear(perform: {
             show("image")

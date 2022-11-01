@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct StoryScreen: View {
+    
+    @EnvironmentObject var data: Data
+    
     var body: some View {
         VStack() {
             HStack {
@@ -23,7 +26,7 @@ struct StoryScreen: View {
                 Spacer()
                 Spacer()
                 
-                Textinho.FonteBonita("História", 60).padding().foregroundColor(.white)
+                Textinho.FonteBonita(story_title[data.language] ?? "", 60).padding().foregroundColor(.white)
                 
                 Spacer()
                 Spacer()
@@ -35,20 +38,20 @@ struct StoryScreen: View {
             HStack {
                 Spacer()
                 VStack{
-                    Textinho.FonteBonita(" Terra 2237, as IAs evoluíram muito, ao ponto que passaram a se tornar uma ameaça... Robôs e humanos iniciaram uma guerra, que teve os robôs como vencedores.", 18).foregroundColor(.white)
+                    Textinho.FonteBonita(story_text1[data.language] ?? "", 18).foregroundColor(.white)
                     Text("       ")
-                    Textinho.FonteBonita(" As pessoas mais ricas conseguiram fugir da terra, rumo a e73, um planeta habitável, que os humanos pretendem colonizar.", 18).foregroundColor(.white)
+                    Textinho.FonteBonita(story_text2[data.language] ?? "", 18).foregroundColor(.white)
                     Text("       ")
-                    Textinho.FonteBonita(" Porém, os humanos mais pobres, que ficaram na terra, passaram a viver como refugiados ou como escravos dos robôs.", 18).foregroundColor(.white)
+                    Textinho.FonteBonita(story_text3[data.language] ?? "", 18).foregroundColor(.white)
                 }.frame(width: 460, height: 420, alignment: .leading)
                     .border(.black)
                     .cornerRadius(15)
                 Spacer()
                 VStack{
                     Spacer()
-                    Textinho.FonteBonita(" Neste cenário, Juquinha tem que consertar a sua nave para sair da terra e salvar a sua família.", 18).foregroundColor(.white)
+                    Textinho.FonteBonita(story_text4[data.language] ?? "", 18).foregroundColor(.white)
                     Text("       ")
-                    Textinho.FonteBonita(" Para ter chances contra os robôs e alcançar os seus objetivos, ele terá que passar a agir como um robô, o que colocará a sua humanidade em risco.", 18).foregroundColor(.white)
+                    Textinho.FonteBonita(story_text5[data.language] ?? "", 18).foregroundColor(.white)
                     Spacer()
                     Spacer()
                 }.frame(width: 460, height: 420, alignment: .leading)
@@ -62,6 +65,7 @@ struct StoryScreen: View {
         }.frame(height: UIScreen.main.bounds.height).background(.black)
             .navigationBarTitle("")
             .navigationBarHidden(true)
+            .environmentObject(data)
     }
 }
 

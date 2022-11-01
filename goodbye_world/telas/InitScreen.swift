@@ -9,6 +9,11 @@ import SwiftUI//
 struct Game : View {
     @StateObject var data: Data = Data()
     
+    init(){
+        UINavigationBar.setAnimationsEnabled(false);
+        SoundManager.Instance.playMusic(file_name: "music");
+    }
+    
     var body: some View{
         InitScreen()
             .environmentObject(data)
@@ -17,10 +22,7 @@ struct Game : View {
 
 struct InitScreen: View {
     
-    init(){
-        UINavigationBar.setAnimationsEnabled(false);
-        SoundManager.Instance.playMusic(file_name: "music");
-    }
+    
     
     var body: some View {
         NavigationView{
