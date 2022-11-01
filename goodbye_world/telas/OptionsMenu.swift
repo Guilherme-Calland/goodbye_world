@@ -10,7 +10,7 @@ import SwiftUI
 struct OptionsMenu: View {
     @Environment(\.dismiss) private var dismiss
     
-    @StateObject var data: Data = Data()
+    @EnvironmentObject var data: Data
     
     init(){
         UINavigationBar.setAnimationsEnabled(false)
@@ -19,7 +19,7 @@ struct OptionsMenu: View {
     var body: some View {
         NavigationView{
         VStack {
-            Textinho.FonteBonita("Menu de Opções",60)
+            Textinho.FonteBonita(menu_title[data.language] ?? "",60)
             Spacer()
             
             
@@ -29,10 +29,28 @@ struct OptionsMenu: View {
                     .frame(width: 100, height: 100)
                 Spacer()
                 VStack {
+                    HStack{
+                        Image(data.language == Language.portuguese ? "flag_brasil" : "flag_brasil_unselected")
+                            .resizable()
+                            .interpolation(.none)
+                            .frame(width: 90, height: 60)
+                            .onTapGesture{
+                                data.language = Language.portuguese
+                            }
+                        Spacer()
+                        Image(data.language == Language.english ? "flag_usa" : "flag_usa_unselected")
+                            .resizable()
+                            .interpolation(.none)
+                            .frame(width: 90, height: 60)
+                            .onTapGesture {
+                                data.language = Language.english
+                            }
+                    }.frame(width: 300, height: 100, alignment: .top)
+                    
 //                        NavigationLink(destination: ProgressScreen()){
                     HStack{
                         LockImage()
-                                Textinho.FonteBonita("Progresso",29)
+                        Textinho.FonteBonita(menu_progress[data.language] ?? "",29)
                                     .padding()
                                             .foregroundColor(.white)
                                             .background(Color.gray)
@@ -49,7 +67,7 @@ struct OptionsMenu: View {
                     NavigationLink(destination: StoryScreen()){
                     HStack{
                        
-                        Textinho.FonteBonita("História",29)
+                        Textinho.FonteBonita(menu_story[data.language] ?? "",29)
                             .padding()
                                     .foregroundColor(.white)
                                     .background(Color.black)
@@ -65,13 +83,15 @@ struct OptionsMenu: View {
 //                    NavigationLink(destination: ConfigsScreen()){
                     HStack{
                         LockImage()
-                        Textinho.FonteBonita("Configurações",29)
+                        Textinho.FonteBonita(menu_volume[data.language] ?? "",29)
                                     .padding()
                                     .foregroundColor(.white)
                                     .background(Color.gray)
                                     .cornerRadius(15)
                         LockImage().opacity(0.0)
                     }
+                    
+                    //linguagem aqui
                         
 //                    }
                 .foregroundColor(.black).buttonStyle(NoClickAnimation())
@@ -81,7 +101,7 @@ struct OptionsMenu: View {
                     //NavigationLink(destination: SaveScreen()){
                         HStack{
                             LockImage()
-                            Textinho.FonteBonita("Saves",29)
+                            Textinho.FonteBonita(menu_saves[data.language] ?? "",29)
                                 .padding()
                                
                                         .foregroundColor(.white)
@@ -97,7 +117,7 @@ struct OptionsMenu: View {
                     
                     NavigationLink(destination: InitScreen()){
                         
-                            Textinho.FonteBonita("Voltar",29)
+                        Textinho.FonteBonita(menu_back[data.language] ?? "",29)
                                 .padding()
                                 .border(.black)
                                         .foregroundColor(.white)

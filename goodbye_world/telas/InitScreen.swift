@@ -6,10 +6,16 @@
 //
 import SwiftUI//
 
-struct InitScreen: View {
-    
-    
+struct Game : View {
     @StateObject var data: Data = Data()
+    
+    var body: some View{
+        InitScreen()
+            .environmentObject(data)
+    }
+}
+
+struct InitScreen: View {
     
     init(){
         UINavigationBar.setAnimationsEnabled(false);
@@ -22,7 +28,6 @@ struct InitScreen: View {
                 ScreenBody()
             }.foregroundColor(.black).buttonStyle(NoClickAnimation())
         }.navigationViewStyle(StackNavigationViewStyle.stack)
-            .environmentObject(data)
             .navigationBarTitle("")
             .navigationBarHidden(true)
     }
@@ -66,6 +71,14 @@ struct ScreenBody : View {
                     height: UIScreen.main.bounds.height).padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 100, trailing: 0.0))
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
+                .onAppear{
+                    if(data.language == Language.portuguese){
+                        print("portuguese")
+                    }else{
+                        print("english")
+                    }
+                    
+                }.environmentObject(data)
             
             
         }
