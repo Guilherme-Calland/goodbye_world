@@ -35,7 +35,7 @@ struct Function: View {
 
     var body : some View {
         ZStack{
-            VStack{
+            VStack(spacing:0){
                 ZStack{
                     ActionShadow()
                     Rectangle()
@@ -80,9 +80,9 @@ struct Function: View {
                                 dropdown.toggle()
                             }
               
-                    }.frame(width: actionWidth, height: actionHeight, alignment: .leading)
+                    }.frame(width: actionWidth+30, height: actionHeight, alignment: .leading)
 
-                }.frame(width: actionWidth, height: actionHeight, alignment: .center)
+                }.frame(width: actionWidth+30, height: actionHeight, alignment: .center)
                 
                 if(dropdown){
                     ForEach(parameters, id: \.self){
@@ -91,7 +91,7 @@ struct Function: View {
                             Rectangle()
                                 .fill(orange3)
                                 .frame(width: actionWidth + 30, height: actionHeight * 2, alignment: .leading)
-                                .border(.black, width: 4)
+                                .border(.black, width: 2)
                             HStack{
                                 Textinho.FonteBonita("\(parameter)")
                             }

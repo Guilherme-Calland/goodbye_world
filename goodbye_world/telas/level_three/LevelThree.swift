@@ -201,10 +201,12 @@ struct LevelThree : View {
             
             if(redScreenShow){
                 ZStack{
-                    Rectangle().fill(Color(.red))
-                        .opacity(redScreenHide ? 0.0 : 0.4)
+                    VStack(spacing: 0.0){
+                        Rectangle().fill(Color(.red))
+                            .opacity(redScreenHide ? 0.0 : 0.4)
+                    }
+                    
                 }
-                .frame(height: screenHeight + 40)
                 .onAppear{
                     withAnimation(Animation.linear(duration: 1.0)){
                         redScreenHide = true

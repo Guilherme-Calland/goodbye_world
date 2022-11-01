@@ -105,7 +105,7 @@ struct LevelOneTutorial: View {
                                         showThis = false
                                     })
                                     wait(time: 1.0, doAfter: {
-                                        imagePath = "tut1.5"
+                                        imagePath = global_language == Language.portuguese ? "tut1.5" : "tut1.1000"
                                         fullScreenClick = true
                                     })
                                     
@@ -123,11 +123,14 @@ struct LevelOneTutorial: View {
                 }
                 
                 // Tela meio transparente 1
-                Rectangle()
-                    .fill(Color(.black))
-                    .opacity(translucentScreenShow ? 0.5 : 0.0)
-                    .frame(width: screenWidth, height: screenHeight + 40)
-                    .offset(x: 0.0, y: -20.0)
+                ZStack{
+                    VStack(spacing: 0.0){
+                        Rectangle()
+                            .fill(Color(.black))
+                            .opacity(translucentScreenShow ? 0.5 : 0.0)
+                    }
+                }
+                
     //            : Rectangle()//
                 
                 
@@ -334,10 +337,13 @@ struct LevelOneTutorial: View {
         
         if(redScreenShow){
             ZStack{
-                Rectangle().fill(Color(.red))
-                    .opacity(redScreenHide ? 0.0 : 0.4)
+                VStack(spacing: 0.0){
+                    Rectangle().fill(Color(.red))
+                        .opacity(redScreenHide ? 0.0 : 0.4)
+                }
+                
             }
-            .frame(height: screenHeight + 40)
+            
             .onAppear{
                 withAnimation(Animation.linear(duration: 1.0)){
                     redScreenHide = true

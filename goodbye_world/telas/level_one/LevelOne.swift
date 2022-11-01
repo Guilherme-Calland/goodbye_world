@@ -89,7 +89,7 @@ struct LevelOne : View{
                                         show("speachBubble1")
                                         wait(time: 1, doAfter: {
                                             show("speachBubble2")
-                                            imagePath = "tut1.6"
+                                            imagePath = "tut1.6" 
                                             wait(time: 2.0, doAfter: {
                                                 show("clickForNext")
                                                 onScreenTapActive = true
@@ -158,10 +158,12 @@ struct LevelOne : View{
             
             if(redScreenShow){
                 ZStack{
-                    Rectangle().fill(Color(.red))
-                        .opacity(redScreenHide ? 0.0 : 0.4)
+                    VStack(spacing: 0.0){
+                        Rectangle().fill(Color(.red))
+                            .opacity(redScreenHide ? 0.0 : 0.4)
+                    }
+                    
                 }
-                .frame(height: screenHeight + 40)
                 .onAppear{
                     withAnimation(Animation.linear(duration: 1.0)){
                         redScreenHide = true
