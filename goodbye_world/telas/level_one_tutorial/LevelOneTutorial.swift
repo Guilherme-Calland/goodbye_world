@@ -84,11 +84,8 @@ struct LevelOneTutorial: View {
                     
                             Spacer()
                             //Rectangle().fill(Color(.white)).frame(height:20)
-                
                         }.frame(height: UIScreen.main.bounds.height)
-                        
                         Rectangle().fill(Color(.white)).frame(width:10)
-                        
                     }.frame(width: UIScreen.main.bounds.width)
                     
                     

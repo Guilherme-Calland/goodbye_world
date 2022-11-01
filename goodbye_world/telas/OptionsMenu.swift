@@ -24,69 +24,97 @@ struct OptionsMenu: View {
             
             
             HStack {
-                Image("Juquinha").padding()
-                
+                Spacer()
+                Image("Juquinha")
+                    .frame(width: 100, height: 100)
+                Spacer()
                 VStack {
-                        NavigationLink(destination: ProgressScreen()){
-                            Textinho.FonteBonita("Progresso",29)
-                                .padding()
-                                .border(.black)
-                                        .foregroundColor(.white)
-                                        .background(Color.black)
-                                        .cornerRadius(15)
-                        }.foregroundColor(.black).buttonStyle(NoClickAnimation())
-                        .navigationTitle("")
-                        .navigationBarHidden(true)
+//                        NavigationLink(destination: ProgressScreen()){
+                    HStack{
+                        LockImage()
+                                Textinho.FonteBonita("Progresso",29)
+                                    .padding()
+                                            .foregroundColor(.white)
+                                            .background(Color.gray)
+                                            .cornerRadius(15)
+    //                        }
+                            .foregroundColor(.black).buttonStyle(NoClickAnimation())
+                            .navigationTitle("")
+                            .navigationBarHidden(true)
+                        LockImage()
+                            .opacity(0.0)
+                    }
+                    
 
                     NavigationLink(destination: StoryScreen()){
+                    HStack{
+                       
                         Textinho.FonteBonita("História",29)
                             .padding()
-                            .border(.black)
                                     .foregroundColor(.white)
                                     .background(Color.black)
                                     .cornerRadius(15)
-                    }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        
+                    }
+                        
+                    }
+                .foregroundColor(.black).buttonStyle(NoClickAnimation())
                         .navigationTitle("")
                         .navigationBarHidden(true)
                         
-                    NavigationLink(destination: ConfigsScreen()){
+//                    NavigationLink(destination: ConfigsScreen()){
+                    HStack{
+                        LockImage()
                         Textinho.FonteBonita("Configurações",29)
-                            .padding()
-                            .border(.black)
+                                    .padding()
                                     .foregroundColor(.white)
-                                    .background(Color.black)
+                                    .background(Color.gray)
                                     .cornerRadius(15)
-                    }.foregroundColor(.black).buttonStyle(NoClickAnimation())
+                        LockImage().opacity(0.0)
+                    }
+                        
+//                    }
+                .foregroundColor(.black).buttonStyle(NoClickAnimation())
                         .navigationTitle("")
                         .navigationBarHidden(true)
                     
-                    NavigationLink(destination: SaveScreen()){
-                        Textinho.FonteBonita("Saves",29)
-                            .padding()
-                            .border(.black)
-                                    .foregroundColor(.white)
-                                    .background(Color.black)
-                                    .cornerRadius(15)
+                    //NavigationLink(destination: SaveScreen()){
+                        HStack{
+                            LockImage()
+                            Textinho.FonteBonita("Saves",29)
+                                .padding()
+                               
+                                        .foregroundColor(.white)
+                                        .background(Color.gray)
+                                        .cornerRadius(15)
+                            LockImage()
+                                .opacity(0.0)
+                        //}
+                        
                     }.foregroundColor(.black).buttonStyle(NoClickAnimation())
                         .navigationTitle("")
                         .navigationBarHidden(true)
                     
                     NavigationLink(destination: InitScreen()){
-                        Textinho.FonteBonita("Voltar",29)
-                            .padding()
-                            .border(.black)
-                                    .foregroundColor(.white)
-                                    .background(Color.black)
-                                    .cornerRadius(15)
+                        
+                            Textinho.FonteBonita("Voltar",29)
+                                .padding()
+                                .border(.black)
+                                        .foregroundColor(.white)
+                                        .background(Color.black)
+                                        .cornerRadius(15)
+                            
+                        
+                        
                     }.foregroundColor(.black).buttonStyle(NoClickAnimation())
                         .navigationTitle("")
                         .navigationBarHidden(true).onTapGesture {
                             dismiss()
                         }
                 }
-                    
-                
-                Image("robo1 1").padding()
+                Spacer()
+                Image("robo1 1").frame(width: 100, height: 100)
+                Spacer()
             }
             Spacer()
             Spacer()
@@ -108,5 +136,14 @@ struct OptionsMenu_Previews: PreviewProvider {
     static var previews: some View {
         OptionsMenu()
 .previewInterfaceOrientation(.landscapeLeft)
+    }
+}
+
+struct LockImage : View{
+    var body: some View{
+        Image("lock2")
+            .resizable()
+            .interpolation(.none)
+            .frame(width: 30, height: 30)
     }
 }
