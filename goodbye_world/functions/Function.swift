@@ -89,6 +89,13 @@ struct Function: View {
                     ForEach(parameters, id: \.self){
                         parameter in
                         ZStack{
+                            
+                            Rectangle()
+                                .fill(Color(.black))
+                                .frame(width: actionWidth + actionWidth*0.15, height: actionHeight * 2 + 4, alignment: .leading)
+                                .opacity(0.4)
+                                .offset(x: -5.5, y: 6)
+                            
                             Rectangle()
                                 .fill(orange3)
                                 .frame(width: actionWidth + actionWidth*0.15 - 8, height: actionHeight * 2, alignment: .leading)
