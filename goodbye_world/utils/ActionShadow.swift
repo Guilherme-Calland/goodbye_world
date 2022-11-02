@@ -20,8 +20,8 @@ struct ActionShadow : View{
         Rectangle()
             .fill(Color.black)
             .opacity(0.4)
-            .frame(width: isFunction ? actionWidth  : actionWidth , height: actionHeight, alignment: .leading)
-            .offset(x: -6.0, y: 6.0)
+            .frame(width: isFunction ? actionWidth + actionWidth * 0.15  : actionWidth , height: actionHeight, alignment: .leading)
+            .offset(x: isFunction ? 15.5 : -6.0, y: 6.0)
     }
 }
 
