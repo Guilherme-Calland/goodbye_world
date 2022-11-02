@@ -19,7 +19,7 @@ let objective_text = [
 
 let objective_completed_text = [
     Language.portuguese : "Objetivo concluído",
-    Language.english: "Objective Completed"
+    Language.english: "Objective Complete"
 ]
 
 let pressAnywhere = [
