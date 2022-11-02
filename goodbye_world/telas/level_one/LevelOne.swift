@@ -37,6 +37,13 @@ struct LevelOne : View{
     @StateObject var painelFuncoes = Painel(funcoesLevelOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: [falarTudoBem]);
     
+    init(){
+        falarTchau = Opcao(nome: global_language == Language.portuguese ? "falar \"tchau\"" : "say \"goodbye\"", actionHandler: {() in print("tchau")});
+        falarTudoBem = Opcao(nome: global_language == Language.portuguese ? "falar \"tudo bem?\"" : "say \"how are you?\"", actionHandler: {() in print("tudo bem?")});
+        darUmPulo = Opcao(nome: global_language == Language.portuguese ? "dar um pulo" : "jump" , actionHandler: {() in print("pulando")});
+        funcoesLevelOne = [falarTchau, falarTudoBem, darUmPulo]
+    }
+    
     var body: some View{
         ZStack{
             LevelText1().opacity(anim1Show ? 1 : 0)
@@ -164,6 +171,7 @@ struct LevelOne : View{
                     }
                     
                 }
+                .edgesIgnoringSafeArea(.top)
                 .onAppear{
                     withAnimation(Animation.linear(duration: 1.0)){
                         redScreenHide = true

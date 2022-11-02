@@ -59,6 +59,11 @@ struct LevelOneTutorial: View {
     @StateObject var painelFuncoes = Painel(funcoesTutOne);
     @StateObject var painelExecucao = PainelExecucao(max_slots: 1, correct_output: funcoesTutOne);
     
+    init(){
+        falarOla = Opcao(nome: global_language == Language.portuguese ? "falar \"olá\"" : "say \"hello" , actionHandler: {() in print("olar")});
+        funcoesTutOne = [falarOla]
+    }
+    
     var body: some View {
         ZStack(alignment: .bottom){
             ZStack(alignment: .bottom){
@@ -116,7 +121,7 @@ struct LevelOneTutorial: View {
                                     
                                 }
                             }
-                        }.offset(x : 10, y: -15)
+                        }.offset(x : 10, y: 5)
                         .environmentObject(data)
                 
                     
@@ -128,6 +133,7 @@ struct LevelOneTutorial: View {
                         Rectangle()
                             .fill(Color(.black))
                             .opacity(translucentScreenShow ? 0.5 : 0.0)
+                            .edgesIgnoringSafeArea(.top)
                     }
                 }
                 
@@ -224,7 +230,7 @@ struct LevelOneTutorial: View {
                                 .resizable()
                                 .frame(width: 400, height: 100)
                                 .offset(x: 80.0, y : 75)
-                        }.frame(width: 400).offset(x: 120, y: -125)
+                        }.frame(width: 400).offset(x: 120, y: -110)
                     
                     }
                     
@@ -342,6 +348,7 @@ struct LevelOneTutorial: View {
                     Rectangle().fill(Color(.red))
                         .opacity(redScreenHide ? 0.0 : 0.4)
                 }
+                .edgesIgnoringSafeArea(.top)
                 
             }
             

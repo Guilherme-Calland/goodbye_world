@@ -19,4 +19,25 @@ struct ActionShadow : View{
     }
 }
 
+struct FunctionShadow : View{
+    private var actionWidth = (UIScreen.main.bounds.width * 0.4) * 0.7  //actionWidth*0.15
+    
+    init(){
+        actionWidth += actionWidth*0.15
+    }
+    
+    private var actionHeight = 40.0
+    var body : some View {
+        Rectangle()
+            .fill(Color.black)
+            .opacity(0.4)
+            .frame(width: actionWidth, height: actionHeight, alignment: .leading)
+            .offset(x: -16.0, y: 6.0)
+            
+    }
+}
+
+
+
+
 

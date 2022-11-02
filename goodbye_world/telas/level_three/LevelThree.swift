@@ -22,6 +22,17 @@ struct LevelThree : View {
     
     init(){
         SoundManager.Instance.playMusic(file_name: "music3")
+        
+        familiar = global_language == Language.portuguese ? "essa voz é\nfamiliar" : "that voice sounds\nfamiliar"
+        levemNo = global_language == Language.portuguese ? "levem-no" : "take him away"
+        recarregar = global_language == Language.portuguese ? "preciso recarregar" : "I must recharge"
+        
+        funcoesLevel3 = OpcaoParametros(
+            nome: "print",
+            actionHandler: {(arg:String) in
+               print("printei: " + arg)
+            }
+            , parametros: [levemNo ,familiar, recarregar])
     }
     
     @StateObject var painelFuncoes = Painel([funcoesLevel3]);
@@ -73,8 +84,6 @@ struct LevelThree : View {
                         Lvl3SpeachBubble1()
                             .opacity(speachBubble1Show ? 1 : 0)
                     }
-                    
-                        
                 }
                 VStack{
                     //Rectangle().fill(Color(.white)).frame(height:15)
@@ -207,6 +216,7 @@ struct LevelThree : View {
                     }
                     
                 }
+                .edgesIgnoringSafeArea(.top)
                 .onAppear{
                     withAnimation(Animation.linear(duration: 1.0)){
                         redScreenHide = true

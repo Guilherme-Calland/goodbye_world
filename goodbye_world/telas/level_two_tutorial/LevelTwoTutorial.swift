@@ -22,6 +22,16 @@ struct LevelTwoTutorial : View{
     
     init(){
         SoundManager.Instance.playMusic(file_name: "music2");
+        
+        morteAosHumanos = global_language == Language.portuguese ? "morte aos humanos,\nnão é mesmo?" : "destroy all\nhumans?"
+        queHorasSao = global_language == Language.english ? "what time is it?" : "que horas são?"
+        odeioRobos = global_language == Language.english ? "I hate robots" : "odeio robôs"
+        funcoesLevel2Tut = OpcaoParametros(
+            nome: global_language == Language.portuguese ? "falar" : "say",
+            actionHandler: {(arg:String) in
+               print("Falei: " + arg)
+            }
+            , parametros: [odeioRobos ,queHorasSao, morteAosHumanos])
     }
     
     @StateObject var painelFuncoes = Painel([funcoesLevel2Tut]);
@@ -218,6 +228,7 @@ struct LevelTwoTutorial : View{
                     }
                     
                 }
+                .edgesIgnoringSafeArea(.top)
                 .onAppear{
                     withAnimation(Animation.linear(duration: 1.0)){
                         redScreenHide = true
