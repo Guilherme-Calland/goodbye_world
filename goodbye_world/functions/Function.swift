@@ -37,7 +37,8 @@ struct Function: View {
         ZStack{
             VStack(spacing:0){
                 ZStack{
-                    ActionShadow()
+                    ActionShadow(isFunction : true)
+                        .offset(x: -21)
                     Rectangle()
                         .fill(Color(self.readyToExecute ?  "customGreen" : "customOrange"))
                         .border(.black, width: 4)
@@ -65,7 +66,7 @@ struct Function: View {
                                 if(!readyToExecute){
                                     Rectangle()
                                         .fill(orange3)
-                                        .border(.black, width: 4)
+                                        .border(.black, width: 4.0)
                                         HStack{
                                             if(dropdown){
                                                 Textinho.FonteBonita(" ▲ ")
@@ -80,9 +81,9 @@ struct Function: View {
                                 dropdown.toggle()
                             }
               
-                    }.frame(width: actionWidth+30, height: actionHeight, alignment: .leading)
+                    }.frame(width: actionWidth+actionWidth*0.15, height: actionHeight, alignment: .leading)
 
-                }.frame(width: actionWidth+30, height: actionHeight, alignment: .center)
+                }.frame(width: actionWidth+actionWidth*0.15, height: actionHeight, alignment: .center)
                 
                 if(dropdown){
                     ForEach(parameters, id: \.self){
@@ -90,10 +91,12 @@ struct Function: View {
                         ZStack{
                             Rectangle()
                                 .fill(orange3)
-                                .frame(width: actionWidth + 30, height: actionHeight * 2, alignment: .leading)
-                                .border(.black, width: 2)
+                                .frame(width: actionWidth + actionWidth*0.15 - 8, height: actionHeight * 2, alignment: .leading)
+                                .padding(EdgeInsets(top: 0.0, leading: 4.0, bottom: 4.0, trailing: 4.0))
+                                .background(Color.black)
                             HStack{
                                 Textinho.FonteBonita("\(parameter)")
+                                    .offset(y: -4)
                             }
                         }.onTapGesture{
                             self.action_data.parametroSelecionado =  parameter;
