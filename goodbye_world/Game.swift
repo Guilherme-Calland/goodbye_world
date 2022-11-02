@@ -16,7 +16,7 @@ struct Game : View {
     }
     
     var body: some View{
-        LevelTwoTutorial()
+        InitScreen()
             .environmentObject(data)
     }
 }
